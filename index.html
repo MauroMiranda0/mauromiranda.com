@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mauro Miranda - Ingeniería Web de Elite. Arquitectura de software y experimentación digital de alto rendimiento.">
+    <meta name="theme-color" content="#0da6f2">
+    
+    <title>Mauro Miranda | Ingeniería Web de Elite</title>
+    
+    <!-- Preconnect para optimizar carga de fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Fuentes optimizadas con display=swap -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS - En producción usar build compilado -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    
+    <!-- Configuración Tailwind optimizada -->
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0da6f2",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0f172a",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem", 
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    
+    <!-- Estilos críticos inline para evitar FOUC -->
+    <style>
+        /* Efectos visuales optimizados */
+        .scanline {
+            width: 100%;
+            height: 100px;
+            z-index: 10;
+            background: linear-gradient(0deg, rgba(13, 166, 242, 0.05) 0%, rgba(13, 166, 242, 0) 100%);
+            pointer-events: none;
+        }
+        
+        .grid-pattern {
+            background-image: radial-gradient(circle at 1px 1px, rgba(13, 166, 242, 0.1) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+        
+        /* Optimización de altura mínima */
+        body {
+            min-height: 100vh;
+            min-height: 100dvh;
+        }
+        
+        /* Optimización de imágenes */
+        img {
+            height: auto;
+            max-width: 100%;
+        }
+        
+        /* Transiciones suaves optimizadas */
+        .transition-optimized {
+            transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 overflow-x-hidden">
+    <!-- Grid Background Decor -->
+    <div class="fixed inset-0 grid-pattern pointer-events-none opacity-50" aria-hidden="true"></div>
+
+    <!-- Top Navigation -->
+    <header class="relative z-50 flex items-center bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md p-4 lg:px-10 border-b border-primary/10 justify-between">
+        <div class="flex items-center gap-4">
+            <span class="material-symbols-outlined text-primary" style="font-size: 24px;" aria-hidden="true">terminal</span>
+            <h2 class="text-slate-900 dark:text-slate-100 text-sm font-mono tracking-tighter">MM // LAB_v1.0.4</h2>
+        </div>
+        
+        <nav class="hidden md:flex gap-8 text-[10px] uppercase tracking-[0.2em] font-mono text-slate-500 dark:text-slate-400" role="navigation">
+            <a class="hover:text-primary transition-colors" href="#lab">Experimentos</a>
+            <a class="hover:text-primary transition-colors" href="#works">Producción</a>
+            <a class="hover:text-primary transition-colors" href="#stack">Panel de Control</a>
+        </nav>
+        
+        <div class="flex items-center gap-4">
+            <span class="text-xs font-mono text-primary animate-pulse" aria-label="Sistema en línea">● SISTEMA EN LÍNEA</span>
+            <button class="text-primary text-xs font-bold font-mono border border-primary/30 px-3 py-1 hover:bg-primary/10 transition-colors">
+                CONECTAR
+            </button>
+        </div>
+    </header>
+
+    <main class="relative z-10">
+        <!-- Hero Section -->
+        <section class="relative min-h-[90vh] flex flex-col justify-center px-4 lg:px-10 py-20">
+            <div class="absolute top-20 right-10 text-[10px] font-mono text-primary/30 text-right leading-relaxed hidden lg:block" aria-hidden="true">
+                RENDIMIENTO: 94+ LIGHTHOUSE PROM<br>
+                STACK: REACT + NEXT.JS + TS<br>
+                ESTADO: DISPONIBLE
+            </div>
+            
+            <div class="max-w-6xl">
+                <p class="font-mono text-primary text-sm mb-6 tracking-widest">[ ESPECIALISTA EN RENDIMIENTO REACT ]</p>
+                
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-black leading-[0.9] tracking-tighter mb-8">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">TRANSFORMO SITIOS LENTOS</span><br>
+                    EN <span class="italic font-light">MÁQUINAS DE CONVERSIÓN</span><br>
+                    QUE ESCALAN
+                </h1>
+                
+                <p class="max-w-2xl text-lg md:text-xl text-slate-600 dark:text-slate-400 font-light leading-relaxed mb-10">
+                    Ingeniero React especializado en rendimiento crítico para PyMES de alto crecimiento.
+                </p>
+                
+                <div class="flex flex-wrap gap-4">
+                    <button class="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-lg font-mono text-sm font-bold flex items-center gap-3 transition-optimized active:scale-95">
+                        AGENDAR CONSULTA TÉCNICA
+                        <span class="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward_ios</span>
+                    </button>
+                    <button class="border border-slate-300 dark:border-slate-700 hover:border-primary/50 text-slate-900 dark:text-slate-100 px-8 py-4 rounded-lg font-mono text-sm transition-colors">
+                        VER CASOS DE ÉXITO
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Laboratory (Bento Grid) -->
+        <section class="px-4 lg:px-10 py-20 border-t border-primary/10" id="lab">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <p class="font-mono text-primary text-xs mb-2 tracking-widest">[ 01 ]</p>
+                    <h2 class="text-3xl font-bold tracking-tight">EL LABORATORIO</h2>
+                </div>
+                <p class="font-mono text-[10px] text-slate-500 uppercase">Experimentos Personales &amp; I+D</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <!-- Large Feature -->
+                <article class="md:col-span-2 md:row-span-2 group relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 aspect-square md:aspect-auto border border-primary/5">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 to-transparent">
+                        <img 
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                            src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=800&fit=crop&crop=center" 
+                            alt="Abstract neural network visualization with blue lines"
+                            loading="lazy"
+                            width="800"
+                            height="800"
+                        >
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-8">
+                        <span class="font-mono text-[10px] bg-primary text-white px-2 py-1 mb-4 inline-block">STABLE / v2.1.0</span>
+                        <h3 class="text-2xl font-bold text-white mb-2">Motor de Síntesis Neural</h3>
+                        <p class="text-slate-300 text-sm max-w-sm">Síntesis de audio generativa impulsada por algoritmos de aprendizaje automático en el navegador.</p>
+                    </div>
+                </article>
+
+                <!-- Small Item 1 -->
+                <article class="group relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 aspect-square border border-primary/5">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent">
+                        <img 
+                            class="w-full h-full object-cover" 
+                            src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&h=400&fit=crop&crop=center" 
+                            alt="Mathematical vector field geometry"
+                            loading="lazy"
+                            width="400"
+                            height="400"
+                        >
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-6">
+                        <span class="font-mono text-[10px] text-primary mb-2 block">EXPERIMENT_042</span>
+                        <h3 class="text-lg font-bold text-white">Motor Vectorial</h3>
+                    </div>
+                </article>
+
+                <!-- Small Item 2 -->
+                <article class="group relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 aspect-square border border-primary/5">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent">
+                        <img 
+                            class="w-full h-full object-cover" 
+                            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center" 
+                            alt="Fluid simulation particles in motion"
+                            loading="lazy"
+                            width="400"
+                            height="400"
+                        >
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-6">
+                        <span class="font-mono text-[10px] text-primary mb-2 block">SIM_009</span>
+                        <h3 class="text-lg font-bold text-white">Dinámica de Fluidos</h3>
+                    </div>
+                </article>
+
+                <!-- Horizontal Item -->
+                <article class="md:col-span-2 group relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 aspect-[2/1] border border-primary/5">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent">
+                        <img 
+                            class="w-full h-full object-cover" 
+                            src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=400&fit=crop&crop=center" 
+                            alt="Dark abstract technical shader art"
+                            loading="lazy"
+                            width="800"
+                            height="400"
+                        >
+                    </div>
+                    <div class="absolute top-0 right-0 p-6">
+                        <span class="material-symbols-outlined text-primary" aria-hidden="true">analytics</span>
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-8">
+                        <span class="font-mono text-[10px] text-primary mb-2 block">GLSL_LAB_10</span>
+                        <h3 class="text-xl font-bold text-white">Experimentos de Shader Lab</h3>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <!-- Client Works -->
+        <section class="px-4 lg:px-10 py-20 bg-primary/5" id="works">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
+                <div>
+                    <p class="font-mono text-primary text-xs mb-2 tracking-widest">[ 02 ]</p>
+                    <h2 class="text-3xl font-bold tracking-tight">UNIDADES DE PRODUCCIÓN</h2>
+                </div>
+                <p class="font-mono text-[10px] text-slate-500 max-w-xs text-left md:text-right">
+                    Entornos de producción de alto rendimiento para clientes empresariales y startups.
+                </p>
+            </div>
+            
+            <div class="space-y-20">
+                <!-- Project 1 -->
+                <article class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                    <div class="lg:col-span-7 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-2xl">
+                        <img 
+                            class="w-full h-auto" 
+                            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&crop=center" 
+                            alt="Modern dashboard interface on a laptop screen"
+                            loading="lazy"
+                            width="800"
+                            height="600"
+                        >
+                    </div>
+                    <div class="lg:col-span-5">
+                        <p class="font-mono text-primary text-xs mb-4 uppercase tracking-widest">Arquitectura Fintech</p>
+                        <h3 class="text-4xl font-bold mb-6">Quantum Ledger v2</h3>
+                        <p class="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
+                            Renovación arquitectónica completa para una plataforma de trading en tiempo real. Implementé una arquitectura de micro-frontends personalizada usando React y módulos WebAssembly impulsados por Rust.
+                        </p>
+                        <ul class="font-mono text-xs space-y-3 text-slate-500 mb-8">
+                            <li class="flex items-center gap-3">
+                                <span class="w-1.5 h-1.5 bg-primary rounded-full" aria-hidden="true"></span> 
+                                RENDIMIENTO: 98/100 LIGHTHOUSE
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-1.5 h-1.5 bg-primary rounded-full" aria-hidden="true"></span> 
+                                STACK: NEXT.JS, RUST, WEBSOCKETS
+                            </li>
+                        </ul>
+                        <a class="inline-flex items-center gap-2 font-mono text-xs font-bold text-primary group" href="#" aria-label="Ver caso de estudio de Quantum Ledger">
+                            VER CASO DE ESTUDIO
+                            <span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1" aria-hidden="true">north_east</span>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Project 2 -->
+                <article class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                    <div class="lg:col-span-5 order-2 lg:order-1">
+                        <p class="font-mono text-primary text-xs mb-4 uppercase tracking-widest">Núcleo E-Commerce</p>
+                        <h3 class="text-4xl font-bold mb-6">Aura Luxury Marketplace</h3>
+                        <p class="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
+                            Una experiencia de compra minimalista y de alto rendimiento para una casa de moda de alta gama. Enfocado en estabilidad de layout, transiciones suaves y Core Web Vitals.
+                        </p>
+                        <ul class="font-mono text-xs space-y-3 text-slate-500 mb-8">
+                            <li class="flex items-center gap-3">
+                                <span class="w-1.5 h-1.5 bg-primary rounded-full" aria-hidden="true"></span> 
+                                ESCALA: 500K+ GESTIÓN DE SKU
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-1.5 h-1.5 bg-primary rounded-full" aria-hidden="true"></span> 
+                                STACK: HEADLESS COMMERCE, GSAP
+                            </li>
+                        </ul>
+                        <a class="inline-flex items-center gap-2 font-mono text-xs font-bold text-primary group" href="#" aria-label="Ver caso de estudio de Aura Luxury">
+                            VER CASO DE ESTUDIO
+                            <span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1" aria-hidden="true">north_east</span>
+                        </a>
+                    </div>
+                    <div class="lg:col-span-7 order-1 lg:order-2 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-2xl">
+                        <img 
+                            class="w-full h-auto" 
+                            src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop&crop=center" 
+                            alt="Sleek e-commerce mobile application interface"
+                            loading="lazy"
+                            width="800"
+                            height="600"
+                        >
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- The Stack / Control Panel -->
+        <section class="px-4 lg:px-10 py-24" id="stack">
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <p class="font-mono text-primary text-xs mb-4 tracking-widest uppercase">[ 03 / STACK_PRINCIPAL ]</p>
+                <h2 class="text-4xl font-bold mb-6 italic tracking-tight uppercase">Panel de Control Técnico</h2>
+                <div class="h-1 w-20 bg-primary mx-auto" aria-hidden="true"></div>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-primary/20 border border-primary/20 overflow-hidden rounded-lg">
+                <!-- Tech Card 1 -->
+                <div class="bg-background-light dark:bg-background-dark p-8 group hover:bg-primary/5 transition-colors">
+                    <span class="material-symbols-outlined text-primary mb-4" style="font-size: 32px;" aria-hidden="true">javascript</span>
+                    <h4 class="font-mono text-sm font-bold mb-2">REACT / NEXT.JS</h4>
+                    <div class="w-full bg-slate-200 dark:bg-slate-800 h-1 mt-4" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">
+                        <div class="bg-primary h-1 w-[95%]"></div>
+                    </div>
+                    <p class="text-[10px] font-mono mt-2 text-slate-500">NIVEL EXPERTO: 0.95</p>
+                </div>
+
+                <!-- Tech Card 2 -->
+                <div class="bg-background-light dark:bg-background-dark p-8 group hover:bg-primary/5 transition-colors">
+                    <span class="material-symbols-outlined text-primary mb-4" style="font-size: 32px;" aria-hidden="true">settings_ethernet</span>
+                    <h4 class="font-mono text-sm font-bold mb-2">PYTHON / DJANGO</h4>
+                    <div class="w-full bg-slate-200 dark:bg-slate-800 h-1 mt-4" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100">
+                        <div class="bg-primary h-1 w-[88%]"></div>
+                    </div>
+                    <p class="text-[10px] font-mono mt-2 text-slate-500">NIVEL EXPERTO: 0.88</p>
+                </div>
+
+                <!-- Tech Card 3 -->
+                <div class="bg-background-light dark:bg-background-dark p-8 group hover:bg-primary/5 transition-colors">
+                    <span class="material-symbols-outlined text-primary mb-4" style="font-size: 32px;" aria-hidden="true">database</span>
+                    <h4 class="font-mono text-sm font-bold mb-2">POSTGRESQL</h4>
+                    <div class="w-full bg-slate-200 dark:bg-slate-800 h-1 mt-4" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                        <div class="bg-primary h-1 w-[90%]"></div>
+                    </div>
+                    <p class="text-[10px] font-mono mt-2 text-slate-500">NIVEL EXPERTO: 0.90</p>
+                </div>
+
+                <!-- Tech Card 4 -->
+                <div class="bg-background-light dark:bg-background-dark p-8 group hover:bg-primary/5 transition-colors">
+                    <span class="material-symbols-outlined text-primary mb-4" style="font-size: 32px;" aria-hidden="true">cloud</span>
+                    <h4 class="font-mono text-sm font-bold mb-2">AWS / DEVOPS</h4>
+                    <div class="w-full bg-slate-200 dark:bg-slate-800 h-1 mt-4" role="progressbar" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100">
+                        <div class="bg-primary h-1 w-[82%]"></div>
+                    </div>
+                    <p class="text-[10px] font-mono mt-2 text-slate-500">NIVEL EXPERTO: 0.82</p>
+                </div>
+            </div>
+            
+            <div class="mt-20 p-8 border border-primary/20 rounded-xl bg-primary/5 flex flex-col md:flex-row gap-10 items-center justify-between">
+                <div>
+                    <h4 class="text-xl font-bold mb-2 font-mono">_SISTEMA_PRINCIPAL_LISTO</h4>
+                    <p class="text-slate-500 text-sm max-w-md">
+                        Actualmente aceptando desafíos arquitectónicos selectos para Q3/Q4 2024. Ingeniería de experiencias digitales de alta gama.
+                    </p>
+                </div>
+                <button class="bg-primary text-white font-mono text-xs font-bold px-10 py-4 rounded hover:bg-primary/90 transition-optimized active:scale-95 whitespace-nowrap">
+                    INICIAR_CONTACTO.SH
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative z-50 py-20 px-4 lg:px-10 border-t border-primary/10 bg-background-light dark:bg-background-dark">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-10">
+            <div class="md:col-span-4">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="material-symbols-outlined text-primary" style="font-size: 24px;" aria-hidden="true">terminal</span>
+                    <h2 class="text-xl font-black tracking-tight uppercase">Ingeniería Web Miranda</h2>
+                </div>
+                <p class="text-slate-500 text-sm font-light max-w-xs leading-relaxed">
+                    Un laboratorio boutique de ingeniería de software enfocado en la intersección del diseño estético y la arquitectura técnica robusta.
+                </p>
+            </div>
+            
+            <div class="md:col-span-2">
+                <h5 class="font-mono text-[10px] text-primary mb-6 uppercase tracking-widest">Mapa del Sitio</h5>
+                <ul class="space-y-4 text-xs font-mono text-slate-500">
+                    <li><a class="hover:text-primary transition-colors" href="#lab">Laboratorio</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#works">Producción</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#stack">Stack</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#journal">Blog</a></li>
+                </ul>
+            </div>
+            
+            <div class="md:col-span-2">
+                <h5 class="font-mono text-[10px] text-primary mb-6 uppercase tracking-widest">Red</h5>
+                <ul class="space-y-4 text-xs font-mono text-slate-500">
+                    <li><a class="hover:text-primary transition-colors" href="#" rel="noopener" target="_blank">Github</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#" rel="noopener" target="_blank">LinkedIn</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#" rel="noopener" target="_blank">X / Twitter</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#" rel="noopener" target="_blank">Read.cv</a></li>
+                </ul>
+            </div>
+            
+            <div class="md:col-span-4 flex flex-col items-start md:items-end">
+                <h5 class="font-mono text-[10px] text-primary mb-6 uppercase tracking-widest">Estado del Sistema</h5>
+                <div class="bg-primary/10 border border-primary/20 p-4 rounded text-[10px] font-mono space-y-2 w-full max-w-[240px]">
+                    <div class="flex justify-between">
+                        <span>TIEMPO ACTIVO:</span> 
+                        <span class="text-primary">99.99%</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>LATENCIA:</span> 
+                        <span class="text-primary">24MS</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>REGIÓN:</span> 
+                        <span class="text-primary">EU_CENTRAL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-20 pt-10 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between gap-6">
+            <p class="text-[10px] font-mono text-slate-500 uppercase">
+                © 2024 MAURO MIRANDA LABS. TODOS LOS SISTEMAS OPERATIVOS.
+            </p>
+            <div class="flex gap-6">
+                <a class="text-[10px] font-mono text-slate-500 hover:text-primary uppercase transition-colors" href="#">Protocolo de Privacidad</a>
+                <a class="text-[10px] font-mono text-slate-500 hover:text-primary uppercase transition-colors" href="#">Configuración de Cookies</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

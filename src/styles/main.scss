@@ -1,0 +1,39 @@
+/**
+ * Archivo principal de estilos SCSS
+ * Importa todos los módulos de estilos en orden correcto
+ */
+
+// 1. Abstracts - Variables, mixins, funciones
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+@import 'abstracts/functions';
+
+// 2. Vendors - Librerías externas
+@import 'vendors/normalize';
+
+// 3. Base - Estilos base y reset
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/base';
+
+// 4. Layout - Componentes de layout
+@import 'layout/grid';
+@import 'layout/container';
+
+// 5. Components - Componentes reutilizables
+@import 'components/buttons';
+@import 'components/cards';
+@import 'components/icons';
+@import 'components/animations';
+
+// 6. Pages - Estilos específicos de páginas
+@import 'pages/home';
+
+// 7. Themes - Temas y variaciones
+@import 'themes/dark';
+@import 'themes/light';
+
+// 8. Utilities - Clases utilitarias
+@import 'utilities/spacing';
+@import 'utilities/text';
+@import 'utilities/display';

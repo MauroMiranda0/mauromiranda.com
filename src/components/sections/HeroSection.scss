@@ -1,0 +1,157 @@
+/**
+ * Estilos para la sección Hero
+ * Incluye tipografía principal y efectos visuales
+ */
+.hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5rem 1.5rem;
+
+  @include tablet-up {
+    padding: 5rem 2.5rem;
+  }
+
+  &__container {
+    position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  &__metadata {
+    position: absolute;
+    top: 5rem;
+    right: 2.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    color: rgba(var(--primary-rgb), 0.3);
+    text-align: right;
+    line-height: 1.6;
+    display: none;
+
+    @include desktop-up {
+      display: block;
+    }
+  }
+
+  &__metadata-line {
+    margin-bottom: 0.25rem;
+  }
+
+  &__content {
+    max-width: 1200px;
+  }
+
+  &__label {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--primary);
+    letter-spacing: 0.2em;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+  }
+
+  &__title {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.025em;
+    margin-bottom: 2rem;
+    color: var(--text-primary);
+
+    @include tablet-up {
+      font-size: clamp(3.5rem, 10vw, 7rem);
+    }
+
+    @include desktop-up {
+      font-size: clamp(4rem, 12vw, 8rem);
+    }
+  }
+
+  &__title-highlight {
+    background: linear-gradient(135deg, var(--primary), #3b82f6);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  &__title-accent {
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  &__description {
+    max-width: 40rem;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: var(--text-secondary);
+    font-weight: 300;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+
+    @include tablet-up {
+      font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  &__cta {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    font-weight: 700;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border: none;
+
+    &--primary {
+      background: var(--primary);
+      color: white;
+
+      &:hover {
+        background: rgba(var(--primary-rgb), 0.9);
+        transform: translateY(-2px);
+      }
+
+      &:active {
+        transform: scale(0.98);
+      }
+    }
+
+    &--secondary {
+      background: transparent;
+      color: var(--text-primary);
+      border: 1px solid var(--border-light);
+
+      @include dark-mode {
+        border-color: var(--border-dark);
+      }
+
+      &:hover {
+        border-color: rgba(var(--primary-rgb), 0.5);
+        color: var(--primary);
+      }
+    }
+  }
+
+  &__cta-icon {
+    font-size: 0.875rem;
+    transition: transform 0.2s ease;
+
+    .hero__cta--primary:hover & {
+      transform: translateX(2px);
+    }
+  }
+}
