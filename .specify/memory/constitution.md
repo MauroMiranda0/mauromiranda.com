@@ -1,50 +1,59 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+# 📑 Documento Constitución de Portafolio
 
-## Core Principles
+## 1. Declaración de propósito
+Este portafolio no es una galería de proyectos, es un manifiesto de innovación digital que refleja cómo la visión tecnológica convierte retos en oportunidades.
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+---
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+## 2. Visión transformadora
+Cada proyecto que lidero es una oportunidad para transformar ideas en experiencias digitales que generan impacto real.  
+Mi visión tecnológica no se limita al código: se centra en la estrategia, la innovación y la confianza.  
+➡️ No presento páginas web, presento **ecosistemas digitales** que redefinen cómo las empresas se conectan con sus audiencias.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+---
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+## 3. Liderazgo tecnológico
+Como fundador y director de **Ingeniería Web Miranda**, mi rol trasciende el desarrollo: soy **arquitecto de soluciones digitales**.  
+Combino creatividad y precisión técnica para guiar equipos y clientes hacia resultados que marcan diferencia en su industria.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+---
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## 4. Narrativa de impacto
+Cada proyecto se presenta como un caso de éxito:  
+- **Reto inicial** → ¿Cuál era la necesidad o limitación?  
+- **Solución implementada** → ¿Qué estrategia y tecnología se aplicó?  
+- **Impacto logrado** → ¿Cómo se transformó la operación o el alcance?  
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+Ejemplo:  
+*De un canal de ventas limitado a un e‑commerce escalable: transformamos la visión de la empresa en un sistema que multiplicó su alcance y optimizó su operación.*
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+---
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+## 5. Innovación aplicada
+La inteligencia artificial, la automatización y el diseño avanzado no son accesorios: son parte de mi filosofía de innovación.  
+*La inteligencia artificial aplicada en mis proyectos es el motor que impulsa seguridad, eficiencia y nuevas formas de interacción digital.*
 
-## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
+---
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+## 6. Identidad visual coherente
+El diseño visual refuerza la narrativa:  
+- Azul eléctrico como símbolo de energía y futuro.  
+- Pantallas protagonistas que transmiten dinamismo.  
+- Contraste blanco‑amarillo para claridad y fuerza visual.  
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+La estética se convierte en un sello de marca: claridad, energía y visión tecnológica.
+
+---
+
+## 7. Discurso de autoridad
+El tono del portafolio es consultivo, visionario y estratégico.  
+Principios:  
+- No mostrar solo lo que hice, sino **por qué lo hice** y **qué cambió**.  
+- Convertir cada proyecto en evidencia de liderazgo.  
+- Posicionar las soluciones como **estrategias digitales de alto impacto**, no simples productos.
+
+---
+
+## 🎯 Resultado esperado
+Este documento guía asegura que el portafolio funcione como un **instrumento de branding narrativo**: coherente, inspirador y estratégico.  
+No solo muestra proyectos, proyecta identidad y liderazgo en innovación tecnológica.
