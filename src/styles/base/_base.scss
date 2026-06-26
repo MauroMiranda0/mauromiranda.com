@@ -45,3 +45,23 @@ button {
 ul, ol {
   list-style: none;
 }
+
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: map-get($z-layers, 'max');
+  padding: 0.75rem 1.5rem;
+  background: var(--primary);
+  color: white;
+  font-family: var(--font-mono);
+  font-size: map-get($font-sizes, 'sm');
+  font-weight: map-get($font-weights, 'bold');
+  text-decoration: none;
+  border-radius: map-get($border-radius, 'lg');
+  transition: top 0.2s ease-out;
+
+  &:focus {
+    top: 1rem;
+  }
+}

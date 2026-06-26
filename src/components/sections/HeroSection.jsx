@@ -5,6 +5,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import Icon from '@components/common/Icon'
+import { heroContent } from '@data/copy-content'
 import './HeroSection.scss'
 
 const HeroSection = () => {
@@ -69,19 +70,14 @@ const HeroSection = () => {
             className="hero__title"
             variants={itemVariants}
           >
-            MAURO MIRANDA:
-            <br />
-            <span className="hero__title-highlight">ARQUITECTURA</span>
-            <br />
-            <span className="hero__title-accent">SOFTWARE</span> &amp; EXPERIMENTACIÓN
+            {heroContent.title}
           </motion.h1>
 
           <motion.p 
             className="hero__description"
             variants={itemVariants}
           >
-            Elite Web Engineering. Crafting high-performance digital architectures 
-            with a minimalist aesthetic and scientific precision.
+            {heroContent.description}
           </motion.p>
 
           <motion.div 
@@ -89,11 +85,8 @@ const HeroSection = () => {
             variants={itemVariants}
           >
             <button className="hero__cta hero__cta--primary">
-              INITIALIZE PROJECT
+              {heroContent.cta}
               <Icon name="arrow_forward_ios" className="hero__cta-icon" />
-            </button>
-            <button className="hero__cta hero__cta--secondary">
-              VIEW MANIFESTO
             </button>
           </motion.div>
         </motion.div>

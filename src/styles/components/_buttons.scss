@@ -1,1 +1,25 @@
-// TODO: Implementar estilos de botones reutilizables
+.btn {
+  @include button-base;
+
+  &--primary {
+    @include button-primary;
+  }
+
+  &--secondary {
+    @include button-secondary;
+  }
+
+  &--sm {
+    padding: 0.5rem 1rem;
+    @include font-size('xs');
+  }
+
+  &--lg {
+    padding: 1rem 2rem;
+    @include font-size('base');
+  }
+
+  &--block {
+    width: 100%;
+  }
+}

@@ -184,8 +184,8 @@
 // ============================================================================
 
 // Transition
-@mixin transition($property: all, $duration: 'normal', $easing: 'ease-out') {
-  transition: $property map-get($transitions, $duration) map-get($easing, $easing);
+@mixin transition($property: all, $duration: 'normal', $easing-key: 'ease-out') {
+  transition: $property map-get($transitions, $duration) map-get($easing, $easing-key);
 }
 
 // Hover lift effect

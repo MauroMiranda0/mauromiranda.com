@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { productionProjects } from '@data/projects'
 import Icon from '@components/common/Icon'
+import { narrativaImpacto } from '@data/copy-content'
 import './ProductionSection.scss'
 
 const ProductionSection = () => {
@@ -8,11 +9,11 @@ const ProductionSection = () => {
     <section className="production" id="works">
       <div className="production__header">
         <div>
-          <p className="production__label">[ 02 ]</p>
-          <h2 className="production__title">UNIDADES DE PRODUCCIÓN</h2>
+          <p className="production__label">[ 03 / IMPACTO ]</p>
+          <h2 className="production__title">{narrativaImpacto.title}</h2>
         </div>
         <p className="production__subtitle">
-          Entornos de producción de alto rendimiento para clientes empresariales y startups.
+          {narrativaImpacto.example}
         </p>
       </div>
 
@@ -42,7 +43,7 @@ const ProductionSection = () => {
                 ))}
               </ul>
               <a href={project.caseStudyUrl} className="production__item-link">
-                VER CASO DE ESTUDIO
+                {narrativaImpacto.cta}
                 <Icon name="north_east" size="sm" />
               </a>
             </div>

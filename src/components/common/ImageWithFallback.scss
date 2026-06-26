@@ -1,0 +1,53 @@
+.image-fallback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 3rem;
+  background: var(--bg-light);
+  border: 1px dashed var(--border-light);
+  border-radius: map-get($border-radius, 'xl');
+  color: var(--text-tertiary);
+  @include font-size('sm');
+  min-height: 200px;
+
+  @include dark-mode {
+    background: var(--bg-dark);
+    border-color: var(--border-dark);
+  }
+}
+
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: map-get($border-radius, 'xl');
+}
+
+.image-skeleton {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    var(--bg-light) 25%,
+    rgba(var(--primary-rgb), 0.05) 50%,
+    var(--bg-light) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+
+  @include dark-mode {
+    background: linear-gradient(
+      90deg,
+      var(--bg-dark) 25%,
+      rgba(var(--primary-rgb), 0.05) 50%,
+      var(--bg-dark) 75%
+    );
+    background-size: 200% 100%;
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}

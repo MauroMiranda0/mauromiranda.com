@@ -1,1 +1,34 @@
-// TODO: Implementar clases utilitarias de texto (alignment, transform, color)
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-justify { text-align: justify; }
+
+.text-xs { @include font-size('xs'); }
+.text-sm { @include font-size('sm'); }
+.text-base { @include font-size('base'); }
+.text-lg { @include font-size('lg'); }
+.text-xl { @include font-size('xl'); }
+.text-2xl { @include font-size('2xl'); }
+
+.text-muted { color: var(--text-tertiary); }
+.text-primary-color { color: var(--text-primary); }
+.text-secondary-color { color: var(--text-secondary); }
+.text-accent { color: var(--primary); }
+
+.text-uppercase { text-transform: uppercase; }
+.text-lowercase { text-transform: lowercase; }
+.text-capitalize { text-transform: capitalize; }
+
+.text-bold { @include font-weight('bold'); }
+.text-semibold { @include font-weight('semibold'); }
+.text-medium { @include font-weight('medium'); }
+.text-normal { @include font-weight('normal'); }
+.text-light { @include font-weight('light'); }
+
+.text-truncate {
+  @include text-truncate;
+}
+
+.text-truncate-2 {
+  @include text-truncate-lines(2);
+}

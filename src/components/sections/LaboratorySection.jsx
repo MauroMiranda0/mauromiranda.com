@@ -7,13 +7,15 @@ const LaboratorySection = () => {
   const smallProjects = laboratoryProjects.filter(p => p.gridSize !== 'large')
 
   return (
-    <section className="laboratory" id="lab">
+    <section className="laboratory" id="casos">
       <div className="laboratory__header">
         <div>
-          <p className="laboratory__label">[ 01 ]</p>
-          <h2 className="laboratory__title">EL LABORATORIO</h2>
+          <p className="laboratory__label">[ 06 / PROYECTOS ]</p>
+          <h2 className="laboratory__title">Casos de Éxito</h2>
         </div>
-        <p className="laboratory__subtitle">Experimentos Personales &amp; I+D</p>
+        <p className="laboratory__subtitle">
+          Proyectos destacados que combinan estrategia, diseño y tecnología de alto impacto.
+        </p>
       </div>
 
       <div className="laboratory__grid">

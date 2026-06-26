@@ -1,1 +1,47 @@
-// TODO: Implementar estilos tipográficos base (headings, paragraphs, links)
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  @include font-weight('bold');
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+h1 { @include font-size('5xl'); }
+h2 { @include font-size('4xl'); }
+h3 { @include font-size('3xl'); }
+h4 { @include font-size('2xl'); }
+h5 { @include font-size('xl'); }
+h6 { @include font-size('lg'); }
+
+p {
+  @include font-size('base');
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+small {
+  @include font-size('sm');
+}
+
+strong, b {
+  @include font-weight('bold');
+}
+
+em {
+  font-style: italic;
+}
+
+blockquote {
+  border-left: 3px solid var(--primary);
+  padding-left: 1rem;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+a {
+  color: var(--primary);
+  @include transition(color);
+
+  &:hover {
+    color: rgba(var(--primary-rgb), 0.8);
+  }
+}

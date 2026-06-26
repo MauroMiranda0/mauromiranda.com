@@ -71,7 +71,12 @@ export const productionProjects = [
     timeline: '6 meses',
     team: '8 desarrolladores',
     caseStudyUrl: '#',
-    featured: true
+    featured: true,
+    caseStudy: {
+      reto: 'La plataforma de trading existente presentaba cuellos de botella críticos en la propagación de datos en tiempo real. El monolito Next.js no podía escalar para manejar 50K+ conexiones WebSocket simultáneas, causando latencias de hasta 2.3s en la actualización de precios.',
+      solucion: 'Diseñé una arquitectura de micro-frontends con React y WebAssembly (Rust) para el procesamiento de datos de alto rendimiento. Implementé una capa de WebSocket con backpressure y particionamiento de datos para garantizar latencias sub-100ms.',
+      impacto: 'Reducción del 96% en latencia de datos en tiempo real. La plataforma ahora maneja 200K+ conexiones simultáneas sin degradación. Lighthouse Score 98/100. El cliente reportó un incremento del 34% en el volumen de trading en los primeros 3 meses.'
+    }
   },
   {
     id: 'aura-luxury-marketplace',
@@ -88,7 +93,12 @@ export const productionProjects = [
     timeline: '4 meses',
     team: '5 desarrolladores',
     caseStudyUrl: '#',
-    featured: true
+    featured: true,
+    caseStudy: {
+      reto: 'Una casa de moda de lujo necesitaba migrar su catálogo de 500K+ SKUs a una plataforma headless sin afectar la experiencia de compra. El sistema legacy tenía tiempos de carga de 6s+ en catálogo y no soportaba personalización en tiempo real.',
+      solucion: 'Implementé una arquitectura headless con Shopify Plus como backend y React + GSAP para el frontend. Desarrollé un sistema de carga diferida por secciones con transiciones fluidas y un motor de personalización basado en el comportamiento de navegación.',
+      impacto: 'Core Web Vitals en el percentil 95+. La tasa de conversión aumentó un 28% gracias a las transiciones suaves y la personalización en tiempo real. El catálogo de 500K+ SKUs carga en menos de 1.2s con búsqueda instantánea.'
+    }
   }
 ]
 
@@ -146,4 +156,9 @@ export const getProjectById = (id) => {
   return [...laboratoryProjects, ...productionProjects].find(
     project => project.id === id
   )
+}
+
+// Función helper para verificar si un proyecto es de producción
+export const isProductionProject = (project) => {
+  return productionProjects.some(p => p.id === project.id)
 }

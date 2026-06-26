@@ -1,7 +1,7 @@
 # Especificaciones del Portafolio — Mauro Miranda
 
 **Source of Truth:** Este archivo es la fuente de verdad única del proyecto.
-**Última actualización:** 25/06/2026
+**Última actualización:** 26/06/2026
 **Constitución:** `constitution.md` — 7 principios de portafolio
 
 ---
@@ -236,7 +236,7 @@ Página de error 404 con diseño consistente al portafolio: icono, título "404"
 
 ### SPEC-09 · Página de Detalle de Proyecto
 
-**Estado:** PARCIAL
+**Estado:** IMPLEMENTADO
 **Principio constitución:** P4 (Narrativa de impacto)
 
 **Descripción funcional:**
@@ -248,10 +248,10 @@ Página de detalle para un proyecto específico, accesible vía `/proyecto/:slug
 - CA-3: Si el proyecto no existe, muestra mensaje "Proyecto no encontrado"
 - CA-4: Incluye Header, Footer y BackgroundGrid
 - CA-5: Animación de entrada con Framer Motion
-- CA-6: [PENDIENTE] Implementar estructura Reto/Solución/Impacto según P4
-- CA-7: [PENDIENTE] Mostrar métricas, tecnologías, timeline y team
-- CA-8: [PENDIENTE] Enlace funcional a caso de estudio
-- CA-9: [PENDIENTE] Hero metadata (LOC, REF, STATUS) consistente con SPEC-04
+- CA-6: Implementa estructura Reto/Solución/Impacto según P4
+- CA-7: Muestra métricas, tecnologías, timeline y team
+- CA-8: Enlace funcional a caso de estudio
+- CA-9: Hero metadata (LOC, REF, STATUS) consistente con SPEC-04
 
 **Specs técnicas:**
 - Routing dinámico con `useParams`
@@ -314,7 +314,7 @@ Componente `BackgroundGrid` que renderiza un patrón de puntos decorativo fijo c
 
 ### SPEC-12 · Sistema de Estilos SCSS
 
-**Estado:** PARCIAL
+**Estado:** IMPLEMENTADO
 **Principio constitución:** P6 (Identidad visual coherente)
 
 **Descripción funcional:**
@@ -324,14 +324,14 @@ Sistema de estilos basado en SCSS con variables de diseño, mixins reutilizables
 - CA-1: `_variables.scss` define todas las variables CSS del sistema de diseño
 - CA-2: `_mixins.scss` provee mixins para responsive, dark-mode, flex, grid, container, botones
 - CA-3: `_base.scss` implementa reset básico y estilos del body
-- CA-4: [PENDIENTE] Implementar `vendors/_normalize.scss` con normalización cross-browser
-- CA-5: [PENDIENTE] Implementar `layout/_grid.scss` con sistema de rejilla
-- CA-6: [PENDIENTE] Implementar `layout/_container.scss` con contenedores responsivos
-- CA-7: [PENDIENTE] Implementar `components/_buttons.scss` con estilos de botones globales
-- CA-8: [PENDIENTE] Implementar `components/_cards.scss` con estilos de tarjetas globales
-- CA-9: [PENDIENTE] Implementar `components/_animations.scss` con keyframes reutilizables
-- CA-10: [PENDIENTE] Implementar `themes/_dark.scss` y `_light.scss` con variables de tema
-- CA-11: [PENDIENTE] Implementar `utilities/` con clases helper
+- CA-4: `vendors/_normalize.scss` normalización cross-browser
+- CA-5: `layout/_grid.scss` sistema de rejilla
+- CA-6: `layout/_container.scss` contenedores responsivos
+- CA-7: `components/_buttons.scss` estilos de botones globales
+- CA-8: `components/_cards.scss` estilos de tarjetas globales
+- CA-9: `components/_animations.scss` keyframes reutilizables
+- CA-10: `themes/_dark.scss` y `_light.scss` con variables de tema
+- CA-11: `utilities/` clases helper (spacing, text, display)
 
 **Specs técnicas:**
 - Preprocesador: Sass (Dart Sass vía Vite)

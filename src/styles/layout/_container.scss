@@ -1,1 +1,12 @@
-// TODO: Implementar clases de contenedor (container, container-fluid)
+.container {
+  @include container;
+}
+
+.container-fluid {
+  width: 100%;
+  padding: 0 1.5rem;
+
+  @include tablet-up {
+    padding: 0 2.5rem;
+  }
+}

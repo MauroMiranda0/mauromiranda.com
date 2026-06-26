@@ -5,9 +5,12 @@
 import { motion } from 'framer-motion'
 import Header from '@components/layout/Header'
 import HeroSection from '@components/sections/HeroSection'
-import LaboratorySection from '@components/sections/LaboratorySection'
+import VisionSection from '@components/sections/VisionSection'
+import LiderazgoSection from '@components/sections/LiderazgoSection'
 import ProductionSection from '@components/sections/ProductionSection'
-import TechStackSection from '@components/sections/TechStackSection'
+import InnovacionDiscursoSection from '@components/sections/InnovacionDiscursoSection'
+import LaboratorySection from '@components/sections/LaboratorySection'
+import CtaSection from '@components/sections/CtaSection'
 import Footer from '@components/layout/Footer'
 import BackgroundGrid from '@components/common/BackgroundGrid'
 
@@ -22,12 +25,15 @@ const HomePage = () => {
       <BackgroundGrid />
       <Header />
       
-      <main className="main-content">
+      <div className="main-content">
         <HeroSection />
-        <LaboratorySection />
+        <VisionSection />
+        <LiderazgoSection />
         <ProductionSection />
-        <TechStackSection />
-      </main>
+        <InnovacionDiscursoSection />
+        <LaboratorySection />
+        <CtaSection />
+      </div>
       
       <Footer />
     </motion.div>

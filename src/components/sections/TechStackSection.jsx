@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { techStack } from '@data/projects'
 import Icon from '@components/common/Icon'
+import { ctaContent } from '@data/copy-content'
 import './TechStackSection.scss'
 
 const TechStackSection = () => {
@@ -39,14 +40,11 @@ const TechStackSection = () => {
 
       <div className="tech-stack__cta">
         <div className="tech-stack__cta-content">
-          <h4>_SISTEMA_PRINCIPAL_LISTO</h4>
-          <p>
-            Actualmente aceptando desafíos arquitectónicos selectos para Q3/Q4 2024.
-            Ingeniería de experiencias digitales de alta gama.
-          </p>
+          <h4>{ctaContent.title}</h4>
+          <p>{ctaContent.subtitle}</p>
         </div>
         <button className="tech-stack__cta-button">
-          INICIAR_CONTACTO.SH
+          {ctaContent.secondaryCta}
         </button>
       </div>
     </section>
