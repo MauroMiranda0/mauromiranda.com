@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjeta Elástica de Neón</title>
+    <style>
+        /* =========================================
+           ESTILOS BASE (Centrado en pantalla)
+           ========================================= */
+        body {
+            background-color: #050505;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            gap: 20px; /* Espacio entre tarjetas si agregas más de una */
+            padding: 20px;
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        /* Contenedor para probar el efecto flex (elástico) */
+        .container {
+            display: flex;
+            width: 100%;
+            max-width: 900px;
+            gap: 15px;
+            height: 350px;
+        }
+
+        /* =========================================
+           TARJETA FUSIONADA (Elástica + Borde Animado)
+           ========================================= */
+        .fused-card {
+            /* Efecto elástico (Flexbox) */
+            flex: 1;
+            height: 100%;
+            transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            
+            /* Estructura base */
+            background: #111;
+            position: relative;
+            border-radius: 20px; /* Suavizado de bordes */
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Expansión al pasar el mouse */
+        .fused-card:hover {
+            flex: 5;
+        }
+
+        /* Borde rotatorio (Animación constante con colores múltiples) */
+        .fused-card::before {
+            content: '';
+            position: absolute;
+            height: 160%;
+            width: 160%;
+            background: conic-gradient(
+                transparent,
+                transparent,
+                transparent,
+                #0a84ff,
+                #ff007a,
+                #00f5d4
+            );
+            animation: rotate 3s linear infinite;
+            z-index: 0; 
+        }
+
+        /* Máscara interior oscura para crear el grosor del borde */
+        .fused-card::after {
+            content: '';
+            position: absolute;
+            inset: 4px; /* Grosor del borde neón */
+            background: #111;
+            border-radius: 16px;
+            z-index: 0; 
+        }
+
+        /* =========================================
+           CONTENIDO DE LA TARJETA (Imagen y Texto)
+           ========================================= */
+        
+        /* Imagen de fondo */
+        .fused-img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1; /* Por encima de la máscara oscura */
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), filter 0.6s ease;
+            filter: grayscale(100%);
+            opacity: 0.6; /* Oscurecida un poco para que el texto resalte */
+            will-change: transform, filter;
+        }
+
+        .fused-card:hover .fused-img {
+            filter: grayscale(0%);
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+
+        /* Descripción que aparece en hover */
+        .fused-desc {
+            position: relative;
+            z-index: 2; /* Por encima de todo */
+            color: #fff;
+            text-align: center;
+            font-family: sans-serif;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        .fused-card:hover .fused-desc {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.15s;
+        }
+
+        /* =========================================
+           ANIMACIÓN DEL BORDE (Keyframes)
+           ========================================= */
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="fused-card">
+            <img class="fused-img" src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Retro">
+            <div class="fused-desc">
+                <h2>Cyberpunk</h2>
+                <p>Estilo neón fusionado.</p>
+            </div>
+        </div>
+
+        <div class="fused-card">
+            <img class="fused-img" src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Tech">
+            <div class="fused-desc">
+                <h2>Tecnología</h2>
+                <p>Efecto elástico en acción.</p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

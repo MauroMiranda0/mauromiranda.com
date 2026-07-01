@@ -215,7 +215,11 @@ Cada sección usa una nomenclatura de **terminal/sistema** para reforzar la iden
 | Título | `LABORATORIO DE INNOVACIÓN` |
 | Subtítulo | `Prototipado Estratégico & Exploración Técnica` |
 
-Las 4 tarjetas del bento grid representan **proyectos de I+D personal**. Cada una incluye:
+Las tarjetas del bento grid son **componentes de borde animado** que representan proyectos de I+D personal.
+Cada tarjeta usa un layout **elástico** (`flex: 1` → `flex: 5` en hover con `cubic-bezier(0.25, 1, 0.5, 1)`) que expande suavemente la tarjeta activa mientras contrae las demás.
+El borde es un **conic-gradient rotatorio** (`::before`) animado con `@keyframes rotate 3s linear infinite`, con una máscara interior (`::after`, `inset: 4px`) que define el grosor del perímetro neón.
+Las imágenes parten en **escala de grises** (`grayscale(100%)`, `opacity: 0.6`) y transicionan a color al hacer hover. El texto descriptivo aparece con fade-in y desplazamiento vertical (`translateY(15px)` → `translateY(0)`).
+Cada tarjeta incluye:
 - Un identificador de experimento (`PROTOTIPO_023`, `EXPLORACIÓN_007`, `R&D_LAB_05`)
 - Un estado de versión (`ESTABLE / v3.0.0`)
 - Una descripción técnica aspiracional (ej: "Sistema de componentes inteligentes con detección contextual de patrones de uso")
