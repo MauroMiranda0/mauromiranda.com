@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seccion de Productos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            --bg-start: #f4eee9;
+            --bg-end: #c4cedi;
+            --surface: rgba(255, 255, 255, 0.66);
+            --surface-strong: rgba(255, 250, 246, 0.92);
+            --surface-soft: rgba(255, 255, 255, 0.14);
+            --text: #433129;
+            --muted: #75645a;
+            --accent: #cf875d;
+            --accent-soft: #d2b19f;
+            --line: rgba(126, 90, 67, 0.16);
+            --shadow-lg: 0 28px 60px rgba(88, 62, 47, 0.16);
+            --shadow-sm: 0 16px 28px rgba(88, 62, 47, 0.1);
+            --radius-xl: 34px;
+            --radius-lg: 26px;
+            --radius-md: 22px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            color: var(--text);
+            background:
+                radial-gradient(circle at top left, rgba(255, 255, 255, 0.96), transparent 32%),
+                radial-gradient(circle at 85% 12%, rgba(207, 135, 93, 0.2), transparent 24%),
+                linear-gradient(135deg, var(--bg-start), var(--bg-end));
+        }
+
+        .catalog {
+            width: min(1180px, 100%);
+            display: grid;
+            grid-template-columns: minmax(320px, 0.95fr) minmax(0, 1.25fr);
+            gap: 0;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            background: var(--surface);
+            backdrop-filter: blur(14px);
+            box-shadow: var(--shadow-lg);
+            isolation: isolate;
+        }
+
+        .catalog__panel {
+            position: relative;
+            padding: 48px;
+        }
+
+        .catalog__panel--intro {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 36px;
+            background: linear-gradient(180deg, rgba(255, 251, 247, 0.96), rgba(243, 233, 225, 0.86));
+        }
+
+        .catalog__panel--intro::after {
+            content: "";
+            position: absolute;
+            top: 22px;
+            bottom: 22px;
+            right: 0;
+            width: 8px;
+            border-radius: 999px;
+            background: linear-gradient(180deg, var(--accent-soft), var(--accent));
+            opacity: 0.9;
+        }
+
+        .catalog__panel--products {
+            color: #fff;
+            background:
+                radial-gradient(circle at top right, rgba(255, 255, 255, 0.14), transparent 28%),
+                linear-gradient(180deg, #d2b19f, #cf875d);
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 16px;
+            border-radius: 999px;
+            background: rgba(207, 135, 93, 0.12);
+            color: var(--accent);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .intro__media {
+            position: relative;
+            margin-top: 28px;
+            border-radius: 30px;
+            overflow: hidden;
+            min-height: 240px;
+            background:
+                linear-gradient(180deg, rgba(67, 49, 41, 0.08), rgba(67, 49, 41, 0.22)),
+                url("https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=1200&q=80") center/cover;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .intro__media::after {
+            content: "";
+            position: absolute;
+            inset: auto 18px 18px 18px;
+            padding: 14px 16px;
+            border-radius: 18px;
+            background: rgba(255, 248, 243, 0.78);
+            color: var(--text);
+            font-size: 0.84rem;
+            font-weight: 600;
+            line-height: 1.5;
+            backdrop-filter: blur(8px);
+            content: "Coleccion pensada para espacios creativos, tecnologia util y objetos con mejor presencia.";
+        }
+
+        .intro__title {
+            margin-top: 22px;
+            max-width: 7ch;
+            font-size: clamp(2.4rem, 4vw, 4.1rem);
+            line-height: 0.95;
+        }
+
+        .intro__text {
+            margin-top: 18px;
+            max-width: 38ch;
+            color: var(--muted);
+            font-size: 0.98rem;
+            line-height: 1.8;
+        }
+
+        .intro__actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 28px;
+        }
+
+        .button {
+            border: 0;
+            border-radius: 14px;
+            padding: 14px 22px;
+            font: inherit;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        .button--primary {
+            color: #fff;
+            background: linear-gradient(135deg, var(--accent-soft), var(--accent));
+            box-shadow: 0 18px 30px rgba(126, 90, 67, 0.24);
+        }
+
+        .button--ghost {
+            color: var(--text);
+            background: rgba(255, 249, 244, 0.82);
+            border: 1px solid var(--line);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .stats__item {
+            padding: 18px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-md);
+            background: var(--surface-strong);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .stats__value {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .stats__label {
+            color: var(--muted);
+            font-size: 0.84rem;
+            line-height: 1.5;
+        }
+
+        .products__header {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(220px, 280px);
+            gap: 18px;
+            align-items: end;
+            margin-bottom: 28px;
+        }
+
+        .products__title {
+            max-width: 10ch;
+            font-size: clamp(1.9rem, 2.4vw, 2.7rem);
+            line-height: 1;
+        }
+
+        .products__description {
+            color: rgba(255, 245, 239, 0.86);
+            font-size: 0.92rem;
+            line-height: 1.7;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .product {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 18px;
+            min-height: 220px;
+            padding: 22px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 28px;
+            background: rgba(255, 247, 241, 0.16);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+            transition: transform 0.28s ease, background-color 0.28s ease;
+        }
+
+        .product:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 248, 243, 0.22);
+        }
+
+        .product--featured {
+            grid-column: span 7;
+            min-height: 360px;
+            background: linear-gradient(160deg, rgba(255, 250, 246, 0.26), rgba(255, 248, 243, 0.1));
+        }
+
+        .product--tall {
+            grid-column: span 5;
+            min-height: 360px;
+        }
+
+        .product--wide {
+            grid-column: span 7;
+        }
+
+        .product--compact {
+            grid-column: span 5;
+        }
+
+        .product__top {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .product__icon {
+            width: 52px;
+            height: 52px;
+            display: grid;
+            place-items: center;
+            border-radius: 18px;
+            background: rgba(255, 249, 244, 0.18);
+            font-size: 1.2rem;
+        }
+
+        .product__tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            width: fit-content;
+            padding: 7px 12px;
+            border-radius: 999px;
+            background: rgba(255, 248, 243, 0.18);
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .product__title {
+            max-width: 14ch;
+            font-size: 1.35rem;
+            line-height: 1.1;
+        }
+
+        .product__text {
+            max-width: 32ch;
+            color: rgba(255, 246, 241, 0.84);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .product__footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding-top: 4px;
+        }
+
+        .product__price {
+            font-size: 1.12rem;
+            font-weight: 700;
+        }
+
+        .product__meta {
+            color: rgba(255, 246, 241, 0.82);
+            font-size: 0.8rem;
+            text-align: right;
+        }
+
+        @media (max-width: 1100px) {
+            .catalog {
+                grid-template-columns: 1fr;
+            }
+
+            .catalog__panel--intro::after {
+                top: auto;
+                left: 48px;
+                right: 48px;
+                bottom: 0;
+                width: auto;
+                height: 8px;
+            }
+
+            .products__header {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 760px) {
+            body {
+                padding: 16px;
+            }
+
+            .catalog__panel {
+                padding: 28px 22px;
+            }
+
+            .catalog__panel--intro::after {
+                left: 22px;
+                right: 22px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product,
+            .product--featured,
+            .product--tall,
+            .product--wide,
+            .product--compact {
+                grid-column: auto;
+                min-height: auto;
+            }
+
+            .product__footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .product__meta {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="catalog" aria-label="Catalogo de productos destacados">
+        <aside class="catalog__panel catalog__panel--intro">
+            <div class="intro">
+                <span class="eyebrow">
+                    <i class="fa-solid fa-sparkles" aria-hidden="true"></i>
+                    seleccion curada
+                </span>
+
+                <h1 class="intro__title">Productos con presencia visual.</h1>
+
+                <p class="intro__text">
+                    Una seccion editorial inspirada en la energia del layout original:
+                    paneles suaves, contraste limpio y una grilla adaptable para destacar
+                    productos sin repetir tarjetas genericas.
+                </p>
+
+                <div class="intro__media" aria-hidden="true"></div>
+
+                <div class="intro__actions">
+                    <button class="button button--primary" type="button">Explorar coleccion</button>
+                    <button class="button button--ghost" type="button">Ver novedades</button>
+                </div>
+            </div>
+
+            <div class="stats" aria-label="Metricas destacadas">
+                <article class="stats__item">
+                    <strong class="stats__value">42</strong>
+                    <p class="stats__label">productos listos para envio</p>
+                </article>
+
+                <article class="stats__item">
+                    <strong class="stats__value">4.9</strong>
+                    <p class="stats__label">valoracion promedio</p>
+                </article>
+
+                <article class="stats__item">
+                    <strong class="stats__value">24h</strong>
+                    <p class="stats__label">despacho express en ciudad</p>
+                </article>
+            </div>
+        </aside>
+
+        <section class="catalog__panel catalog__panel--products" aria-label="Productos destacados">
+            <header class="products__header">
+                <h2 class="products__title">Grid adaptable para productos premium</h2>
+                <p class="products__description">
+                    Los bloques cambian de escala para crear ritmo visual, mejorar la lectura
+                    y evitar solapes en resoluciones intermedias.
+                </p>
+            </header>
+
+            <div class="product-grid">
+                <article class="product product--featured">
+                    <div class="product__top">
+                        <div class="product__icon" aria-hidden="true">
+                            <i class="fa-solid fa-headphones"></i>
+                        </div>
+                        <h3 class="product__title">Aurora Studio Headset</h3>
+                        <p class="product__text">
+                            Audio inmersivo, acabado mate y cancelacion inteligente de ruido
+                            para jornadas creativas largas.
+                        </p>
+                    </div>
+                    <footer class="product__footer">
+                        <span class="product__price">$249</span>
+                        <span class="product__meta">Bluetooth 5.4 | 38h</span>
+                    </footer>
+                </article>
+
+                <article class="product product--tall">
+                    <div class="product__top">
+                        <span class="product__tag">
+                            <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+                            bestseller
+                        </span>
+                        <h3 class="product__title">Flux Lamp Pro</h3>
+                        <p class="product__text">
+                            Iluminacion ambiental graduable con perfiles de color para escritorio y estudio.
+                        </p>
+                    </div>
+                    <footer class="product__footer">
+                        <span class="product__price">$119</span>
+                        <span class="product__meta">USB-C | luz calida</span>
+                    </footer>
+                </article>
+
+                <article class="product product--compact">
+                    <div class="product__top">
+                        <span class="product__tag">
+                            <i class="fa-solid fa-leaf" aria-hidden="true"></i>
+                            eco line
+                        </span>
+                        <h3 class="product__title">Terra Bottle</h3>
+                        <p class="product__text">Acero reciclado y doble capa termica.</p>
+                    </div>
+                    <footer class="product__footer">
+                        <span class="product__price">$34</span>
+                        <span class="product__meta">750 ml</span>
+                    </footer>
+                </article>
+
+                <article class="product product--wide">
+                    <div class="product__top">
+                        <span class="product__tag">
+                            <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+                            workspace
+                        </span>
+                        <h3 class="product__title">Modular Desk Kit</h3>
+                        <p class="product__text">
+                            Organizacion magnetica, bandejas flotantes y soporte elevador
+                            para una mesa mas limpia y funcional.
+                        </p>
+                    </div>
+                    <footer class="product__footer">
+                        <span class="product__price">$189</span>
+                        <span class="product__meta">5 piezas | aluminio</span>
+                    </footer>
+                </article>
+
+                <article class="product product--compact">
+                    <div class="product__top">
+                        <span class="product__tag">
+                            <i class="fa-solid fa-camera" aria-hidden="true"></i>
+                            creator
+                        </span>
+                        <h3 class="product__title">Snap Mini Rig</h3>
+                        <p class="product__text">Soporte compacto para grabacion vertical.</p>
+                    </div>
+                    <footer class="product__footer">
+                        <span class="product__price">$79</span>
+                        <span class="product__meta">ligero | portable</span>
+                    </footer>
+                </article>
+            </div>
+        </section>
+    </section>
+</body>
+</html>
