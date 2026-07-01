@@ -501,19 +501,20 @@
                             <div class="flex w-1/2 p-6 items-center justify-center">
                                 <div class="w-full rounded-2xl overflow-hidden border border-slate-700/50 bg-slate-900/80 backdrop-blur-sm">
                                     <div class="flex items-center justify-between px-4 py-2.5 border-b border-slate-700/50">
-                                        <span class="font-mono text-[10px] text-slate-400">teseracto1x1.mp4</span>
+                                        <span class="font-mono text-[10px] text-slate-400">teseracto.mp4</span>
                                         <span class="font-mono text-[10px] text-primary flex items-center gap-1.5">
                                             <span class="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" aria-hidden="true"></span>
-                                            Preview
+                                            Reproduciendo
                                         </span>
                                     </div>
                                     <div class="aspect-square bg-slate-950 relative overflow-hidden">
-                                        <img class="w-full h-full object-cover opacity-70 transition-opacity duration-500"
-                                            src="https://images.unsplash.com/photo-1637144113536-9c6e917e6b24?w=600&h=600&fit=crop&crop=center"
-                                            alt="Teseracto 3D preview" loading="lazy" width="600" height="600">
-                                        <div class="absolute inset-0 flex items-center justify-center">
-                                            <span class="material-symbols-outlined text-6xl text-white/80 drop-shadow-lg" aria-hidden="true">play_circle</span>
-                                        </div>
+                                        <video class="w-full h-full object-cover"
+                                            src="./experimentos/teseracto-template/teseracto.mp4"
+                                            autoplay muted loop playsinline
+                                            preload="auto"
+                                            poster="https://images.unsplash.com/photo-1637144113536-9c6e917e6b24?w=600&h=600&fit=crop&crop=center"
+                                            width="600" height="600">
+                                        </video>
                                     </div>
                                     <div class="flex items-center justify-between px-4 py-2.5 border-t border-slate-700/50">
                                         <div>
