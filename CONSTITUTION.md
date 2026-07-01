@@ -219,6 +219,8 @@ Las tarjetas del bento grid son **componentes de borde animado** que representan
 Cada tarjeta usa un layout **elástico** (`flex: 1` → `flex: 5` en hover con `cubic-bezier(0.25, 1, 0.5, 1)`) que expande suavemente la tarjeta activa mientras contrae las demás.
 El borde es un **conic-gradient rotatorio** (`::before`) animado con `@keyframes rotate 3s linear infinite`, con una máscara interior (`::after`, `inset: 4px`) que define el grosor del perímetro neón.
 Las imágenes parten en **escala de grises** (`grayscale(100%)`, `opacity: 0.6`) y transicionan a color al hacer hover. El texto descriptivo aparece con fade-in y desplazamiento vertical (`translateY(15px)` → `translateY(0)`).
+La tarjeta principal (Card A, `col-span-2 row-span-2`) muestra el **Teseracto Template** — un visualizador de video experimental con controles de reproducción, modo loop cinemático y formato 1:1 responsive, integrado dentro del bento grid como pieza central del laboratorio.
+
 Cada tarjeta incluye:
 - Un identificador de experimento (`PROTOTIPO_023`, `EXPLORACIÓN_007`, `R&D_LAB_05`)
 - Un estado de versión (`ESTABLE / v3.0.0`)
@@ -479,13 +481,14 @@ mauromiranda.com/
 
 | Tema | Manifestación en el portafolio |
 |------|-------------------------------|
-| **IA / ML** | "Framework de Interacción Adaptativa" — sistema de patrones contextuales |
+| **IA / ML** | Sistema de patrones contextuales y detección de uso |
 | **WebAssembly / Rust** | Procesamiento de alto rendimiento en el navegador |
 | **Tiempo real** | WebSockets, RabbitMQ, latencia de 24ms |
 | **Gráficos avanzados** | GLSL, WebGL, Three.js, compute shaders |
 | **Simulación física** | Ecuaciones de Navier-Stokes, dinámica de fluidos |
 | **Arquitecturas modernas** | Microservicios, headless commerce, micro-frontends |
 | **Cloud / DevOps** | AWS, CI/CD, containerización, escalabilidad cloud |
+| **Animación 3D / Video** | "Teseracto Template" — visualizador de video experimental con controles de reproducción, formato 1:1 y loop cinemático |
 
 ### 5.3 Identificadores de Laboratorio
 
