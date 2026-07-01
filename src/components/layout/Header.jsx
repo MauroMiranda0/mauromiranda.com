@@ -55,9 +55,22 @@ const Header = () => {
             <Icon name={theme === 'dark' ? 'light_mode' : 'dark_mode'} />
           </button>
           
-          <button className="header__cta">
-            CONECTAR
-          </button>
+          <a 
+            className="header__cta"
+            href="#contact"
+            onClick={(e) => {
+              e.preventDefault()
+              const target = document.querySelector('#contact')
+              if (target) {
+                target.scrollIntoView({ 
+                  behavior: 'smooth',
+                  block: 'start'
+                })
+              }
+            }}
+          >
+            Contacto
+          </a>
         </div>
       </div>
     </motion.header>
