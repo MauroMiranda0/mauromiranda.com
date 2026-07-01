@@ -83,6 +83,108 @@
         .transition-optimized {
             transition: transform 0.2s ease-out, opacity 0.2s ease-out;
         }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+        }
+
+        .modal-overlay--active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-overlay__backdrop {
+            position: absolute;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .modal {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            background: #f5f7f8;
+            border: 1px solid rgba(13, 166, 242, 0.2);
+            border-radius: 0.75rem;
+            transform: scale(0.95) translateY(20px);
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .dark .modal {
+            background: #0f172a;
+        }
+
+        .modal-overlay--active .modal {
+            transform: scale(1) translateY(0);
+        }
+
+        .modal__header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid rgba(13, 166, 242, 0.1);
+        }
+
+        .modal__close {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border: 1px solid rgba(13, 166, 242, 0.2);
+            border-radius: 0.25rem;
+            background: transparent;
+            color: #64748b;
+            cursor: pointer;
+            transition: color 0.2s ease-out, border-color 0.2s ease-out;
+        }
+
+        .modal__close:hover {
+            color: #0da6f2;
+            border-color: #0da6f2;
+        }
+
+        .modal__body {
+            padding: 2rem 1.5rem;
+        }
+
+        /* Scrollbar modal */
+        .modal::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .modal::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .modal::-webkit-scrollbar-thumb {
+            background: rgba(13, 166, 242, 0.3);
+            border-radius: 9999px;
+        }
+
+        @media (min-width: 768px) {
+            .modal__body {
+                padding: 2.5rem;
+            }
+            .modal__header {
+                padding: 1.25rem 2.5rem;
+            }
+        }
     </style>
 </head>
 
@@ -107,13 +209,15 @@
             <a class="hover:text-primary transition-colors" href="#lab">Experimentos</a>
             <a class="hover:text-primary transition-colors" href="#works">Producción</a>
             <a class="hover:text-primary transition-colors" href="#stack">Panel de Control</a>
+            <a class="hover:text-primary transition-colors" href="#contact" onclick="openModal(); return false;">Contacto</a>
         </nav>
 
         <div class="flex items-center gap-4">
             <span class="text-xs font-mono text-primary animate-pulse" aria-label="Sistema en línea">● SISTEMA EN
                 LÍNEA</span>
             <button
-                class="text-primary text-xs font-bold font-mono border border-primary/30 px-3 py-1 hover:bg-primary/10 transition-colors">
+                class="text-primary text-xs font-bold font-mono border border-primary/30 px-3 py-1 hover:bg-primary/10 transition-colors"
+                onclick="openModal()">
                 CONECTAR
             </button>
         </div>
@@ -147,7 +251,8 @@
 
                 <div class="flex flex-wrap gap-4">
                     <button
-                        class="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-lg font-mono text-sm font-bold flex items-center gap-3 transition-optimized active:scale-95">
+                        class="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-lg font-mono text-sm font-bold flex items-center gap-3 transition-optimized active:scale-95"
+                        onclick="openModal()">
                         INICIAR PROYECTO
                         <span class="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward_ios</span>
                     </button>
@@ -365,11 +470,13 @@
                     </p>
                 </div>
                 <button
-                    class="bg-primary text-white font-mono text-xs font-bold px-10 py-4 rounded hover:bg-primary/90 transition-optimized active:scale-95 whitespace-nowrap">
+                    class="bg-primary text-white font-mono text-xs font-bold px-10 py-4 rounded hover:bg-primary/90 transition-optimized active:scale-95 whitespace-nowrap"
+                    onclick="openModal()">
                     INICIAR_CONVERSACIÓN
                 </button>
             </div>
         </section>
+
     </main>
 
     <!-- Footer -->
@@ -393,7 +500,7 @@
                     <li><a class="hover:text-primary transition-colors" href="#lab">Laboratorio</a></li>
                     <li><a class="hover:text-primary transition-colors" href="#works">Producción</a></li>
                     <li><a class="hover:text-primary transition-colors" href="#stack">Stack</a></li>
-                    <li><a class="hover:text-primary transition-colors" href="#journal">Blog</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#contact" onclick="openModal(); return false;">Contacto</a></li>
                 </ul>
             </div>
 
@@ -444,6 +551,108 @@
             </div>
         </div>
     </footer>
+    <!-- Modal Contacto -->
+    <div class="modal-overlay" id="contactModal" role="dialog" aria-modal="true" aria-label="Formulario de contacto">
+        <div class="modal-overlay__backdrop" onclick="closeModal()"></div>
+        <div class="modal">
+            <div class="modal__header">
+                <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary" style="font-size: 20px;" aria-hidden="true">terminal</span>
+                    <span class="font-mono text-[10px] text-primary uppercase tracking-widest">canal_comunicacion.sh</span>
+                    <span class="w-2 h-2 rounded-full bg-primary animate-pulse" aria-hidden="true"></span>
+                </div>
+                <button class="modal__close" onclick="closeModal()" aria-label="Cerrar formulario">
+                    <span class="material-symbols-outlined" style="font-size: 18px;" aria-hidden="true">close</span>
+                </button>
+            </div>
+
+            <div class="modal__body">
+                <div class="text-center mb-8">
+                    <p class="font-mono text-primary text-xs mb-2 tracking-widest uppercase">[ 04 / CANAL_COMUNICACIÓN ]</p>
+                    <h2 class="text-2xl md:text-3xl font-bold italic tracking-tight uppercase">Iniciar Conversación</h2>
+                    <div class="h-px w-12 bg-primary mx-auto mt-4" aria-hidden="true"></div>
+                </div>
+
+                <form class="space-y-5" action="#" method="POST">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                            <label for="modal-name" class="block font-mono text-[10px] text-primary mb-1.5 uppercase tracking-widest">NOMBRE</label>
+                            <input type="text" id="modal-name" name="name" required
+                                class="w-full bg-slate-100 dark:bg-slate-900 border border-primary/20 rounded px-4 py-3 font-mono text-sm text-slate-900 dark:text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-primary transition-colors"
+                                placeholder="Tu nombre">
+                        </div>
+                        <div>
+                            <label for="modal-email" class="block font-mono text-[10px] text-primary mb-1.5 uppercase tracking-widest">EMAIL</label>
+                            <input type="email" id="modal-email" name="email" required
+                                class="w-full bg-slate-100 dark:bg-slate-900 border border-primary/20 rounded px-4 py-3 font-mono text-sm text-slate-900 dark:text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-primary transition-colors"
+                                placeholder="tucorreo@ejemplo.com">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="modal-project-type" class="block font-mono text-[10px] text-primary mb-1.5 uppercase tracking-widest">TIPO DE PROYECTO</label>
+                        <select id="modal-project-type" name="project-type"
+                            class="w-full bg-slate-100 dark:bg-slate-900 border border-primary/20 rounded px-4 py-3 font-mono text-sm text-slate-900 dark:text-slate-100 focus:outline-none focus:border-primary transition-colors">
+                            <option value="" disabled selected>Seleccionar categoría</option>
+                            <option value="arquitectura">Arquitectura Web</option>
+                            <option value="consultoria">Consultoría Técnica</option>
+                            <option value="colaboracion">Colaboración Estratégica</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="modal-message" class="block font-mono text-[10px] text-primary mb-1.5 uppercase tracking-widest">MENSAJE</label>
+                        <textarea id="modal-message" name="message" rows="4" required
+                            class="w-full bg-slate-100 dark:bg-slate-900 border border-primary/20 rounded px-4 py-3 font-mono text-sm text-slate-900 dark:text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-primary transition-colors resize-none"
+                            placeholder="Describe tu proyecto o consulta..."></textarea>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4 items-center justify-between pt-2">
+                        <p class="text-[10px] font-mono text-slate-500">
+                            <span class="text-primary">*</span> Todos los campos son requeridos
+                        </p>
+                        <button type="submit"
+                            class="bg-primary text-white font-mono text-xs font-bold px-10 py-4 rounded hover:bg-primary/90 transition-optimized active:scale-95 whitespace-nowrap inline-flex items-center gap-3">
+                            ENVIAR MENSAJE
+                            <span class="material-symbols-outlined text-sm" aria-hidden="true">north_east</span>
+                        </button>
+                    </div>
+                </form>
+
+                <div class="mt-8 p-4 border border-primary/10 rounded-xl bg-primary/5">
+                    <div class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-primary mt-0.5" style="font-size: 18px;" aria-hidden="true">info</span>
+                        <div>
+                            <p class="font-mono text-[11px] font-bold mb-0.5">RESPUESTA ESTIMADA</p>
+                            <p class="text-[11px] font-mono text-slate-500">Dentro de 24–48 horas hábiles. Para consultas urgentes, utiliza el canal directo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            const modal = document.getElementById('contactModal')
+            modal.classList.add('modal-overlay--active')
+            document.body.style.overflow = 'hidden'
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('contactModal')
+            modal.classList.remove('modal-overlay--active')
+            document.body.style.overflow = ''
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal()
+            }
+        })
+    </script>
+
 </body>
 
 </html>
