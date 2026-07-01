@@ -84,6 +84,132 @@
             transition: transform 0.2s ease-out, opacity 0.2s ease-out;
         }
 
+        /* Terminal cursor blink */
+        .terminal-cursor::after {
+            content: '▏';
+            margin-left: 2px;
+            animation: cursorBlink 1s step-end infinite;
+            color: #0da6f2;
+            font-weight: 300;
+        }
+
+        @keyframes cursorBlink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Signal strength bars */
+        .signal-bar {
+            display: inline-flex;
+            align-items: end;
+            gap: 2px;
+            height: 12px;
+        }
+
+        .signal-bar__bar {
+            width: 3px;
+            background: #0da6f2;
+            border-radius: 1px;
+            animation: signalPulse 1.5s ease-in-out infinite;
+        }
+
+        .signal-bar__bar:nth-child(1) { height: 4px; animation-delay: 0s; }
+        .signal-bar__bar:nth-child(2) { height: 7px; animation-delay: 0.2s; }
+        .signal-bar__bar:nth-child(3) { height: 10px; animation-delay: 0.4s; }
+        .signal-bar__bar:nth-child(4) { height: 12px; animation-delay: 0.6s; }
+
+        @keyframes signalPulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        /* Data scan bar */
+        .data-scan {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .data-scan::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(13, 166, 242, 0.15) 50%,
+                transparent 100%);
+            animation: dataScan 2.5s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes dataScan {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Version flicker */
+        .version-flicker {
+            animation: versionFlicker 4s ease-in-out infinite;
+        }
+
+        @keyframes versionFlicker {
+            0%, 90%, 92%, 100% { opacity: 1; }
+            91% { opacity: 0.3; }
+            93% { opacity: 0.8; }
+        }
+
+        /* Glitch text */
+        .glitch-text {
+            position: relative;
+        }
+
+        .glitch-text::before,
+        .glitch-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            clip: rect(0, 0, 0, 0);
+        }
+
+        .glitch-text:hover::before {
+            left: -1px;
+            color: rgba(13, 166, 242, 0.6);
+            animation: glitchBefore 0.3s ease-in-out infinite alternate;
+        }
+
+        .glitch-text:hover::after {
+            left: 1px;
+            color: rgba(13, 166, 242, 0.3);
+            animation: glitchAfter 0.4s ease-in-out infinite alternate;
+        }
+
+        @keyframes glitchBefore {
+            0% { clip: rect(0, 9999px, 10px, 0); }
+            100% { clip: rect(15px, 9999px, 30px, 0); }
+        }
+
+        @keyframes glitchAfter {
+            0% { clip: rect(20px, 9999px, 40px, 0); }
+            100% { clip: rect(5px, 9999px, 20px, 0); }
+        }
+
+        /* Processing spinner */
+        .processing-spinner {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border: 2px solid rgba(13, 166, 242, 0.2);
+            border-top-color: #0da6f2;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
         /* Modal */
         .modal-overlay {
             position: fixed;
@@ -199,7 +325,7 @@
         <div class="flex items-center gap-4">
     <span class="material-symbols-outlined text-primary" style="font-size: 24px;" aria-hidden="true">terminal</span>
     <h2 class="text-slate-900 dark:text-slate-100 text-sm font-mono tracking-tighter">
-        MauroMiranda // DEV_v1.0
+        <span class="version-flicker">MauroMiranda // DEV_v1.0</span>
     </h2>
 </div>
 
@@ -213,6 +339,12 @@
         </nav>
 
         <div class="flex items-center gap-4">
+            <div class="signal-bar" aria-hidden="true">
+                <span class="signal-bar__bar"></span>
+                <span class="signal-bar__bar"></span>
+                <span class="signal-bar__bar"></span>
+                <span class="signal-bar__bar"></span>
+            </div>
             <span class="text-xs font-mono text-primary animate-pulse" aria-label="Sistema en línea">● SISTEMA EN
                 LÍNEA</span>
             <button
@@ -234,9 +366,9 @@
             </div>
 
             <div class="max-w-6xl">
-                <p class="font-mono text-primary text-sm mb-6 tracking-widest">[ ARQUITECTURA WEB E INNOVACIÓN DIGITAL ]</p>
+                <p class="font-mono text-primary text-sm mb-6 tracking-widest glitch-text" data-text="[ ARQUITECTURA WEB E INNOVACIÓN DIGITAL ]">[ ARQUITECTURA WEB E INNOVACIÓN DIGITAL ]</p>
 
-                <h1 class="text-5xl md:text-7xl lg:text-8xl font-black leading-[0.9] tracking-tighter mb-8">
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-black leading-[0.9] tracking-tighter mb-8 terminal-cursor">
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">
                         Ingeniería Web
                     </span><br>
@@ -427,7 +559,7 @@
             <div class="max-w-4xl mx-auto text-center mb-16">
                 <p class="font-mono text-primary text-xs mb-4 tracking-widest uppercase">[ 03 / ECOSISTEMA_TECNOLÓGICO ]</p>
                 <h2 class="text-4xl font-bold mb-6 italic tracking-tight uppercase">Arquitectura y Herramientas</h2>
-                <div class="h-1 w-20 bg-primary mx-auto" aria-hidden="true"></div>
+                <div class="h-1 w-20 bg-primary mx-auto data-scan" aria-hidden="true"></div>
             </div>
 
             <div
@@ -559,7 +691,7 @@
                 <div class="flex items-center gap-3">
                     <span class="material-symbols-outlined text-primary" style="font-size: 20px;" aria-hidden="true">terminal</span>
                     <span class="font-mono text-[10px] text-primary uppercase tracking-widest">canal_comunicacion.sh</span>
-                    <span class="w-2 h-2 rounded-full bg-primary animate-pulse" aria-hidden="true"></span>
+                    <span class="processing-spinner" aria-hidden="true"></span>
                 </div>
                 <button class="modal__close" onclick="closeModal()" aria-label="Cerrar formulario">
                     <span class="material-symbols-outlined" style="font-size: 18px;" aria-hidden="true">close</span>
