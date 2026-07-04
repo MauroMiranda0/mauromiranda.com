@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experimento | Animación Web 3D</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="experiment-showcase">
+    <section class="experiment-hero" aria-labelledby="experiment-title">
+      <div class="experiment-hero__copy">
+        <span class="experiment-hero__eyebrow">Web & 3D Animation</span>
+        <h1 class="experiment-hero__title" id="experiment-title">Animación interactiva para impresión 3D.</h1>
+        <p class="experiment-hero__text"> 
+          La animación fue diseñada para integrarse en un sitio web de impresión 3D, mostrando cómo el movimiento, la atmósfera y la interacción pueden potenciar la experiencia del usuario en entornos digitales.
+        </p>
+
+        <div class="experiment-hero__meta">
+          <div class="meta-item">
+            <span class="meta-item__label">Área</span>
+            <strong class="meta-item__value">Ingeniería Web & Animación 3D</strong>
+          </div>
+          <div class="meta-item">
+            <span class="meta-item__label">Explora</span>
+            <strong class="meta-item__value">Interactividad / Render / Experiencia</strong>
+          </div>
+        </div>
+      </div>
+
+      <article class="experiment-card" data-lamp-experiment>
+        <div class="experiment-card__stage">
+          <div class="experiment-card__ambient" aria-hidden="true"></div>
+
+          <video
+            class="experiment-card__video"
+            data-lamp-video
+            src="./animacionLampara.mp4"
+            poster="./animacionLampara-poster.jpg"
+            muted
+            loop
+            playsinline
+            preload="metadata"
+          ></video>
+
+          <button
+            class="experiment-card__play-btn"
+            data-lamp-toggle
+            type="button"
+            aria-pressed="true"
+            aria-label="Reproducir o detener la animación"
+          >
+            <span class="experiment-card__play-icon" aria-hidden="true"></span>
+          </button>
+
+          <div class="experiment-card__status" data-lamp-status>Reproduciendo</div>
+        </div>
+
+        <div class="experiment-card__content">
+          <div class="experiment-card__heading">
+            <span class="experiment-card__index">EXP 004</span>
+            <h2 class="experiment-card__title">Animación Web 3D</h2>
+          </div>
+
+          <p class="experiment-card__description">
+            Proyecto experimental que utiliza programación, renderizado y diseño web para crear una animación pensada en la presentación de modelos de impresión 3D.  
+            El objetivo es demostrar cómo la animación puede enriquecer la narrativa visual y la interacción en plataformas digitales.
+          </p>
+
+          <ul class="experiment-card__tags" aria-label="Tecnologías y categorías">
+            <li>Web</li>
+            <li>3D</li>
+            <li>JavaScript</li>
+            <li>React</li>
+            <li>Blender</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>

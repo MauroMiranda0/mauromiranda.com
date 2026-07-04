@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,18 +10,39 @@
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
 
         :root {
-            --bg-start: #f4eee9;
-            --bg-end: #c4cedi;
-            --surface: rgba(255, 255, 255, 0.66);
-            --surface-strong: rgba(255, 250, 246, 0.92);
-            --surface-soft: rgba(255, 255, 255, 0.14);
-            --text: #433129;
-            --muted: #75645a;
-            --accent: #cf875d;
-            --accent-soft: #d2b19f;
-            --line: rgba(126, 90, 67, 0.16);
-            --shadow-lg: 0 28px 60px rgba(88, 62, 47, 0.16);
-            --shadow-sm: 0 16px 28px rgba(88, 62, 47, 0.1);
+            --bg-start: #f1f5f9;
+            /* Gris azulado muy claro, limpio y digital */
+            --bg-end: #e2e8f0;
+            /* Gris pizarra suave para el degradado */
+
+            --surface: rgba(255, 255, 255, 0.75);
+            /* Fondo con aspecto de metal/aluminio claro */
+            --bg-start: #e2e8f0;
+            --bg-end: #cbd5e1;
+
+            /* Elementos (surfaces) oscuros y elegantes */
+            --surface: rgba(15, 23, 42, 0.85);
+            /* Pizarra oscuro translúcido */
+            --surface-strong: rgba(15, 23, 42, 0.98);
+            /* Pizarra casi sólido */
+            --surface-soft: rgba(15, 23, 42, 0.4);
+            /* Sombra/fondo suave oscuro */
+
+            /* El texto ahora debe ser claro para leerse sobre las superficies oscuras */
+            --text: #f8fafc;
+            /* Blanco ahumado */
+            --muted: #94a3b8;
+            /* Gris azulado para textos secundarios */
+
+            /* Acento tech vibrante basado en tu naranja/cobre */
+            --accent: #f97316;
+            --accent-soft: rgba(249, 115, 22, 0.2);
+
+            /* Líneas claras y sombras marcadas para darle profundidad al panel oscuro */
+            --line: rgba(255, 255, 255, 0.12);
+            --shadow-lg: 0 28px 60px rgba(15, 23, 42, 0.35);
+            --shadow-sm: 0 16px 28px rgba(15, 23, 42, 0.2);
+
             --radius-xl: 34px;
             --radius-lg: 26px;
             --radius-md: 22px;
@@ -401,6 +423,7 @@
         }
     </style>
 </head>
+
 <body>
     <section class="catalog" aria-label="Catalogo de productos destacados">
         <aside class="catalog__panel catalog__panel--intro">
@@ -539,4 +562,5 @@
         </section>
     </section>
 </body>
+
 </html>
