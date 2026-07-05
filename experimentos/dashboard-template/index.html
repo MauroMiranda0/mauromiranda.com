@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard de Leads — Experimento</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <main class="dashboard" data-dashboard>
+    <section class="layout">
+      <aside class="sidebar">
+        <article class="card hero">
+          <div class="hero__glow"></div>
+          <div class="hero__body">
+            <span class="eyebrow">Lead Ops // v3.2</span>
+            <h1 class="hero__title">Control total de leads para tu landing page.</h1>
+            <p class="hero__text">Diseñado para captación comercial: organiza registros, detecta prioridad, reduce tiempos de respuesta.</p>
+            <div class="hero__actions">
+              <button class="btn btn--primary" id="addLeadBtn" type="button">+ Agregar lead</button>
+              <button class="btn btn--ghost" id="resetFiltersBtn" type="button">Limpiar filtros</button>
+            </div>
+            <div class="hero__status">
+              <span class="status-dot"></span>
+              <span class="status-text" id="sysStatus">Sistema operativo</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card section">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Canales de captación</h2>
+              <p class="section-copy">Distribución por origen de tráfico.</p>
+            </div>
+          </div>
+          <div class="chart-container" id="channelChartContainer">
+            <canvas id="channelChart" width="220" height="220"></canvas>
+            <div class="chart-center" id="chartCenter">0</div>
+          </div>
+          <div class="chart-legend" id="channelLegend"></div>
+        </article>
+      </aside>
+
+      <section class="content">
+        <article class="card top" data-stagger>
+          <div class="top__main">
+            <span class="eyebrow" style="background: var(--brand-soft); color: var(--brand);">Performance</span>
+            <h2 class="headline">La landing genera leads. El dashboard los convierte en acción.</h2>
+            <p class="top-copy">Módulo concentrado para equipo comercial: volumen, score, etapa, origen y lista priorizada.</p>
+            <div class="stats">
+              <article class="stat">
+                <span class="stat__label">Leads visibles</span>
+                <strong class="stat__value" id="visibleLeads">0</strong>
+                <span class="stat__note">Según filtros activos</span>
+              </article>
+              <article class="stat">
+                <span class="stat__label">Score promedio</span>
+                <strong class="stat__value" id="avgScore">0</strong>
+                <span class="stat__note">Calidad del pipeline</span>
+              </article>
+              <article class="stat">
+                <span class="stat__label">Leads calientes</span>
+                <strong class="stat__value" id="hotLeads">0</strong>
+                <span class="stat__note">Prioridad inmediata</span>
+              </article>
+            </div>
+          </div>
+          <aside class="spotlight">
+            <div class="section-header" style="margin-bottom: 0;">
+              <h3 class="section-title">Indicador destacado</h3>
+              <span class="badge" id="responseBadge">--</span>
+            </div>
+            <div class="metric">
+              <span class="metric__label">Tiempo medio de respuesta</span>
+              <strong class="metric__value" id="responseTime">--</strong>
+              <p class="metric__copy">Menor tiempo = mayor probabilidad de conversión.</p>
+            </div>
+            <div class="metric">
+              <span class="metric__label">Siguiente objetivo</span>
+              <strong class="metric__value" id="nextActionMetric">--</strong>
+              <p class="metric__copy">Meta semanal desde leads más calientes.</p>
+            </div>
+          </aside>
+        </article>
+
+        <section class="middle">
+          <article class="card section">
+            <div class="section-header">
+              <div>
+                <h3 class="section-title">Embudo operativo</h3>
+                <p class="section-copy">Distribución actual por etapa del pipeline.</p>
+              </div>
+            </div>
+            <div class="chart-container chart-container--bar">
+              <canvas id="stageChart" width="440" height="180"></canvas>
+            </div>
+            <div class="stage-legend" id="stageLegend"></div>
+          </article>
+
+          <article class="card section">
+            <div class="section-header">
+              <div>
+                <h3 class="section-title">Actividad reciente</h3>
+                <p class="section-copy">Eventos en vivo del pipeline.</p>
+              </div>
+              <span class="live-badge">● En vivo</span>
+            </div>
+            <div class="timeline" id="timeline"></div>
+          </article>
+        </section>
+
+        <article class="card table-card">
+          <div class="section-header">
+            <div>
+              <h3 class="section-title">Administración de leads</h3>
+              <p class="section-copy">Busca, filtra y prioriza contactos desde una sola vista.</p>
+            </div>
+            <div class="toolbar-actions">
+              <button class="btn btn--icon" id="exportBtn" type="button" title="Exportar CSV" aria-label="Exportar CSV">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              </button>
+              <button class="btn btn--icon" id="refreshBtn" type="button" title="Actualizar datos" aria-label="Actualizar datos">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+              </button>
+              <button class="btn btn--icon" id="reportBtn" type="button" title="Generar reporte" aria-label="Generar reporte">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="toolbar">
+            <input class="control" id="searchInput" type="search" placeholder="Buscar por nombre, email o canal...">
+            <select class="control" id="channelFilter">
+              <option value="all">Todos los canales</option>
+              <option value="Meta Ads">Meta Ads</option>
+              <option value="Google Search">Google Search</option>
+              <option value="Email Nurture">Email Nurture</option>
+              <option value="Landing Organica">Landing Orgánica</option>
+            </select>
+            <select class="control" id="stageFilter">
+              <option value="all">Todas las etapas</option>
+              <option value="Nuevo">Nuevo</option>
+              <option value="Contactado">Contactado</option>
+              <option value="Calificado">Calificado</option>
+              <option value="Demo">Demo</option>
+            </select>
+            <button class="btn btn--secondary" id="sortBtn" type="button">Ordenar por score</button>
+          </div>
+
+          <div class="tabs">
+            <button class="filter-tab is-active" type="button" data-priority="all">Todos</button>
+            <button class="filter-tab" type="button" data-priority="hot">Hot</button>
+            <button class="filter-tab" type="button" data-priority="warm">Warm</button>
+            <button class="filter-tab" type="button" data-priority="cold">Cold</button>
+          </div>
+
+          <div class="table">
+            <div class="table-head">
+              <span>Lead</span>
+              <span>Canal</span>
+              <span>Etapa</span>
+              <span>Score</span>
+              <span>Prioridad</span>
+              <span>Acción</span>
+            </div>
+            <div id="leadRows"></div>
+            <div class="empty-state" id="emptyState">No hay leads que coincidan con los filtros.</div>
+          </div>
+
+          <p class="footer-note">Datos simulados — conecta tu CRM o API real para producción.</p>
+        </article>
+      </section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

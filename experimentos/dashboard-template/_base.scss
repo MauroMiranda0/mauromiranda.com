@@ -1,0 +1,41 @@
+@use "variables" as *;
+
+:root {
+  --bg: #080c14;
+  --bg-soft: #0f1624;
+  --surface: rgba(18, 25, 38, 0.82);
+  --surface-strong: rgba(22, 32, 48, 0.92);
+  --border: rgba(142, 197, 255, 0.08);
+  --border-active: rgba(142, 197, 255, 0.2);
+  --text: #e2eaf5;
+  --text-muted: #8b9bb5;
+  --text-soft: #a8bbd4;
+  --brand: #00d4aa;
+  --brand-soft: rgba(0, 212, 170, 0.12);
+  --accent: #5ba3f2;
+  --accent-soft: rgba(91, 163, 242, 0.1);
+  --danger: #ef6b5e;
+  --danger-soft: rgba(239, 107, 94, 0.12);
+  --warm: #f0b429;
+  --warm-soft: rgba(240, 180, 41, 0.12);
+  --shadow-xl: 0 30px 80px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 16px 40px rgba(0, 0, 0, 0.3);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  color: var(--text);
+  font-family: $font-body;
+  background:
+    radial-gradient(ellipse at 20% 10%, rgba(0, 212, 170, 0.06), transparent 40%),
+    radial-gradient(ellipse at 80% 90%, rgba(91, 163, 242, 0.05), transparent 40%),
+    linear-gradient(180deg, var(--bg) 0%, #0a111e 50%, var(--bg) 100%);
+}
+
+button, input, select { font: inherit; }

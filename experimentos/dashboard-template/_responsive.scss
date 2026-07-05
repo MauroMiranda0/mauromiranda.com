@@ -1,0 +1,21 @@
+@use "variables" as *;
+
+@media (max-width: $bp-layout) {
+  .layout, .top, .middle { grid-template-columns: 1fr; }
+  .sidebar { display: grid; grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: $bp-toolbar) {
+  .sidebar { grid-template-columns: 1fr; }
+  .toolbar { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: 1fr; }
+  .table-head { display: none; }
+  .lead-row { grid-template-columns: 1fr; gap: 6px; }
+}
+
+@media (max-width: $bp-mobile) {
+  body { padding: 12px; }
+  .dashboard { padding: 12px; }
+  .section, .table-card, .top, .hero__body { padding: 16px; }
+  .top { padding: 16px; }
+}
