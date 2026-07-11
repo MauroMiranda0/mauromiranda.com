@@ -51,6 +51,13 @@
 
       this.video.addEventListener('timeupdate', () => this.updateRuntime());
 
+      this.video.addEventListener('ended', () => {
+        if (!this.userPaused && !prefersReducedMotion) {
+          this.video.currentTime = 0;
+          this.video.play().catch(() => {});
+        }
+      });
+
       this.video.addEventListener('play', () => {
         this.toggle.setAttribute('aria-pressed', 'true');
         this.toggle.setAttribute('aria-label', 'Pausar animacion');
@@ -97,7 +104,7 @@
             }
           });
         },
-        { threshold: 0.35 }
+        { threshold: 0.1 }
       );
 
       observer.observe(this.root);

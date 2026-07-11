@@ -1,0 +1,22 @@
+/**
+ * Estilos para el componente Icon
+ * Tamaños y variantes de Material Symbols
+ */
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  user-select: none;
+
+  &--xs { font-size: 0.75rem; }
+  &--sm { font-size: 0.875rem; }
+  &--md { font-size: 1.25rem; }
+  &--lg { font-size: 1.5rem; }
+  &--xl { font-size: 2rem; }
+  &--2xl { font-size: 2.5rem; }
+
+  &--filled {
+    font-variation-settings: 'FILL' 1;
+  }
+}

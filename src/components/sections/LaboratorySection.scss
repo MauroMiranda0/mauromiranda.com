@@ -1,0 +1,472 @@
+/**
+ * Estilos para la sección Laboratorio de Innovación
+ * Bento grid con tarjetas de borde animado
+ */
+
+// ============================================================================
+// ANIMATED BORDER KEYFRAMES
+// ============================================================================
+
+@keyframes lab-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes lab-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+// ============================================================================
+// LABORATORY SECTION
+// ============================================================================
+
+.laboratory {
+  padding: 5rem 1rem;
+  border-top: 1px solid rgba(var(--primary-rgb), 0.1);
+
+  @include tablet-up {
+    padding: 5rem 2.5rem;
+  }
+
+  &__container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  // ------------------------------------------------------------------
+  // HEADER
+  // ------------------------------------------------------------------
+
+  &__header {
+    @include flex-between;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 3rem;
+
+    @include tablet-up {
+      flex-direction: row;
+      align-items: flex-end;
+    }
+  }
+
+  &__header-left {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__label {
+    font-family: var(--font-mono);
+    font-size: map-get($font-sizes, 'xs');
+    color: var(--primary);
+    letter-spacing: 0.2em;
+    margin-bottom: 0.5rem;
+  }
+
+  &__title {
+    font-family: var(--font-display);
+    font-size: map-get($font-sizes, '3xl');
+    font-weight: map-get($font-weights, 'bold');
+    letter-spacing: -0.025em;
+    color: var(--text-primary);
+  }
+
+  &__subtitle {
+    font-family: var(--font-mono);
+    font-size: map-get($font-sizes, 'xs');
+    color: var(--text-secondary);
+    text-transform: uppercase;
+  }
+
+  // ------------------------------------------------------------------
+  // BENTO GRID
+  // ------------------------------------------------------------------
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+
+    @include tablet-up {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+
+// ============================================================================
+// LAB CARD — Animated Border
+// ============================================================================
+
+.lab-card {
+  position: relative;
+  border-radius: map-get($border-radius, 'xl');
+  overflow: hidden;
+
+  // ---- Conic gradient border (::before) ----
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -30%;
+    background: conic-gradient(
+      transparent 30%,
+      var(--primary),
+      #ff007a,
+      #00f5d4,
+      transparent 70%
+    );
+    animation: lab-rotate 4s linear infinite;
+    z-index: 0;
+  }
+
+  // ---- Inner content mask (::after) ----
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border-radius: calc(map-get($border-radius, 'xl') - 1px);
+    background: var(--bg-dark);
+    z-index: 1;
+
+    [data-theme="light"] & {
+      background: var(--bg-light);
+    }
+  }
+
+  // ------------------------------------------------------------------
+  // CARD CONTENT (above ::after)
+  // ------------------------------------------------------------------
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    border-radius: calc(map-get($border-radius, 'xl') - 1px);
+    overflow: hidden;
+  }
+
+  // ------------------------------------------------------------------
+  // LARGE CARD (Card A)
+  // ------------------------------------------------------------------
+
+  &--large {
+    @include tablet-up {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    .lab-card__split {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+
+      @include tablet-lg-up {
+        flex-direction: row;
+      }
+    }
+  }
+
+  // ------------------------------------------------------------------
+  // SMALL CARD (Card B, C)
+  // ------------------------------------------------------------------
+
+  &--small {
+    aspect-ratio: 1 / 1;
+
+    .lab-card__content {
+      position: relative;
+    }
+  }
+
+  // ------------------------------------------------------------------
+  // SHARED ELEMENTS
+  // ------------------------------------------------------------------
+
+  // ---- Badge (status identifier) ----
+  &__badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    background: rgba(var(--primary-rgb), 0.1);
+    color: var(--primary);
+    padding: 0.25rem 0.5rem;
+    border-radius: map-get($border-radius, 'default');
+    margin-bottom: 0.75rem;
+    width: fit-content;
+  }
+
+  // ---- Card name (h3) ----
+  &__name {
+    font-family: var(--font-display);
+    font-weight: map-get($font-weights, 'bold');
+    color: white;
+    line-height: 1.25;
+    margin-bottom: 0.75rem;
+
+    .lab-card--large & {
+      font-size: map-get($font-sizes, '2xl');
+
+      @include tablet-up {
+        font-size: map-get($font-sizes, '3xl');
+      }
+    }
+
+    .lab-card--small & {
+      font-size: map-get($font-sizes, 'lg');
+
+      @include tablet-up {
+        font-size: map-get($font-sizes, 'xl');
+      }
+    }
+  }
+
+  // ---- Description (large card only) ----
+  &__description {
+    font-family: var(--font-display);
+    font-size: map-get($font-sizes, 'sm');
+    color: var(--text-secondary);
+    line-height: map-get($line-heights, 'relaxed');
+    margin-bottom: 1rem;
+    max-width: 28rem;
+  }
+
+  // ---- Tags ----
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__tag {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-dark);
+    padding: 0.25rem 0.5rem;
+    border-radius: map-get($border-radius, 'default');
+  }
+
+  // ---- CTA buttons (large card) ----
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  &__cta {
+    @include button-base;
+    font-size: map-get($font-sizes, 'xs');
+    padding: 0.625rem 1rem;
+
+    &--primary {
+      background: var(--primary);
+      color: white;
+
+      &:hover {
+        background: rgba(var(--primary-rgb), 0.9);
+        transform: translateY(-2px);
+      }
+
+      &:active {
+        transform: scale(0.98);
+      }
+    }
+
+    &--secondary {
+      background: transparent;
+      color: var(--text-secondary);
+      border: 1px solid var(--border-dark);
+
+      &:hover {
+        border-color: rgba(var(--primary-rgb), 0.5);
+        color: var(--primary);
+      }
+    }
+  }
+
+  &__cta-icon {
+    font-size: 0.875rem;
+  }
+
+  // ------------------------------------------------------------------
+  // INFO SIDE (large card)
+  // ------------------------------------------------------------------
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+    flex: 1;
+
+    @include tablet-lg-up {
+      padding: 2.5rem;
+    }
+  }
+
+  // ------------------------------------------------------------------
+  // PREVIEW SIDE (large card — video player)
+  // ------------------------------------------------------------------
+
+  &__preview {
+    display: flex;
+    padding: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+
+    @include tablet-lg-up {
+      padding: 2rem;
+    }
+  }
+
+  &__player {
+    width: 100%;
+    border-radius: map-get($border-radius, '2xl');
+    overflow: hidden;
+    border: 1px solid var(--border-dark);
+    background: rgba(var(--bg-dark-rgb), 0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    [data-theme="light"] & {
+      background: rgba(var(--bg-light-rgb), 0.8);
+      border-color: var(--border-light);
+    }
+  }
+
+  &__player-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.625rem 1rem;
+    border-bottom: 1px solid var(--border-dark);
+
+    [data-theme="light"] & {
+      border-color: var(--border-light);
+    }
+  }
+
+  &__player-filename {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    color: var(--text-secondary);
+  }
+
+  &__player-status {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+  }
+
+  &__player-dot {
+    width: 0.375rem;
+    height: 0.375rem;
+    background: var(--primary);
+    border-radius: map-get($border-radius, 'full');
+    animation: lab-pulse 2s ease-in-out infinite;
+  }
+
+  &__player-video {
+    aspect-ratio: 1 / 1;
+    background: var(--bg-dark);
+    position: relative;
+    overflow: hidden;
+
+    [data-theme="light"] & {
+      background: #000;
+    }
+  }
+
+  &__video,
+  &__video-poster {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__player-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.625rem 1rem;
+    border-top: 1px solid var(--border-dark);
+
+    [data-theme="light"] & {
+      border-color: var(--border-light);
+    }
+  }
+
+  &__player-footer-right {
+    text-align: right;
+  }
+
+  &__player-label {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.125rem;
+  }
+
+  &__player-value {
+    font-family: var(--font-mono);
+    font-size: map-get($font-sizes, 'xs');
+    color: var(--text-primary);
+  }
+
+  // ------------------------------------------------------------------
+  // SMALL CARD — Overlay & Image
+  // ------------------------------------------------------------------
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(var(--bg-dark-rgb), 0.8), transparent);
+    z-index: 3;
+
+    [data-theme="light"] & {
+      background: linear-gradient(to top, rgba(var(--bg-light-rgb), 0.8), transparent);
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(60%) brightness(0.7);
+    transition: filter 0.6s ease, transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+
+    .group:hover & {
+      filter: grayscale(0%) brightness(1);
+      transform: scale(1.05);
+    }
+  }
+
+  &__text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 1.5rem;
+    z-index: 4;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+
+    .group:hover & {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 0.1s;
+    }
+  }
+
+  // ---- Invisible link overlay for small cards ----
+  &__link {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+  }
+}
