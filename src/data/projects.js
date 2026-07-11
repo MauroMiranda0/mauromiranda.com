@@ -25,11 +25,12 @@ export const laboratoryProjects = [
     category: 'Interfaces de Usuario',
     status: 'EXPLORACIÓN_042',
     description: 'Template de dashboard con diseño responsivo, componentes modulares y sistema de diseño technical.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=400&fit=crop&crop=center',
+    image: './experimentos/dashboard-template/vistaPrevia.png',
     tags: ['SCSS', 'Dashboard', 'UI Components', 'Responsive'],
     demoUrl: './experimentos/dashboard-template/index.html',
     githubUrl: 'https://github.com/MauroMiranda0/mauromiranda.com/tree/main/experimentos/dashboard-template',
-    gridSize: 'small'
+    gridSize: 'small',
+    featured: true
   },
   {
     id: 'teseracto-template',

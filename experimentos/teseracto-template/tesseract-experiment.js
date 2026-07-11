@@ -30,7 +30,8 @@
       this.angles = { xy: 0, xz: 40, xw: 80, yz: 120, yw: 160, zw: 200 };
       this.lastFrameTime = null;
       this.rafId = null;
-      this.userPaused = false;
+      this.isOn = true;
+      this.isVisible = false;
 
       if (!this.video || !this.toggle) return;
 
@@ -38,9 +39,11 @@
       this.observeVisibility();
 
       if (prefersReducedMotion) {
-        this.video.pause();
-        this.renderStaticReadout();
+        this.isOn = false;
       }
+
+      this.updateToggle();
+      this.syncPlayback();
     }
 
     bindEvents() {
@@ -49,22 +52,17 @@
         this.updateRuntime();
       });
 
-      this.video.addEventListener('timeupdate', () => this.updateRuntime());
-
-      this.video.addEventListener('ended', () => {
-        if (!this.userPaused && !prefersReducedMotion) {
+      this.video.addEventListener('timeupdate', () => {
+        this.updateRuntime();
+        if (this.video.duration - this.video.currentTime < 0.15) {
           this.video.currentTime = 0;
-          this.video.play().catch(() => {});
         }
       });
 
       this.video.addEventListener('play', () => {
         this.toggle.setAttribute('aria-pressed', 'true');
         this.toggle.setAttribute('aria-label', 'Pausar animacion');
-
-        if (!prefersReducedMotion) {
-          this.startTelemetry();
-        }
+        if (!prefersReducedMotion) this.startTelemetry();
       });
 
       this.video.addEventListener('pause', () => {
@@ -74,37 +72,39 @@
       });
 
       this.toggle.addEventListener('click', () => {
-        if (this.video.paused) {
-          this.userPaused = false;
-          this.video.play().catch(() => {});
-        } else {
-          this.userPaused = true;
-          this.video.pause();
-        }
+        this.isOn = !this.isOn;
+        this.updateToggle();
+        this.syncPlayback();
       });
+    }
+
+    updateToggle() {
+      this.toggle.setAttribute('aria-pressed', String(this.isOn));
+    }
+
+    syncPlayback() {
+      if (this.isOn && this.isVisible && !prefersReducedMotion) {
+        this.video.play().catch(() => {});
+      } else {
+        this.video.pause();
+      }
     }
 
     observeVisibility() {
       if (!('IntersectionObserver' in window)) {
-        if (!prefersReducedMotion) {
-          this.video.play().catch(() => {});
-        }
+        if (!prefersReducedMotion) this.video.play().catch(() => {});
         return;
       }
 
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
-            if (prefersReducedMotion) return;
-
-            if (entry.isIntersecting && !this.userPaused) {
-              this.video.play().catch(() => {});
-            } else if (!entry.isIntersecting) {
-              this.video.pause();
-            }
+            if (entry.target !== this.root) return;
+            this.isVisible = entry.isIntersecting;
+            this.syncPlayback();
           });
         },
-        { threshold: 0.1 }
+        { threshold: 0.45 }
       );
 
       observer.observe(this.root);
@@ -112,7 +112,6 @@
 
     syncViewportRatio() {
       if (!this.video.videoWidth || !this.video.videoHeight) return;
-
       this.root.style.setProperty(
         '--video-ratio',
         `${this.video.videoWidth} / ${this.video.videoHeight}`
@@ -121,16 +120,16 @@
 
     startTelemetry() {
       if (this.rafId) return;
-
       this.lastFrameTime = performance.now();
 
       const tick = (now) => {
-        const deltaTime = (now - this.lastFrameTime) / 1000;
+        const dt = (now - this.lastFrameTime) / 1000;
         this.lastFrameTime = now;
 
         PLANES.forEach((plane) => {
-          this.angles[plane] = (this.angles[plane] + PLANE_SPEEDS[plane] * deltaTime) % 360;
-          this.readoutValues[plane].textContent = `${this.angles[plane].toFixed(1).padStart(5, '0')} deg`;
+          this.angles[plane] = (this.angles[plane] + PLANE_SPEEDS[plane] * dt) % 360;
+          this.readoutValues[plane].textContent =
+            `${this.angles[plane].toFixed(1).padStart(5, '0')} deg`;
         });
 
         this.rafId = requestAnimationFrame(tick);
@@ -141,33 +140,24 @@
 
     stopTelemetry() {
       if (!this.rafId) return;
-
       cancelAnimationFrame(this.rafId);
       this.rafId = null;
-    }
-
-    renderStaticReadout() {
-      PLANES.forEach((plane) => {
-        this.readoutValues[plane].textContent = `${this.angles[plane].toFixed(1).padStart(5, '0')} deg`;
-      });
     }
 
     updateRuntime() {
       if (!this.runtime) return;
 
-      const formatTime = (seconds) => {
-        if (!isFinite(seconds)) return '00:00';
-
-        const minutes = Math.floor(seconds / 60);
-        const remainingSeconds = Math.floor(seconds % 60);
-        return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
+      const fmt = (s) => {
+        if (!isFinite(s)) return '00:00';
+        return `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
       };
 
-      this.runtime.textContent = `${formatTime(this.video.currentTime)} / ${formatTime(this.video.duration)}`;
+      this.runtime.textContent =
+        `${fmt(this.video.currentTime)} / ${fmt(this.video.duration)}`;
     }
   }
 
-  document.querySelectorAll(ROOT_SELECTOR).forEach((element) => {
-    new TesseractExperiment(element);
+  document.querySelectorAll(ROOT_SELECTOR).forEach((el) => {
+    new TesseractExperiment(el);
   });
 })();
