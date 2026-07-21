@@ -4,36 +4,36 @@
  */
 
 // 1. Abstracts - Variables, mixins, funciones
-@import 'abstracts/variables';
-@import 'abstracts/mixins';
-@import 'abstracts/functions';
+@use 'abstracts/variables';
+@use 'abstracts/mixins';
+@use 'abstracts/functions';
 
 // 2. Vendors - Librerías externas
-@import 'vendors/normalize';
+@use 'vendors/normalize';
 
 // 3. Base - Estilos base y reset
-@import 'base/reset';
-@import 'base/typography';
-@import 'base/base';
+@use 'base/reset';
+@use 'base/typography';
+@use 'base/base';
 
 // 4. Layout - Componentes de layout
-@import 'layout/grid';
-@import 'layout/container';
+@use 'layout/grid';
+@use 'layout/container';
 
 // 5. Components - Componentes reutilizables
-@import 'components/buttons';
-@import 'components/cards';
-@import 'components/icons';
-@import 'components/animations';
+@use 'components/buttons';
+@use 'components/cards';
+@use 'components/icons';
+@use 'components/animations';
 
 // 6. Pages - Estilos específicos de páginas
-@import 'pages/home';
+@use 'pages/home';
 
 // 7. Themes - Temas y variaciones
-@import 'themes/dark';
-@import 'themes/light';
+@use 'themes/dark';
+@use 'themes/light';
 
 // 8. Utilities - Clases utilitarias
-@import 'utilities/spacing';
-@import 'utilities/text';
-@import 'utilities/display';
+@use 'utilities/spacing';
+@use 'utilities/text';
+@use 'utilities/display';

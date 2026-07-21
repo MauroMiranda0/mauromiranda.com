@@ -58,7 +58,7 @@
 
   &__label {
     font-family: var(--font-mono);
-    font-size: map-get($font-sizes, 'xs');
+    font-size: map.get($font-sizes, 'xs');
     color: var(--primary);
     letter-spacing: 0.2em;
     margin-bottom: 0.5rem;
@@ -66,15 +66,15 @@
 
   &__title {
     font-family: var(--font-display);
-    font-size: map-get($font-sizes, '3xl');
-    font-weight: map-get($font-weights, 'bold');
+    font-size: map.get($font-sizes, '3xl');
+    font-weight: map.get($font-weights, 'bold');
     letter-spacing: -0.025em;
     color: var(--text-primary);
   }
 
   &__subtitle {
     font-family: var(--font-mono);
-    font-size: map-get($font-sizes, 'xs');
+    font-size: map.get($font-sizes, 'xs');
     color: var(--text-secondary);
     text-transform: uppercase;
   }
@@ -100,7 +100,7 @@
 
 .lab-card {
   position: relative;
-  border-radius: map-get($border-radius, 'xl');
+  border-radius: map.get($border-radius, 'xl');
   overflow: hidden;
 
   // ---- Conic gradient border (::before) ----
@@ -124,7 +124,7 @@
     content: '';
     position: absolute;
     inset: 3px;
-    border-radius: calc(map-get($border-radius, 'xl') - 1px);
+    border-radius: calc(map.get($border-radius, 'xl') - 1px);
     background: var(--bg-dark);
     z-index: 1;
 
@@ -141,7 +141,7 @@
     position: relative;
     z-index: 2;
     height: 100%;
-    border-radius: calc(map-get($border-radius, 'xl') - 1px);
+    border-radius: calc(map.get($border-radius, 'xl') - 1px);
     overflow: hidden;
   }
 
@@ -190,7 +190,7 @@
     background: rgba(var(--primary-rgb), 0.1);
     color: var(--primary);
     padding: 0.25rem 0.5rem;
-    border-radius: map-get($border-radius, 'default');
+    border-radius: map.get($border-radius, 'default');
     margin-bottom: 0.75rem;
     width: fit-content;
   }
@@ -198,24 +198,24 @@
   // ---- Card name (h3) ----
   &__name {
     font-family: var(--font-display);
-    font-weight: map-get($font-weights, 'bold');
+    font-weight: map.get($font-weights, 'bold');
     color: white;
     line-height: 1.25;
     margin-bottom: 0.75rem;
 
     .lab-card--large & {
-      font-size: map-get($font-sizes, '2xl');
+      font-size: map.get($font-sizes, '2xl');
 
       @include tablet-up {
-        font-size: map-get($font-sizes, '3xl');
+        font-size: map.get($font-sizes, '3xl');
       }
     }
 
     .lab-card--small & {
-      font-size: map-get($font-sizes, 'lg');
+      font-size: map.get($font-sizes, 'lg');
 
       @include tablet-up {
-        font-size: map-get($font-sizes, 'xl');
+        font-size: map.get($font-sizes, 'xl');
       }
     }
   }
@@ -223,9 +223,9 @@
   // ---- Description (large card only) ----
   &__description {
     font-family: var(--font-display);
-    font-size: map-get($font-sizes, 'sm');
+    font-size: map.get($font-sizes, 'sm');
     color: var(--text-secondary);
-    line-height: map-get($line-heights, 'relaxed');
+    line-height: map.get($line-heights, 'relaxed');
     margin-bottom: 1rem;
     max-width: 28rem;
   }
@@ -244,7 +244,7 @@
     color: var(--text-secondary);
     border: 1px solid var(--border-dark);
     padding: 0.25rem 0.5rem;
-    border-radius: map-get($border-radius, 'default');
+    border-radius: map.get($border-radius, 'default');
   }
 
   // ---- CTA buttons (large card) ----
@@ -256,7 +256,7 @@
 
   &__cta {
     @include button-base;
-    font-size: map-get($font-sizes, 'xs');
+    font-size: map.get($font-sizes, 'xs');
     padding: 0.625rem 1rem;
 
     &--primary {
@@ -323,7 +323,7 @@
 
   &__player {
     width: 100%;
-    border-radius: map-get($border-radius, '2xl');
+    border-radius: map.get($border-radius, '2xl');
     overflow: hidden;
     border: 1px solid var(--border-dark);
     background: rgba(var(--bg-dark-rgb), 0.8);
@@ -367,7 +367,7 @@
     width: 0.375rem;
     height: 0.375rem;
     background: var(--primary);
-    border-radius: map-get($border-radius, 'full');
+    border-radius: map.get($border-radius, 'full');
     animation: lab-pulse 2s ease-in-out infinite;
   }
 
@@ -414,7 +414,7 @@
 
   &__player-value {
     font-family: var(--font-mono);
-    font-size: map-get($font-sizes, 'xs');
+    font-size: map.get($font-sizes, 'xs');
     color: var(--text-primary);
   }
 

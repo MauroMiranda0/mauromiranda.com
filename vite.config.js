@@ -19,7 +19,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@import "@styles/abstracts/_variables.scss"; @import "@styles/abstracts/_mixins.scss";`
+        additionalData: `@use "sass:map"; @use "@styles/abstracts/variables" as *; @use "@styles/abstracts/mixins" as *;`
       }
     }
   },

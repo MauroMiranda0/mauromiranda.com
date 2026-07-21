@@ -1,8 +1,10 @@
-// Tipografía base
+@use 'sass:map';
+@use '../abstracts/variables' as *;
+
 body {
   font-family: var(--font-display);
-  font-size: map-get($font-sizes, 'base');
+  font-size: map.get($font-sizes, 'base');
   color: var(--text-primary);
   background: var(--bg-dark);
-  line-height: map-get($line-heights, 'normal');
+  line-height: map.get($line-heights, 'normal');
 }
