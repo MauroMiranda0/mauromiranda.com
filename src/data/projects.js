@@ -131,32 +131,32 @@ export const techStack = [
     name: 'REACT / NEXT.JS',
     icon: 'javascript',
     category: 'Frontend',
-    description: 'Construcción de interfaces dinámicas con React y optimización server-side con Next.js. Enfoque en componentes modulares, SSR/SSG y experiencia de usuario fluida.',
+    description: 'Desarrollo de interfaces modernas y dinámicas con React, optimizadas con Next.js para renderizado server-side (SSR) y generación estática (SSG). Enfoque en componentes modulares, accesibilidad y experiencias de usuario fluidas.',
     tags: ['JavaScript', 'NodeJS', 'CSS', 'HTML']
   },
   {
-    id: 'python-php',
-    name: 'PYTHON / PHP',
+    id: 'python-nodejs',
+    name: 'PYTHON / NODEJS',
     icon: 'settings_ethernet',
     category: 'Backend',
-    description: 'Desarrollo backend versátil con Python para soluciones de IA y automatización, y PHP para aplicaciones web robustas. Integración con bases de datos y APIs REST.',
-    tags: ['Python', 'PHP', 'SQL', 'APIs REST']
+    description: 'Backend versátil con Python para soluciones de IA, automatización y análisis de datos; y NodeJS para aplicaciones web en tiempo real. Integración con APIs REST, servicios cloud y arquitecturas escalables.',
+    tags: ['Python', 'NodeJS', 'APIs REST', 'IA']
   },
   {
-    id: 'sql-database',
-    name: 'SQL / POSTGRESQL',
+    id: 'supabase-postgresql',
+    name: 'SUPABASE / POSTGRESQL',
     icon: 'database',
     category: 'Base de Datos',
-    description: 'Modelado y administración de bases de datos relacionales con SQL y PostgreSQL. Optimización de consultas, integridad referencial y escalabilidad de datos.',
-    tags: ['PostgreSQL', 'MySQL', 'Query Optimization', 'Data Modeling']
+    description: 'Gestión de datos con Supabase como plataforma backend en tiempo real y PostgreSQL como motor relacional robusto. Incluye autenticación, almacenamiento seguro y escalabilidad para proyectos de alto rendimiento.',
+    tags: ['Supabase', 'PostgreSQL', 'Auth', 'Tiempo Real']
   },
   {
-    id: 'git-devops',
-    name: 'GIT / DEVOPS',
+    id: 'docker-n8n',
+    name: 'DOCKER / N8N',
     icon: 'cloud',
-    category: 'Infraestructura',
-    description: 'Control de versiones con Git y GitHub, despliegue en entornos Linux y Windows. Automatización de flujos de trabajo y mantenimiento de infraestructura.',
-    tags: ['Git', 'GitHub', 'Linux', 'VS Code']
+    category: 'Infraestructura y Automatización',
+    description: 'Contenedores Docker para entornos reproducibles y despliegues eficientes; n8n para automatización de flujos de trabajo. Control de versiones con Git y despliegue en servidores Linux, garantizando estabilidad y continuidad.',
+    tags: ['Docker', 'n8n', 'Git', 'Linux']
   }
 ]
 
