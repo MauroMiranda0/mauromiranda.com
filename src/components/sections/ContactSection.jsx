@@ -41,7 +41,7 @@ const ContactSection = () => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <p className="contact__label">[ 05 / CONTACTO ]</p>
+          <p className="contact__label">[ 05 CONTACTO ]</p>
           <h2 className="contact__title">INICIAR PROYECTO</h2>
           <p className="contact__subtitle">
             Cuéntame sobre tu proyecto. Estoy listo para convertir tu visión en una solución digital de alto rendimiento.
@@ -81,7 +81,7 @@ const ContactSection = () => {
               />
             </div>
 
-            <div className="contact__field contact__field--full">
+            <div className="contact__field">
               <label className="contact__label-field" htmlFor="contact-message">MENSAJE</label>
               <textarea
                 id="contact-message"
