@@ -33,7 +33,7 @@ const AboutSection = () => {
   }
 
   return (
-    <section className="about" id="profile" ref={ref}>
+    <section className="about" id="about" ref={ref}>
       <div className="about__container">
         <motion.div
           className="about__header"

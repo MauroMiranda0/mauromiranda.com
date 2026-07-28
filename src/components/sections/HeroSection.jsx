@@ -37,7 +37,7 @@ const HeroSection = () => {
   }
 
   return (
-    <section className="hero" ref={ref}>
+    <section className="hero" id="hero" ref={ref}>
       <div className="hero__container">
         {/* Información de ubicación/estado */}
         <motion.div 
