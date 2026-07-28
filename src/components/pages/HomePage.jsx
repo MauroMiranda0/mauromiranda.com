@@ -8,6 +8,7 @@ import HeroSection from '@components/sections/HeroSection'
 import LaboratorySection from '@components/sections/LaboratorySection'
 import ProductionSection from '@components/sections/ProductionSection'
 import TechStackSection from '@components/sections/TechStackSection'
+import AboutSection from '@components/sections/AboutSection'
 import Footer from '@components/layout/Footer'
 import BackgroundGrid from '@components/common/BackgroundGrid'
 
@@ -27,6 +28,7 @@ const HomePage = () => {
         <LaboratorySection />
         <ProductionSection />
         <TechStackSection />
+        <AboutSection />
       </main>
       
       <Footer />
