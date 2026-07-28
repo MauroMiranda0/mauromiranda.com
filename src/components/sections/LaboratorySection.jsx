@@ -49,13 +49,8 @@ const LaboratorySection = () => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <div className="laboratory__header-left">
-            <p className="laboratory__label">[ 01 ]</p>
-            <h2 className="laboratory__title">LABORATORIO DE INNOVACIÓN</h2>
-          </div>
-          <p className="laboratory__subtitle">
-            Prototipado Estratégico &amp; Exploración Técnica
-          </p>
+          <p className="laboratory__label">[ 01 LABORATORIO ]</p>
+          <h2 className="laboratory__title">PROYECTOS DE INNOVACIÓN</h2>
         </motion.div>
 
         <motion.div

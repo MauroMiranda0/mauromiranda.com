@@ -44,6 +44,30 @@ export const laboratoryProjects = [
     demoUrl: './experimentos/teseracto-template/tesseract-experiment.html',
     githubUrl: 'https://github.com/MauroMiranda0/mauromiranda.com/tree/main/experimentos/teseracto-template',
     gridSize: 'small'
+  },
+  {
+    id: 'neural-pattern-synth',
+    title: 'Motor de Síntesis Neural',
+    category: 'Inteligencia Artificial',
+    status: 'PROTOTIPO_031',
+    description: 'Sistema de síntesis de patrones visuales generativos impulsado por redes neuronales ligeras en el navegador.',
+    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=400&fit=crop&crop=center',
+    tags: ['TensorFlow.js', 'WebGL', 'Generativo', 'IA'],
+    demoUrl: '#',
+    githubUrl: 'https://github.com/MauroMiranda0',
+    gridSize: 'small'
+  },
+  {
+    id: 'waveform-visualizer',
+    title: 'Visualizador de Ondas',
+    category: 'Audio Visual',
+    status: 'EXPLORACIÓN_058',
+    description: 'Visualizador de audio en tiempo real con análisis espectral, shaders GLSL y respuesta dinámica a frecuencias.',
+    image: 'https://images.unsplash.com/photo-1559757175-5700dde675bc?w=400&h=400&fit=crop&crop=center',
+    tags: ['Web Audio API', 'GLSL', 'Espectral', 'Tiempo Real'],
+    demoUrl: '#',
+    githubUrl: 'https://github.com/MauroMiranda0',
+    gridSize: 'small'
   }
 ]
 
