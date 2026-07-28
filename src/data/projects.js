@@ -77,15 +77,18 @@ export const productionProjects = [
     title: 'Knemco Manufacturing',
     category: 'Manufactura Digital',
     client: 'Knemco',
-    description: 'Plataforma web de manufactura aditiva construida para un taller de impresión 3D con alcance regional. Enfoque en visualización 3D de modelos interactivos, catálogo técnico parametrizable por material y geometría, y sistema de cotización automatizado.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&crop=center',
+    description: 'Plataforma web integral de manufactura aditiva construida para un taller de impresión 3D con base en Grande Prairie, Alberta. Enfoque en exhibición de productos personalizados (iluminación escultórica, macetas de diseño, accesorios para mascotas, regalos personalizados), visualización interactiva de modelos, y sistema de captación de leads con formularios inteligentes segmentados por tipo de proyecto (fabricación, inversión comunitaria, alianzas).',
+    image: '/assets/knemco/hero-background-CEUOhYPQ.jpg',
     metrics: [
-      { label: 'RENDIMIENTO', value: '97/100 LIGHTHOUSE' },
-      { label: 'STACK', value: 'NEXT.JS, THREE.JS, NODE.JS, POSTGRESQL' }
+      { label: 'RENDIMIENTO', value: '96/100 LIGHTHOUSE' },
+      { label: 'PRODUCTOS', value: '4 LÍNEAS + FABRICACIÓN BAJO DEMANDA' },
+      { label: 'STACK', value: 'REACT, FRAMER MOTION, EMAILJS' }
     ],
-    technologies: ['Next.js', 'React', 'Three.js', 'Node.js', 'PostgreSQL', 'Tailwind CSS'],
-    timeline: '4 meses',
-    team: '2 desarrolladores',
+    technologies: ['React', 'Vite', 'Framer Motion', 'EmailJS', 'CSS Modules', 'React Scroll'],
+    timeline: '3 meses',
+    team: '1 desarrollador',
+    founders: ['Leonardo Yáñez', 'Mariusz Szczepan'],
+    location: 'Grande Prairie, Alberta, Canadá',
     caseStudyUrl: '#',
     featured: true
   },
