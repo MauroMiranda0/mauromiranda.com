@@ -9,6 +9,7 @@ import LaboratorySection from '@components/sections/LaboratorySection'
 import ProductionSection from '@components/sections/ProductionSection'
 import TechStackSection from '@components/sections/TechStackSection'
 import AboutSection from '@components/sections/AboutSection'
+import ContactSection from '@components/sections/ContactSection'
 import Footer from '@components/layout/Footer'
 import BackgroundGrid from '@components/common/BackgroundGrid'
 
@@ -29,6 +30,7 @@ const HomePage = () => {
         <ProductionSection />
         <TechStackSection />
         <AboutSection />
+        <ContactSection />
       </main>
       
       <Footer />
