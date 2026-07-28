@@ -73,10 +73,10 @@ export const laboratoryProjects = [
 
 export const productionProjects = [
   {
-    id: 'quantum-ledger-v2',
-    title: 'Quantum Ledger v2',
-    category: 'Arquitectura Fintech',
-    client: 'Financial Technology Corp',
+    id: 'knemco-manufacturing',
+    title: 'Knemco Manufacturing',
+    category: 'Transformación Industrial',
+    client: 'Knemco',
     description: 'Renovación arquitectónica completa para una plataforma de trading en tiempo real. Implementé una arquitectura de micro-frontends personalizada usando React y módulos WebAssembly impulsados por Rust.',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&crop=center',
     metrics: [
@@ -90,10 +90,10 @@ export const productionProjects = [
     featured: true
   },
   {
-    id: 'aura-luxury-marketplace',
-    title: 'Aura Luxury Marketplace',
+    id: 'print3d-webapp',
+    title: 'Print3D Webapp',
     category: 'Núcleo E-Commerce',
-    client: 'Casa de Moda de Lujo',
+    client: 'Print3D',
     description: 'Una experiencia de compra minimalista y de alto rendimiento para una casa de moda de alta gama. Enfocado en estabilidad de layout, transiciones suaves y Core Web Vitals.',
     image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop&crop=center',
     metrics: [
@@ -105,6 +105,23 @@ export const productionProjects = [
     team: '5 desarrolladores',
     caseStudyUrl: '#',
     featured: true
+  },
+  {
+    id: 'conciencia-landing',
+    title: 'Conciencia Landing Page',
+    category: 'Landing Page Estratégica',
+    client: 'Conciencia',
+    description: 'Landing page de alto rendimiento diseñada para maximizar conversiones y transmitir el propósito de la marca con una experiencia visual impactante.',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop&crop=center',
+    metrics: [
+      { label: 'RENDIMIENTO', value: '96/100 LIGHTHOUSE' },
+      { label: 'STACK', value: 'NEXT.JS, FRAMER MOTION' }
+    ],
+    technologies: ['Next.js', 'Framer Motion', 'SCSS', 'SEO'],
+    timeline: '3 meses',
+    team: '3 desarrolladores',
+    caseStudyUrl: '#',
+    featured: true
   }
 ]
 
@@ -113,33 +130,33 @@ export const techStack = [
     id: 'react-nextjs',
     name: 'REACT / NEXT.JS',
     icon: 'javascript',
-    level: 0.95,
     category: 'Frontend',
-    description: 'Patrones avanzados de React, SSR/SSG, optimización de rendimiento'
+    description: 'Construcción de interfaces dinámicas con React y optimización server-side con Next.js. Enfoque en componentes modulares, SSR/SSG y experiencia de usuario fluida.',
+    tags: ['JavaScript', 'NodeJS', 'CSS', 'HTML']
   },
   {
-    id: 'python-django',
-    name: 'PYTHON / DJANGO',
+    id: 'python-php',
+    name: 'PYTHON / PHP',
     icon: 'settings_ethernet',
-    level: 0.88,
     category: 'Backend',
-    description: 'APIs REST, GraphQL, arquitectura de microservicios'
+    description: 'Desarrollo backend versátil con Python para soluciones de IA y automatización, y PHP para aplicaciones web robustas. Integración con bases de datos y APIs REST.',
+    tags: ['Python', 'PHP', 'SQL', 'APIs REST']
   },
   {
-    id: 'postgresql',
-    name: 'POSTGRESQL',
+    id: 'sql-database',
+    name: 'SQL / POSTGRESQL',
     icon: 'database',
-    level: 0.90,
     category: 'Base de Datos',
-    description: 'Optimización de consultas, estrategias de indexación, modelado de datos'
+    description: 'Modelado y administración de bases de datos relacionales con SQL y PostgreSQL. Optimización de consultas, integridad referencial y escalabilidad de datos.',
+    tags: ['PostgreSQL', 'MySQL', 'Query Optimization', 'Data Modeling']
   },
   {
-    id: 'aws-devops',
-    name: 'AWS / DEVOPS',
+    id: 'git-devops',
+    name: 'GIT / DEVOPS',
     icon: 'cloud',
-    level: 0.82,
     category: 'Infraestructura',
-    description: 'Pipelines CI/CD, containerización, arquitectura cloud'
+    description: 'Control de versiones con Git y GitHub, despliegue en entornos Linux y Windows. Automatización de flujos de trabajo y mantenimiento de infraestructura.',
+    tags: ['Git', 'GitHub', 'Linux', 'VS Code']
   }
 ]
 
