@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0B0B0F">
+  <link rel="manifest" href="/assets/manifest-CocskcQs.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap">
+  <title>Control de Costos – Impresión 3D</title>
+  <script type="module" crossorigin src="/assets/index-UHNKMmaS.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-BUC5_j8_.css">
+</head>
+
+<body>
+  <div class="contenedor">
+    <header class="header">
+      <img src="/assets/logo-_meTbGYN.png" class="logo" alt="Logo">
+      <h1 class="titulo">Control de Costos<span>Impresión 3D</span></h1>
+    </header>
+
+    <div class="card">
+      <h2 class="card-title">Datos de la Pieza</h2>
+      <div class="card-grid">
+        <div class="campo full">
+          <label for="nombre">Nombre del archivo</label>
+          <input id="nombre" placeholder="Ej: Engranaje tipo A">
+        </div>
+        <div class="campo full">
+          <label for="link">Link del modelo</label>
+          <input id="link" placeholder="https://...">
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2 class="card-title">Parámetros de Impresión</h2>
+      <div class="card-grid card-grid--4">
+        <div class="campo">
+          <label for="horas">Horas</label>
+          <div class="quantity-control">
+            <button type="button" onclick="stepInput('horas', -1)">-</button>
+            <input id="horas" type="number" value="0" min="0" placeholder="0">
+            <button type="button" onclick="stepInput('horas', 1)">+</button>
+          </div>
+        </div>
+        <div class="campo">
+          <label for="minutos">Minutos</label>
+          <div class="quantity-control">
+            <button type="button" onclick="stepInput('minutos', -1)">-</button>
+            <input id="minutos" type="number" value="0" min="0" placeholder="0">
+            <button type="button" onclick="stepInput('minutos', 1)">+</button>
+          </div>
+        </div>
+        <div class="campo">
+          <label for="gramos">Gramos</label>
+          <div class="quantity-control">
+            <button type="button" onclick="stepInput('gramos', -1)">-</button>
+            <input id="gramos" type="number" value="0" min="0" placeholder="0">
+            <button type="button" onclick="stepInput('gramos', 1)">+</button>
+          </div>
+        </div>
+        <div class="campo">
+          <label for="manoObra">Mano de obra ($/h)</label>
+          <div class="quantity-control">
+            <button type="button" onclick="stepInput('manoObra', -1)">-</button>
+            <input id="manoObra" type="number" value="0" min="0" placeholder="0">
+            <button type="button" onclick="stepInput('manoObra', 1)">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2 class="card-title">Costos</h2>
+      <div class="card-grid">
+        <div class="campo">
+          <label for="ganancia">Margen de ganancia (%)</label>
+          <div class="quantity-control">
+            <button type="button" onclick="stepInput('ganancia', -1)">-</button>
+            <input id="ganancia" type="number" value="0" min="0" placeholder="0">
+            <button type="button" onclick="stepInput('ganancia', 1)">+</button>
+          </div>
+        </div>
+        <div class="campo">
+          <label for="materialExtra">Material extra</label>
+          <input id="materialExtra" placeholder="Nombre del material">
+        </div>
+        <div class="campo">
+          <label for="cantidadExtra">Cantidad</label>
+          <div class="quantity-control">
+            <button type="button" onclick="stepInput('cantidadExtra', -1)">-</button>
+            <input id="cantidadExtra" type="number" value="0" min="0" placeholder="0">
+            <button type="button" onclick="stepInput('cantidadExtra', 1)">+</button>
+          </div>
+        </div>
+        <div class="campo">
+          <label for="costoExtra">Costo extra ($)</label>
+          <div class="quantity-control">
+            <button type="button" onclick="stepInput('costoExtra', -1)">-</button>
+            <input id="costoExtra" type="number" value="0" min="0" placeholder="0">
+            <button type="button" onclick="stepInput('costoExtra', 1)">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2 class="card-title">Imagen</h2>
+      <div class="card-grid">
+        <div class="campo full">
+          <input id="imagen" type="file" accept="image/*">
+        </div>
+      </div>
+    </div>
+
+    <div class="preview-card" id="previewCard">
+      <div class="preview-row">
+        <span class="preview-label">Costo pieza</span>
+        <span class="preview-value" id="previewCosto">$0</span>
+      </div>
+      <div class="preview-row preview-row--highlight">
+        <span class="preview-label">Precio público</span>
+        <span class="preview-value preview-value--big" id="previewPublico">$0</span>
+      </div>
+    </div>
+
+    <div class="boton-guardar">
+      <button class="btn-primary guardar-btn" onclick="guardar()">Guardar Pieza</button>
+    </div>
+
+    <div id="validacion" class="validacion"></div>
+
+    <div class="card">
+      <div class="tabla-header">
+        <h2>Piezas Guardadas</h2>
+        <span class="tabla-count" id="tablaCount">0 piezas</span>
+      </div>
+      <div class="tabla-wrapper">
+        <table class="tabla-responsive">
+          <thead>
+            <tr>
+              <th>Img</th>
+              <th>Nombre</th>
+              <th>Link</th>
+              <th>Material</th>
+              <th>Cant.</th>
+              <th>Costo</th>
+              <th>Público</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="tabla"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal" onclick="cerrarModal()"><img id="modalImg"></div>
+  <div id="offlineIndicator" class="offline-indicator">Sin conexión — modo offline</div>
+</body>
+
+</html>

@@ -93,19 +93,38 @@ export const productionProjects = [
     featured: true
   },
   {
-    id: 'print3d-webapp',
-    title: 'Print3D Webapp',
-    category: 'Núcleo E-Commerce',
+    id: 'control-costos-3d',
+    title: 'Control de Costos Impresión 3D',
+    category: 'Software de Fabricación',
     client: 'Print3D',
-    description: 'Una experiencia de compra minimalista y de alto rendimiento para una casa de moda de alta gama. Enfocado en estabilidad de layout, transiciones suaves y Core Web Vitals.',
-    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop&crop=center',
+    description: 'Aplicación web progresiva construida para el cálculo preciso y la gestión de costos en manufactura aditiva. Arquitectura offline-first con sincronización eficiente, interfaz optimizada para entornos de taller y persistencia de datos mediante almacenamiento local.',
+    image: '/dist%20-%20copia/assets/logo-_meTbGYN.png',
     metrics: [
-      { label: 'ESCALA', value: '500K+ GESTIÓN DE SKU' },
-      { label: 'STACK', value: 'HEADLESS COMMERCE, GSAP' }
+      { label: 'RENDIMIENTO', value: '96/100 LIGHTHOUSE' },
+      { label: 'STACK', value: 'PWA, SERVICE WORKER, LOCALSTORAGE' },
+      { label: 'MODO OFFLINE', value: 'SINCRONIZACIÓN AUTOMÁTICA' }
     ],
-    technologies: ['React', 'Shopify Plus', 'GSAP', 'Framer Motion', 'Tailwind CSS'],
-    timeline: '4 meses',
-    team: '5 desarrolladores',
+    technologies: ['JavaScript', 'HTML5', 'CSS3', 'Service Worker API', 'Web Manifest', 'LocalStorage API'],
+    timeline: '2 meses',
+    team: '1 desarrollador',
+    caseStudyUrl: '#',
+    featured: true
+  },
+  {
+    id: 'sonic-store',
+    title: 'Sonic Store',
+    category: 'Experiencia de Compra Premium',
+    client: 'Sonic Store',
+    description: 'Plataforma de comercio electrónico construida para una tienda de belleza, moda y estilo de vida con alcance en calzado, hogar y cosmética. Enfoque en catálogo visual multicategoría, integración con canales de venta directa mediante WhatsApp y experiencia de navegación fluida optimizada para conversión móvil.',
+    image: '/distSonic/img/logo.png',
+    metrics: [
+      { label: 'CATEGORÍAS', value: '5 LÍNEAS DE PRODUCTO' },
+      { label: 'STACK', value: 'REACT, VITE, CSS CUSTOM PROPERTIES' },
+      { label: 'CANAL DE VENTA', value: 'INTEGRACIÓN WHATSAPP API' }
+    ],
+    technologies: ['React', 'Vite', 'CSS Custom Properties', 'React Router', 'WhatsApp API'],
+    timeline: '3 meses',
+    team: '1 desarrollador',
     caseStudyUrl: '#',
     featured: true
   },
