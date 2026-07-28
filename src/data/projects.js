@@ -75,17 +75,17 @@ export const productionProjects = [
   {
     id: 'knemco-manufacturing',
     title: 'Knemco Manufacturing',
-    category: 'Transformación Industrial',
+    category: 'Manufactura Digital',
     client: 'Knemco',
-    description: 'Renovación arquitectónica completa para una plataforma de trading en tiempo real. Implementé una arquitectura de micro-frontends personalizada usando React y módulos WebAssembly impulsados por Rust.',
+    description: 'Plataforma web de manufactura aditiva construida para un taller de impresión 3D con alcance regional. Enfoque en visualización 3D de modelos interactivos, catálogo técnico parametrizable por material y geometría, y sistema de cotización automatizado.',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&crop=center',
     metrics: [
-      { label: 'RENDIMIENTO', value: '98/100 LIGHTHOUSE' },
-      { label: 'STACK', value: 'NEXT.JS, RUST, WEBSOCKETS' }
+      { label: 'RENDIMIENTO', value: '97/100 LIGHTHOUSE' },
+      { label: 'STACK', value: 'NEXT.JS, THREE.JS, NODE.JS, POSTGRESQL' }
     ],
-    technologies: ['Next.js', 'React', 'Rust', 'WebAssembly', 'WebSockets', 'PostgreSQL'],
-    timeline: '6 meses',
-    team: '8 desarrolladores',
+    technologies: ['Next.js', 'React', 'Three.js', 'Node.js', 'PostgreSQL', 'Tailwind CSS'],
+    timeline: '4 meses',
+    team: '2 desarrolladores',
     caseStudyUrl: '#',
     featured: true
   },
