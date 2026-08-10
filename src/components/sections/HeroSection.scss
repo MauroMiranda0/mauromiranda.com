@@ -154,4 +154,192 @@
       transform: translateX(2px);
     }
   }
+
+  // ==========================================================================
+  // MODAL — Manifiesto de Ingeniería
+  // ==========================================================================
+
+  &__modal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: map.get($z-layers, 'modal-backdrop');
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    backdrop-filter: blur(4px);
+  }
+
+  &__modal {
+    position: relative;
+    z-index: map.get($z-layers, 'modal');
+    background: var(--bg-dark);
+    border: 1px solid var(--border-dark);
+    border-radius: map.get($border-radius, 'xl');
+    max-width: 640px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+
+    @include light-mode {
+      background: var(--bg-light);
+      border-color: var(--border-light);
+    }
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--border-dark);
+      border-radius: 3px;
+    }
+  }
+
+  &__modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--border-dark);
+
+    @include light-mode {
+      border-color: var(--border-light);
+    }
+  }
+
+  &__modal-label {
+    font-family: var(--font-mono);
+    font-size: map.get($font-sizes, 'sm');
+    font-weight: map.get($font-weights, 'bold');
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    .material-symbols-outlined {
+      font-size: 1.25rem;
+    }
+  }
+
+  &__modal-close {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: map.get($border-radius, 'default');
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: var(--text-primary);
+      background: rgba(var(--primary-rgb), 0.1);
+    }
+
+    .material-symbols-outlined {
+      font-size: 1.25rem;
+    }
+  }
+
+  &__modal-body {
+    padding: 1.5rem;
+  }
+
+  &__modal-section {
+    margin-bottom: 1.5rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__modal-subtitle {
+    font-family: var(--font-mono);
+    font-size: map.get($font-sizes, 'xs');
+    font-weight: map.get($font-weights, 'bold');
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+  }
+
+  &__modal-text {
+    font-family: var(--font-display);
+    font-size: map.get($font-sizes, 'base');
+    color: var(--text-secondary);
+    line-height: map.get($line-heights, 'relaxed');
+  }
+
+  &__modal-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__modal-item {
+    padding-left: 1rem;
+    border-left: 2px solid rgba(var(--primary-rgb), 0.3);
+  }
+
+  &__modal-item-title {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: map.get($font-sizes, 'sm');
+    font-weight: map.get($font-weights, 'bold');
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+  }
+
+  &__modal-item-desc {
+    font-family: var(--font-display);
+    font-size: map.get($font-sizes, 'sm');
+    color: var(--text-secondary);
+    line-height: map.get($line-heights, 'normal');
+  }
+
+  &__modal-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  &__modal-pill {
+    font-family: var(--font-mono);
+    font-size: map.get($font-sizes, 'xs');
+    color: var(--primary);
+    background: rgba(var(--primary-rgb), 0.1);
+    border: 1px solid rgba(var(--primary-rgb), 0.2);
+    padding: 0.3rem 0.75rem;
+    border-radius: map.get($border-radius, 'full');
+  }
+
+  &__modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1.5rem;
+    border-top: 1px solid var(--border-dark);
+
+    @include light-mode {
+      border-color: var(--border-light);
+    }
+  }
+
+  &__modal-version {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    color: var(--text-tertiary);
+  }
+
+  &__modal-status {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    color: rgba(var(--primary-rgb), 0.6);
+  }
 }

@@ -5,88 +5,143 @@
 
 export const laboratoryProjects = [
   {
-    id: 'neural-synth-engine',
+    id: 'animacion-lampara',
+    title: 'Animación de Lámpara',
+    category: 'Animación Digital',
+    status: 'PROTOTIPO_017',
+    description: 'Animación procedural de una lámpara con física de sombras y iluminación dinámica en tiempo real.',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=center',
+    video: './experimentos/animacion-lampara/animacionLampara.mp4',
+    poster: './experimentos/animacion-lampara/animacionLampara-poster.jpg',
+    tags: ['Canvas API', 'Animación', 'Física de Luz', 'Tiempo Real'],
+    demoUrl: './experimentos/animacion-lampara/index.html',
+    githubUrl: 'https://github.com/MauroMiranda0/mauromiranda.com/tree/main/experimentos/animacion-lampara',
+    gridSize: 'large',
+    featured: true
+  },
+  {
+    id: 'dashboard-template',
+    title: 'Dashboard Template',
+    category: 'Interfaces de Usuario',
+    status: 'EXPLORACIÓN_042',
+    description: 'Template de dashboard con diseño responsivo, componentes modulares y sistema de diseño technical.',
+    image: './experimentos/dashboard-template/vistaPrevia.png',
+    tags: ['SCSS', 'Dashboard', 'UI Components', 'Responsive'],
+    demoUrl: './experimentos/dashboard-template/index.html',
+    githubUrl: 'https://github.com/MauroMiranda0/mauromiranda.com/tree/main/experimentos/dashboard-template',
+    gridSize: 'small',
+    featured: true
+  },
+  {
+    id: 'teseracto-template',
+    title: 'Teseracto Template',
+    category: 'Visualización Experimental',
+    status: 'R&D_LAB_05',
+    description: 'Visualizador experimental de video 3D con composición moderna, controles ligeros y una capa visual pensada para demos interactivas.',
+    image: 'https://images.unsplash.com/photo-1637144113536-9c6e917e6b24?w=400&h=400&fit=crop&crop=center',
+    video: './experimentos/teseracto-template/teseracto.mp4',
+    tags: ['Video', '3D', 'Loop Cinemático', 'WebGL'],
+    demoUrl: './experimentos/teseracto-template/tesseract-experiment.html',
+    githubUrl: 'https://github.com/MauroMiranda0/mauromiranda.com/tree/main/experimentos/teseracto-template',
+    gridSize: 'small'
+  },
+  {
+    id: 'neural-pattern-synth',
     title: 'Motor de Síntesis Neural',
-    category: 'Aprendizaje Automático',
-    status: 'ESTABLE / v2.1.0',
-    description: 'Síntesis de audio generativa impulsada por algoritmos de aprendizaje automático en el navegador.',
-    image: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=800&fit=crop&crop=center',
-    tags: ['WebAudio API', 'TensorFlow.js', 'React', 'Web Workers'],
+    category: 'Inteligencia Artificial',
+    status: 'PROTOTIPO_031',
+    description: 'Sistema de síntesis de patrones visuales generativos impulsado por redes neuronales ligeras en el navegador.',
+    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=400&fit=crop&crop=center',
+    tags: ['TensorFlow.js', 'WebGL', 'Generativo', 'IA'],
     demoUrl: '#',
-    githubUrl: '#',
-    featured: true,
-    gridSize: 'large' // large, medium, small
-  },
-  {
-    id: 'vector-engine',
-    title: 'Motor Vectorial',
-    category: 'Matemáticas',
-    status: 'EXPERIMENTO_042',
-    description: 'Motor de visualización de campos vectoriales en tiempo real y computación matemática.',
-    image: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&h=400&fit=crop&crop=center',
-    tags: ['WebGL', 'GLSL', 'Canvas API', 'Matemáticas'],
-    demoUrl: '#',
-    githubUrl: '#',
+    githubUrl: 'https://github.com/MauroMiranda0',
     gridSize: 'small'
   },
   {
-    id: 'fluid-dynamics',
-    title: 'Dinámica de Fluidos',
-    category: 'Simulación Física',
-    status: 'SIM_009',
-    description: 'Simulación interactiva de fluidos usando ecuaciones de Navier-Stokes en tiempo real.',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center',
-    tags: ['Física', 'WebGL', 'Compute Shaders', 'Tiempo Real'],
+    id: 'waveform-visualizer',
+    title: 'Visualizador de Ondas',
+    category: 'Audio Visual',
+    status: 'EXPLORACIÓN_058',
+    description: 'Visualizador de audio en tiempo real con análisis espectral, shaders GLSL y respuesta dinámica a frecuencias.',
+    image: 'https://images.unsplash.com/photo-1559757175-5700dde675bc?w=400&h=400&fit=crop&crop=center',
+    tags: ['Web Audio API', 'GLSL', 'Espectral', 'Tiempo Real'],
     demoUrl: '#',
-    githubUrl: '#',
+    githubUrl: 'https://github.com/MauroMiranda0',
     gridSize: 'small'
-  },
-  {
-    id: 'shader-lab',
-    title: 'Experimentos de Shader Lab',
-    category: 'Programación Gráfica',
-    status: 'GLSL_LAB_10',
-    description: 'Colección de shaders experimentales y efectos visuales para aplicaciones web.',
-    image: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=400&fit=crop&crop=center',
-    tags: ['GLSL', 'WebGL', 'Three.js', 'Efectos Visuales'],
-    demoUrl: '#',
-    githubUrl: '#',
-    gridSize: 'medium'
   }
 ]
 
 export const productionProjects = [
   {
-    id: 'quantum-ledger-v2',
-    title: 'Quantum Ledger v2',
-    category: 'Arquitectura Fintech',
-    client: 'Financial Technology Corp',
-    description: 'Renovación arquitectónica completa para una plataforma de trading en tiempo real. Implementé una arquitectura de micro-frontends personalizada usando React y módulos WebAssembly impulsados por Rust.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&crop=center',
+    id: 'knemco-manufacturing',
+    title: 'Knemco Manufacturing',
+    category: 'Manufactura Digital',
+    client: 'Knemco',
+    description: 'Plataforma web integral de manufactura aditiva construida para un taller de impresión 3D con base en Grande Prairie, Alberta. Enfoque en exhibición de productos personalizados (iluminación escultórica, macetas de diseño, accesorios para mascotas, regalos personalizados), visualización interactiva de modelos, y sistema de captación de leads con formularios inteligentes segmentados por tipo de proyecto (fabricación, inversión comunitaria, alianzas).',
+    image: '/assets/knemco/hero-background-CEUOhYPQ.jpg',
     metrics: [
-      { label: 'RENDIMIENTO', value: '98/100 LIGHTHOUSE' },
-      { label: 'STACK', value: 'NEXT.JS, RUST, WEBSOCKETS' }
+      { label: 'RENDIMIENTO', value: '96/100 LIGHTHOUSE' },
+      { label: 'PRODUCTOS', value: '4 LÍNEAS + FABRICACIÓN BAJO DEMANDA' },
+      { label: 'STACK', value: 'REACT, FRAMER MOTION, EMAILJS' }
     ],
-    technologies: ['Next.js', 'React', 'Rust', 'WebAssembly', 'WebSockets', 'PostgreSQL'],
-    timeline: '6 meses',
-    team: '8 desarrolladores',
+    technologies: ['React', 'Vite', 'Framer Motion', 'EmailJS', 'CSS Modules', 'React Scroll'],
+    timeline: '3 meses',
+    team: '1 desarrollador',
+    founders: ['Leonardo Yáñez', 'Mariusz Szczepan'],
+    location: 'Grande Prairie, Alberta, Canadá',
     caseStudyUrl: '#',
     featured: true
   },
   {
-    id: 'aura-luxury-marketplace',
-    title: 'Aura Luxury Marketplace',
-    category: 'Núcleo E-Commerce',
-    client: 'Casa de Moda de Lujo',
-    description: 'Una experiencia de compra minimalista y de alto rendimiento para una casa de moda de alta gama. Enfocado en estabilidad de layout, transiciones suaves y Core Web Vitals.',
-    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop&crop=center',
+    id: 'control-costos-3d',
+    title: 'Control de Costos Impresión 3D',
+    category: 'Software de Fabricación',
+    client: 'Print3D',
+    description: 'Aplicación web progresiva construida para el cálculo preciso y la gestión de costos en manufactura aditiva. Arquitectura offline-first con sincronización eficiente, interfaz optimizada para entornos de taller y persistencia de datos mediante almacenamiento local.',
+    image: '/distImpresion3D/assets/logo-_meTbGYN.png',
     metrics: [
-      { label: 'ESCALA', value: '500K+ GESTIÓN DE SKU' },
-      { label: 'STACK', value: 'HEADLESS COMMERCE, GSAP' }
+      { label: 'RENDIMIENTO', value: '96/100 LIGHTHOUSE' },
+      { label: 'STACK', value: 'PWA, SERVICE WORKER, LOCALSTORAGE' },
+      { label: 'MODO OFFLINE', value: 'SINCRONIZACIÓN AUTOMÁTICA' }
     ],
-    technologies: ['React', 'Shopify Plus', 'GSAP', 'Framer Motion', 'Tailwind CSS'],
-    timeline: '4 meses',
-    team: '5 desarrolladores',
+    technologies: ['JavaScript', 'HTML5', 'CSS3', 'Service Worker API', 'Web Manifest', 'LocalStorage API'],
+    timeline: '2 meses',
+    team: '1 desarrollador',
+    caseStudyUrl: '#',
+    featured: true
+  },
+  {
+    id: 'sonic-store',
+    title: 'Sonic Store',
+    category: 'Experiencia de Compra Premium',
+    client: 'Sonic Store',
+    description: 'Plataforma de comercio electrónico construida para una tienda de belleza, moda y estilo de vida con alcance en calzado, hogar y cosmética. Enfoque en catálogo visual multicategoría, integración con canales de venta directa mediante WhatsApp y experiencia de navegación fluida optimizada para conversión móvil.',
+    image: '/distSonic/img/logo.png',
+    metrics: [
+      { label: 'CATEGORÍAS', value: '5 LÍNEAS DE PRODUCTO' },
+      { label: 'STACK', value: 'REACT, VITE, CSS CUSTOM PROPERTIES' },
+      { label: 'CANAL DE VENTA', value: 'INTEGRACIÓN WHATSAPP API' }
+    ],
+    technologies: ['React', 'Vite', 'CSS Custom Properties', 'React Router', 'WhatsApp API'],
+    timeline: '3 meses',
+    team: '1 desarrollador',
+    caseStudyUrl: '#',
+    featured: true
+  },
+  {
+    id: 'conciencia-landing',
+    title: 'Conciencia Landing Page',
+    category: 'Landing Page Estratégica',
+    client: 'Conciencia',
+    description: 'Landing page de alto rendimiento diseñada para maximizar conversiones y transmitir el propósito de la marca con una experiencia visual impactante.',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop&crop=center',
+    metrics: [
+      { label: 'RENDIMIENTO', value: '96/100 LIGHTHOUSE' },
+      { label: 'STACK', value: 'NEXT.JS, FRAMER MOTION' }
+    ],
+    technologies: ['Next.js', 'Framer Motion', 'SCSS', 'SEO'],
+    timeline: '3 meses',
+    team: '3 desarrolladores',
     caseStudyUrl: '#',
     featured: true
   }
@@ -97,33 +152,33 @@ export const techStack = [
     id: 'react-nextjs',
     name: 'REACT / NEXT.JS',
     icon: 'javascript',
-    level: 0.95,
     category: 'Frontend',
-    description: 'Patrones avanzados de React, SSR/SSG, optimización de rendimiento'
+    description: 'Desarrollo de interfaces modernas y dinámicas con React, optimizadas con Next.js para renderizado server-side (SSR) y generación estática (SSG). Enfoque en componentes modulares, accesibilidad y experiencias de usuario fluidas.',
+    tags: ['JavaScript', 'NodeJS', 'CSS', 'HTML']
   },
   {
-    id: 'python-django',
-    name: 'PYTHON / DJANGO',
+    id: 'python-nodejs',
+    name: 'PYTHON / NODEJS',
     icon: 'settings_ethernet',
-    level: 0.88,
     category: 'Backend',
-    description: 'APIs REST, GraphQL, arquitectura de microservicios'
+    description: 'Backend versátil con Python para soluciones de IA, automatización y análisis de datos; y NodeJS para aplicaciones web en tiempo real. Integración con APIs REST, servicios cloud y arquitecturas escalables.',
+    tags: ['Python', 'NodeJS', 'APIs REST', 'IA']
   },
   {
-    id: 'postgresql',
-    name: 'POSTGRESQL',
+    id: 'supabase-postgresql',
+    name: 'SUPABASE / POSTGRESQL',
     icon: 'database',
-    level: 0.90,
     category: 'Base de Datos',
-    description: 'Optimización de consultas, estrategias de indexación, modelado de datos'
+    description: 'Gestión de datos con Supabase como plataforma backend en tiempo real y PostgreSQL como motor relacional robusto. Incluye autenticación, almacenamiento seguro y escalabilidad para proyectos de alto rendimiento.',
+    tags: ['Supabase', 'PostgreSQL', 'Auth', 'Tiempo Real']
   },
   {
-    id: 'aws-devops',
-    name: 'AWS / DEVOPS',
+    id: 'docker-n8n',
+    name: 'DOCKER / N8N',
     icon: 'cloud',
-    level: 0.82,
-    category: 'Infraestructura',
-    description: 'Pipelines CI/CD, containerización, arquitectura cloud'
+    category: 'Infraestructura y Automatización',
+    description: 'Contenedores Docker para entornos reproducibles y despliegues eficientes; n8n para automatización de flujos de trabajo. Control de versiones con Git y despliegue en servidores Linux, garantizando estabilidad y continuidad.',
+    tags: ['Docker', 'n8n', 'Git', 'Linux']
   }
 ]
 

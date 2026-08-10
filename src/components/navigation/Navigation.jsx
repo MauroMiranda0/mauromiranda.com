@@ -6,11 +6,11 @@ import './Navigation.scss'
 
 const Navigation = () => {
   const navigationItems = [
-    { href: '#about', label: 'Sobre Mí' },
-    { href: '#case-study', label: 'Casos de Éxito' },
+    { href: '#hero', label: 'Inicio' },
     { href: '#lab', label: 'Laboratorio' },
     { href: '#works', label: 'Producción' },
-    { href: '#stack', label: 'Stack Técnico' }
+    { href: '#stack', label: 'Stack Técnico' },
+    { href: '#about', label: 'Sobre Mí' }
   ]
 
   return (

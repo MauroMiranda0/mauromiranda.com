@@ -1,3 +1,6 @@
+@use 'sass:map';
+@use 'variables' as *;
+
 /**
  * Mixins SCSS - Funciones reutilizables
  * Incluye responsive, animaciones y utilidades comunes
@@ -8,43 +11,43 @@
 // ============================================================================
 
 @mixin mobile-up {
-  @media (min-width: map-get($breakpoints, 'mobile')) {
+  @media (min-width: map.get($breakpoints, 'mobile')) {
     @content;
   }
 }
 
 @mixin mobile-lg-up {
-  @media (min-width: map-get($breakpoints, 'mobile-lg')) {
+  @media (min-width: map.get($breakpoints, 'mobile-lg')) {
     @content;
   }
 }
 
 @mixin tablet-up {
-  @media (min-width: map-get($breakpoints, 'tablet')) {
+  @media (min-width: map.get($breakpoints, 'tablet')) {
     @content;
   }
 }
 
 @mixin tablet-lg-up {
-  @media (min-width: map-get($breakpoints, 'tablet-lg')) {
+  @media (min-width: map.get($breakpoints, 'tablet-lg')) {
     @content;
   }
 }
 
 @mixin desktop-up {
-  @media (min-width: map-get($breakpoints, 'desktop')) {
+  @media (min-width: map.get($breakpoints, 'desktop')) {
     @content;
   }
 }
 
 @mixin desktop-lg-up {
-  @media (min-width: map-get($breakpoints, 'desktop-lg')) {
+  @media (min-width: map.get($breakpoints, 'desktop-lg')) {
     @content;
   }
 }
 
 @mixin desktop-xl-up {
-  @media (min-width: map-get($breakpoints, 'desktop-xl')) {
+  @media (min-width: map.get($breakpoints, 'desktop-xl')) {
     @content;
   }
 }
@@ -122,15 +125,15 @@
 // ============================================================================
 
 @mixin font-size($size) {
-  font-size: map-get($font-sizes, $size);
+  font-size: map.get($font-sizes, $size);
 }
 
 @mixin font-weight($weight) {
-  font-weight: map-get($font-weights, $weight);
+  font-weight: map.get($font-weights, $weight);
 }
 
 @mixin line-height($height) {
-  line-height: map-get($line-heights, $height);
+  line-height: map.get($line-heights, $height);
 }
 
 // Text truncation
@@ -158,7 +161,7 @@
 
 // Border radius
 @mixin border-radius($size: 'default') {
-  border-radius: map-get($border-radius, $size);
+  border-radius: map.get($border-radius, $size);
 }
 
 // Backdrop blur
@@ -185,7 +188,7 @@
 
 // Transition
 @mixin transition($property: all, $duration: 'normal', $easing: 'ease-out') {
-  transition: $property map-get($transitions, $duration) map-get($easing, $easing);
+  transition: $property map.get($transitions, $duration) map.get($easing, $easing);
 }
 
 // Hover lift effect
@@ -243,10 +246,10 @@
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
   border: none;
-  border-radius: map-get($border-radius, 'lg');
+  border-radius: map.get($border-radius, 'lg');
   font-family: var(--font-mono);
-  font-weight: map-get($font-weights, 'bold');
-  font-size: map-get($font-sizes, 'sm');
+  font-weight: map.get($font-weights, 'bold');
+  font-size: map.get($font-sizes, 'sm');
   text-decoration: none;
   cursor: pointer;
   transition: all 0.2s ease-out;

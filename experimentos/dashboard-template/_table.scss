@@ -1,0 +1,185 @@
+@use "variables" as *;
+
+.table-card { padding: 20px; }
+
+.toolbar {
+  display: grid;
+  grid-template-columns: minmax(180px, 1.2fr) repeat(2, minmax(140px, 0.5fr)) auto;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.toolbar-actions { display: flex; gap: 6px; flex-shrink: 0; }
+
+.control {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid var(--border);
+  border-radius: $radius-sm;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  font-size: 0.85rem;
+  transition: border-color 0.2s ease;
+
+  &:focus {
+    outline: none;
+    border-color: var(--brand);
+    box-shadow: 0 0 0 3px rgba(0, 212, 170, 0.08);
+  }
+
+  &::placeholder { color: var(--text-muted); }
+}
+
+select.control {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238b9bb5' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.filter-tab {
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+
+  &:hover { border-color: var(--border-active); color: var(--text); }
+
+  &.is-active {
+    color: #080c14;
+    background: var(--brand);
+    border-color: var(--brand);
+    font-weight: 700;
+  }
+}
+
+.table {
+  margin-top: 16px;
+  display: grid;
+  gap: 10px;
+}
+
+.table-head, .lead-row {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 0.8fr 1fr 1fr;
+  gap: 10px;
+  align-items: center;
+}
+
+.table-head {
+  padding: 0 6px 8px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-muted);
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.lead-row {
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: $radius-sm;
+  background: rgba(255, 255, 255, 0.02);
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.15s ease;
+  animation: itemIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+
+  &:hover {
+    border-color: var(--border-active);
+    background: rgba(255, 255, 255, 0.04);
+    transform: translateX(3px);
+  }
+}
+
+.lead-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lead-avatar {
+  width: 36px; height: 36px;
+  border-radius: $radius-sm;
+  display: grid;
+  place-items: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #f0f5fe;
+  background: linear-gradient(160deg, var(--brand), #3ab893);
+  flex-shrink: 0;
+}
+
+.lead-name { font-weight: 600; font-size: 0.88rem; }
+.lead-meta { margin-top: 2px; color: var(--text-muted); font-size: 0.75rem; }
+
+.muted { color: var(--text-muted); font-size: 0.82rem; }
+
+.score {
+  font-family: $font-mono;
+  font-weight: 700;
+  font-size: 0.95rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.pill {
+  width: fit-content;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+
+  &.hot { color: var(--danger); background: var(--danger-soft); border: 1px solid rgba(239, 107, 94, 0.15); }
+  &.warm { color: var(--warm); background: var(--warm-soft); border: 1px solid rgba(240, 180, 41, 0.15); }
+  &.cold { color: var(--brand); background: var(--brand-soft); border: 1px solid rgba(0, 212, 170, 0.15); }
+}
+
+.priority-dot {
+  display: inline-block;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+.link-action {
+  color: var(--accent);
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 0.82rem;
+  transition: color 0.2s ease;
+  &:hover { color: var(--brand); }
+}
+
+.empty-state {
+  display: none;
+  padding: 16px;
+  border-radius: $radius-sm;
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text-muted);
+  text-align: center;
+  font-size: 0.85rem;
+  border: 1px dashed var(--border);
+}
+
+.footer-note {
+  margin-top: 12px;
+  color: var(--text-muted);
+  font-family: $font-mono;
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+}

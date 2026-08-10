@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experimento | Teseracto</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="./tesseract-experiment.css">
+</head>
+<body>
+  <main class="tesseract-page">
+    <section class="tesseract-layout" aria-labelledby="tesseract-title">
+      <div class="tesseract-copy">
+        <span class="tesseract-copy__eyebrow">Portfolio experiments</span>
+        <h1 class="tesseract-copy__title" id="tesseract-title">Teseracto: geometria imposible convertida en loop visual.</h1>
+        <p class="tesseract-copy__text">
+          Un experimento pensado para la seccion de laboratorio de tu portafolio.
+          La pieza combina presentacion editorial, telemetria decorativa y reproduccion controlada
+          para destacar la animacion sin perder claridad.
+        </p>
+
+        <div class="tesseract-copy__meta">
+          <article class="tesseract-meta">
+            <span class="tesseract-meta__label">Formato</span>
+            <strong class="tesseract-meta__value">Video completo sin recorte</strong>
+          </article>
+          <article class="tesseract-meta">
+            <span class="tesseract-meta__label">Explora</span>
+            <strong class="tesseract-meta__value">4D / Projection / Motion</strong>
+          </article>
+        </div>
+      </div>
+
+      <article class="exp-tesseract" data-exp-tesseract>
+        <header class="exp-tesseract__head">
+          <span class="exp-tesseract__eyebrow">EXP 005</span>
+          <h2 class="exp-tesseract__title">Teseracto</h2>
+          <p class="exp-tesseract__desc">
+            Un hipercubo de cuatro dimensiones proyectado sobre 3D, rotando en varios planos
+            para convertir teoria geometrica en una pieza visual hipnotica.
+          </p>
+        </header>
+
+        <div class="exp-tesseract__viewport">
+          <span class="exp-tesseract__corner exp-tesseract__corner--tl" aria-hidden="true"></span>
+          <span class="exp-tesseract__corner exp-tesseract__corner--tr" aria-hidden="true"></span>
+          <span class="exp-tesseract__corner exp-tesseract__corner--bl" aria-hidden="true"></span>
+          <span class="exp-tesseract__corner exp-tesseract__corner--br" aria-hidden="true"></span>
+
+          <video
+            class="exp-tesseract__video"
+            src="./teseracto.mp4"
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            aria-label="Animacion de un teseracto rotando, proyectado de 4D a 3D"
+          ></video>
+
+          <div class="exp-tesseract__scanline" aria-hidden="true"></div>
+
+          <button
+            class="exp-tesseract__toggle"
+            type="button"
+            aria-pressed="true"
+            aria-label="Pausar animacion"
+          >
+            <svg class="icon icon--pause" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+              <rect x="5" y="4" width="4" height="16" rx="1" fill="currentColor"></rect>
+              <rect x="15" y="4" width="4" height="16" rx="1" fill="currentColor"></rect>
+            </svg>
+            <svg class="icon icon--play" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+              <path d="M7 4l13 8-13 8V4z" fill="currentColor"></path>
+            </svg>
+          </button>
+        </div>
+
+        <div class="exp-tesseract__readout" aria-hidden="true">
+          <div class="exp-tesseract__readout-label">Rotacion 4D -> 3D</div>
+          <ul class="exp-tesseract__readout-grid">
+            <li><span class="plane">XY</span><span class="value" data-plane="xy">000.0 deg</span></li>
+            <li><span class="plane">XZ</span><span class="value" data-plane="xz">000.0 deg</span></li>
+            <li><span class="plane">XW</span><span class="value" data-plane="xw">000.0 deg</span></li>
+            <li><span class="plane">YZ</span><span class="value" data-plane="yz">000.0 deg</span></li>
+            <li><span class="plane">YW</span><span class="value" data-plane="yw">000.0 deg</span></li>
+            <li><span class="plane">ZW</span><span class="value" data-plane="zw">000.0 deg</span></li>
+          </ul>
+        </div>
+
+        <footer class="exp-tesseract__meta">
+          <ul class="exp-tesseract__tags">
+            <li>Blender</li>
+            <li>Motion</li>
+            <li>Abstract</li>
+          </ul>
+          <span class="exp-tesseract__runtime" data-runtime>00:00 / 00:00</span>
+        </footer>
+      </article>
+    </section>
+  </main>
+
+  <script src="./tesseract-experiment.js"></script>
+</body>
+</html>
