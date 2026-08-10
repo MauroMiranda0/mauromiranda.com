@@ -66,8 +66,8 @@ const AboutSection = () => {
             <h4 className="about__card-title">COMPETENCIAS CLAVE</h4>
             <div className="about__skills">
               {[
-                { label: 'Frontend', tags: ['React', 'Next.js', 'JavaScript', 'HTML', 'CSS', 'NodeJS'] },
-                { label: 'Backend y Datos', tags: ['Python', 'NodeJS', 'APIs REST', 'Supabase', 'PostgreSQL', 'SQL'] },
+                { label: 'Desarrollo Frontend', tags: ['React', 'Next.js', 'JavaScript', 'HTML', 'CSS', 'NodeJS'] },
+                { label: 'Desarrollo Backend y Datos', tags: ['Python', 'NodeJS', 'APIs REST', 'Supabase', 'PostgreSQL', 'SQL'] },
                 { label: 'Infraestructura', tags: ['Docker', 'Git', 'GitHub', 'Linux', 'n8n'] },
                 { label: 'IA y Automatización', tags: ['Inteligencia Artificial', 'n8n', 'Python', 'Automatización'] },
                 { label: 'Electrónica', tags: ["PLC's", 'VHDL', 'Microcontroladores PIC'] },

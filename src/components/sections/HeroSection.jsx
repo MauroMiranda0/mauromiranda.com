@@ -146,7 +146,7 @@ const HeroSection = () => {
         >
           <div className="hero__metadata-line">LOC: 40.7128° N, 74.0060° W</div>
           <div className="hero__metadata-line">REF: ARCH_PROTO_01</div>
-          <div className="hero__metadata-line">STATUS: ACTIVE</div>
+          <div className="hero__metadata-line">ESTADO: ACTIVO</div>
         </motion.div>
 
         <motion.div 
@@ -159,7 +159,7 @@ const HeroSection = () => {
             className="hero__label"
             variants={itemVariants}
           >
-            [ 00 / INITIALIZATION ]
+            [ 00 / INICIALIZACION ]
           </motion.p>
 
           <motion.h1 
@@ -177,8 +177,8 @@ const HeroSection = () => {
             className="hero__description"
             variants={itemVariants}
           >
-            Elite Web Engineering. Crafting high-performance digital architectures 
-            with a minimalist aesthetic and scientific precision.
+            Ingenieria web de alto nivel. Diseno arquitecturas digitales de alto rendimiento
+            con una estetica minimalista y precision tecnica.
           </motion.p>
 
           <motion.div 
@@ -189,14 +189,14 @@ const HeroSection = () => {
               className="hero__cta hero__cta--primary"
               onClick={handleInitialize}
             >
-              INITIALIZE PROJECT
+              INICIAR PROYECTO
               <Icon name="arrow_forward_ios" className="hero__cta-icon" />
             </button>
             <button
               className="hero__cta hero__cta--secondary"
               onClick={() => setManifestoOpen(true)}
             >
-              VIEW MANIFESTO
+              VER MANIFIESTO
             </button>
           </motion.div>
         </motion.div>

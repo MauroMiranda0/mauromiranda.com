@@ -21,12 +21,12 @@ export const laboratoryProjects = [
   },
   {
     id: 'dashboard-template',
-    title: 'Dashboard Template',
+    title: 'Plantilla de Dashboard',
     category: 'Interfaces de Usuario',
     status: 'EXPLORACIÓN_042',
-    description: 'Template de dashboard con diseño responsivo, componentes modulares y sistema de diseño technical.',
+    description: 'Plantilla de dashboard con diseno responsivo, componentes modulares y un sistema de diseno tecnico.',
     image: './experimentos/dashboard-template/vistaPrevia.png',
-    tags: ['SCSS', 'Dashboard', 'UI Components', 'Responsive'],
+    tags: ['SCSS', 'Dashboard', 'Componentes UI', 'Responsivo'],
     demoUrl: './experimentos/dashboard-template/index.html',
     githubUrl: 'https://github.com/MauroMiranda0/mauromiranda.com/tree/main/experimentos/dashboard-template',
     gridSize: 'small',
@@ -34,7 +34,7 @@ export const laboratoryProjects = [
   },
   {
     id: 'teseracto-template',
-    title: 'Teseracto Template',
+    title: 'Plantilla Teseracto',
     category: 'Visualización Experimental',
     status: 'R&D_LAB_05',
     description: 'Visualizador experimental de video 3D con composición moderna, controles ligeros y una capa visual pensada para demos interactivas.',
@@ -60,7 +60,7 @@ export const laboratoryProjects = [
   {
     id: 'waveform-visualizer',
     title: 'Visualizador de Ondas',
-    category: 'Audio Visual',
+    category: 'Audiovisual',
     status: 'EXPLORACIÓN_058',
     description: 'Visualizador de audio en tiempo real con análisis espectral, shaders GLSL y respuesta dinámica a frecuencias.',
     image: 'https://images.unsplash.com/photo-1559757175-5700dde675bc?w=400&h=400&fit=crop&crop=center',
@@ -152,7 +152,7 @@ export const techStack = [
     id: 'react-nextjs',
     name: 'REACT / NEXT.JS',
     icon: 'javascript',
-    category: 'Frontend',
+    category: 'Desarrollo Frontend',
     description: 'Desarrollo de interfaces modernas y dinámicas con React, optimizadas con Next.js para renderizado server-side (SSR) y generación estática (SSG). Enfoque en componentes modulares, accesibilidad y experiencias de usuario fluidas.',
     tags: ['JavaScript', 'NodeJS', 'CSS', 'HTML']
   },
@@ -160,7 +160,7 @@ export const techStack = [
     id: 'python-nodejs',
     name: 'PYTHON / NODEJS',
     icon: 'settings_ethernet',
-    category: 'Backend',
+    category: 'Desarrollo Backend',
     description: 'Backend versátil con Python para soluciones de IA, automatización y análisis de datos; y NodeJS para aplicaciones web en tiempo real. Integración con APIs REST, servicios cloud y arquitecturas escalables.',
     tags: ['Python', 'NodeJS', 'APIs REST', 'IA']
   },
