@@ -98,7 +98,7 @@ export const productionProjects = [
     category: 'Software de Fabricación',
     client: 'Print3D',
     description: 'Aplicación web progresiva construida para el cálculo preciso y la gestión de costos en manufactura aditiva. Arquitectura offline-first con sincronización eficiente, interfaz optimizada para entornos de taller y persistencia de datos mediante almacenamiento local.',
-    image: '/dist%20-%20copia/assets/logo-_meTbGYN.png',
+    image: '/distImpresion3D/assets/logo-_meTbGYN.png',
     metrics: [
       { label: 'RENDIMIENTO', value: '96/100 LIGHTHOUSE' },
       { label: 'STACK', value: 'PWA, SERVICE WORKER, LOCALSTORAGE' },
