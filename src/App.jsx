@@ -16,11 +16,11 @@ function App() {
       <div className="app">
         <Helmet>
           <html lang="es" />
-          <title>Mauro Miranda | Ingeniería Web de Elite</title>
-          <meta name="description" content="Mauro Miranda - Ingeniería Web de Elite. Arquitectura de software y experimentación digital de alto rendimiento." />
+          <title>Mauro Miranda | Ingenieria Web de Alto Nivel</title>
+          <meta name="description" content="Mauro Miranda - Ingenieria web de alto nivel. Arquitectura de software y experimentacion digital de alto rendimiento." />
           <meta name="theme-color" content="#0da6f2" />
-          <meta property="og:title" content="Mauro Miranda | Ingeniería Web de Elite" />
-          <meta property="og:description" content="Ingeniería Web de Elite. Creando arquitecturas digitales de alto rendimiento con estética minimalista y precisión científica." />
+          <meta property="og:title" content="Mauro Miranda | Ingenieria Web de Alto Nivel" />
+          <meta property="og:description" content="Ingenieria web de alto nivel. Creando arquitecturas digitales de alto rendimiento con estetica minimalista y precision tecnica." />
           <meta property="og:type" content="website" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />

@@ -61,6 +61,20 @@ const ProductionSection = () => {
               className="production-card group"
               variants={itemVariants}
             >
+              {project.id === 'conciencia-landing' ? (
+                <div className="production-card__media production-card__media--preview">
+                  <iframe
+                    className="production-card__preview"
+                    src="/conciencia-preview/index.html"
+                    title={`${project.title} preview`}
+                    loading="lazy"
+                  />
+                  <div className="production-card__overlay" />
+                  <div className="production-card__category">
+                    {project.category}
+                  </div>
+                </div>
+              ) : (
               <div className="production-card__media">
                 <img
                   className="production-card__image"
@@ -75,6 +89,7 @@ const ProductionSection = () => {
                   {project.category}
                 </div>
               </div>
+              )}
 
               <div className="production-card__body">
                 <div className="production-card__header">

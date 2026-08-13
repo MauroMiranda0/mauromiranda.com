@@ -16,7 +16,7 @@ const Footer = () => {
       { label: 'Blog', href: '#blog' }
     ],
     network: [
-      { label: 'Github', href: '#', external: true },
+       { label: 'GitHub', href: '#', external: true },
       { label: 'LinkedIn', href: '#', external: true },
       { label: 'X / Twitter', href: '#', external: true },
       { label: 'Read.cv', href: '#', external: true }
@@ -40,8 +40,8 @@ const Footer = () => {
               <h2 className="footer__title">Ingeniería Web Miranda</h2>
             </div>
             <p className="footer__description">
-              Un laboratorio boutique de ingeniería de software enfocado en la intersección 
-              del diseño estético y la arquitectura técnica robusta.
+             Un laboratorio boutique de ingenieria de software enfocado en la interseccion
+             del diseno estetico y la arquitectura tecnica robusta.
             </p>
           </div>
 
