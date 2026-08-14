@@ -10,16 +10,18 @@ const Footer = () => {
 
   const footerSections = {
     sitemap: [
-      { label: 'Laboratorio', href: '#lab' },
+      { label: 'Inicio', href: '#hero' },
+      { label: 'Desarrollo', href: '#development' },
       { label: 'Producción', href: '#works' },
+      { label: 'Laboratorio', href: '#lab' },
       { label: 'Stack Técnico', href: '#stack' },
-      { label: 'Blog', href: '#blog' }
+      { label: 'Sobre Mí', href: '#about' }
     ],
     network: [
-       { label: 'GitHub', href: '#', external: true },
-      { label: 'LinkedIn', href: '#', external: true },
-      { label: 'X / Twitter', href: '#', external: true },
-      { label: 'Read.cv', href: '#', external: true }
+      { label: 'GitHub', href: 'https://github.com/MauroMiranda0', external: true },
+      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/mauromiranda82', external: true },
+      { label: 'TikTok', href: 'https://www.tiktok.com/@ingmauromiranda', external: true },
+      { label: 'Ingeniería Web Miranda', href: 'https://ingenieriawebmiranda.com', external: true }
     ]
   }
 
@@ -37,11 +39,10 @@ const Footer = () => {
           <div className="footer__main">
             <div className="footer__brand">
               <Icon name="terminal" className="footer__icon" />
-              <h2 className="footer__title">Ingeniería Web Miranda</h2>
+              <h2 className="footer__title">Mauro Miranda</h2>
             </div>
             <p className="footer__description">
-             Un laboratorio boutique de ingenieria de software enfocado en la interseccion
-             del diseno estetico y la arquitectura tecnica robusta.
+              Un laboratorio boutique de ingeniería web y software, especializado en la convergencia entre la estética digital y la arquitectura técnica confiable. Un espacio donde el diseño visual —con influencias como glassmorfismo y material design— se integra con soluciones robustas de backend, infraestructura y automatización, creando experiencias digitales que combinan elegancia, precisión y confianza.
             </p>
           </div>
 

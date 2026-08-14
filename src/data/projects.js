@@ -12,6 +12,7 @@ export const developmentProjects = [
     description: 'Concepto de asistente digital para agendar citas psicológicas online, dar seguimiento inicial y facilitar la comunicación entre paciente y profesional.',
     image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=center',
     tags: ['Agenda Online', 'Asistente Digital', 'Salud', 'UX'],
+    gradient: 'linear-gradient(90deg, #2b1055 0%, #7597de 45%, #f4a7b9 100%)',
     demoUrl: '/construccion',
     githubUrl: 'https://github.com/MauroMiranda0',
     gridSize: 'large',
@@ -25,6 +26,7 @@ export const developmentProjects = [
     description: 'Vista previa de un sistema CRUD avanzado con gestión de registros, filtros dinámicos, formularios enriquecidos y flujo de administración orientado a operaciones reales.',
     image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=400&fit=crop&crop=center',
     tags: ['React', 'CRUD', 'Formularios', 'Dashboard'],
+    gradient: 'linear-gradient(90deg, #0a2540 0%, #0da6f2 55%, #3b82f6 100%)',
     demoUrl: '/construccion',
     githubUrl: 'https://github.com/MauroMiranda0',
     gridSize: 'small',
@@ -38,6 +40,7 @@ export const developmentProjects = [
     description: 'Panel de control para monitoreo de paneles solares: registro de generación, métricas de rendimiento y visualización de datos energéticos en tiempo real.',
     image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=400&h=400&fit=crop&crop=center',
     tags: ['Dashboard', 'Energía', 'IoT', 'Datos'],
+    gradient: 'linear-gradient(90deg, #422006 0%, #f59e0b 50%, #fbbf24 100%)',
     demoUrl: '/construccion',
     githubUrl: 'https://github.com/MauroMiranda0',
     gridSize: 'small'
@@ -50,6 +53,7 @@ export const developmentProjects = [
     description: 'Plataforma digital para un centro de medicina estética: presentación de tratamientos, agendamiento de citas y canal de contacto directo con especialistas.',
     image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&h=400&fit=crop&crop=center',
     tags: ['Landing', 'Citas', 'Salud', 'UX'],
+    gradient: 'linear-gradient(90deg, #022c22 0%, #10b981 50%, #2dd4bf 100%)',
     demoUrl: '/construccion',
     githubUrl: 'https://github.com/MauroMiranda0',
     gridSize: 'small'
@@ -62,6 +66,7 @@ export const developmentProjects = [
     description: 'Plataforma de catálogo y venta para soluciones de iluminación: exhibición de productos, fichas técnicas y consultas directas por canal de venta.',
     image: 'https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=400&h=400&fit=crop&crop=center',
     tags: ['Catálogo', 'E-commerce', 'Iluminación', 'Lead'],
+    gradient: 'linear-gradient(90deg, #3b1d2f 0%, #f59e0b 50%, #d946ef 100%)',
     demoUrl: '/construccion',
     githubUrl: 'https://github.com/MauroMiranda0',
     gridSize: 'small'
@@ -74,6 +79,7 @@ export const developmentProjects = [
     description: 'Plataforma para una agencia de viajes: exploración de destinos, paquetes turísticos y solicitud de cotizaciones personalizadas.',
     image: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=400&h=400&fit=crop&crop=center',
     tags: ['Turismo', 'Destinos', 'Paquetes', 'UX'],
+    gradient: 'linear-gradient(90deg, #082f49 0%, #38bdf8 50%, #6366f1 100%)',
     demoUrl: '/construccion',
     githubUrl: 'https://github.com/MauroMiranda0',
     gridSize: 'small'
