@@ -166,7 +166,6 @@ const HeroSection = () => {
             className="hero__title"
             variants={itemVariants}
           >
-            MAURO MIRANDA:
             <br />
             <span className="hero__title-highlight">INGENIERíA</span>
             <br />
