@@ -49,7 +49,7 @@ const TechStackSection = () => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <p className="tech-stack__label">[ 03 STACK TECNOLÓGICO ]</p>
+          <p className="tech-stack__label">[ 04 STACK TECNOLÓGICO ]</p>
           <h2 className="tech-stack__title">Arquitectura y Herramientas</h2>
         </motion.div>
 

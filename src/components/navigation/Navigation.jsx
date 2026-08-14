@@ -7,8 +7,9 @@ import './Navigation.scss'
 const Navigation = () => {
   const navigationItems = [
     { href: '#hero', label: 'Inicio' },
-    { href: '#lab', label: 'Laboratorio' },
+    { href: '#development', label: 'Desarrollo' },
     { href: '#works', label: 'Producción' },
+    { href: '#lab', label: 'Laboratorio' },
     { href: '#stack', label: 'Stack Técnico' },
     { href: '#about', label: 'Sobre Mí' }
   ]

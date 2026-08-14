@@ -34,7 +34,7 @@ const Header = () => {
         {/* Logo y versión */}
         <div className="header__brand">
           <Icon name="terminal" className="header__icon" />
-          <h2 className="header__title">MM // LAB_v1.0.4</h2>
+          <h2 className="header__title">MAURO MIRANDA</h2>
         </div>
 
         {/* Navegación principal */}

@@ -41,7 +41,7 @@ const AboutSection = () => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <p className="about__label">[ 04 SOBRE MÍ ]</p>
+          <p className="about__label">[ 05 SOBRE MÍ ]</p>
           <h2> MAURICIO VERGARA MIRANDA</h2>
               <p className="about__headline">
               Ingeniero en Sistemas Computacionales &bull; Especialista en Ingeniería Web &bull; Fundador de{' '}<a href="https://ingenieriawebmiranda.com" target="_blank" rel="noopener noreferrer" className="about__agency-link">INGENIERÍA WEB MIRANDA</a>  
