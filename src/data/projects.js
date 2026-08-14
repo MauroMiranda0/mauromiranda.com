@@ -11,7 +11,7 @@ export const laboratoryProjects = [
     status: 'PROTOTIPO_017',
     description: 'Animación procedural de una lámpara con física de sombras y iluminación dinámica en tiempo real.',
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=center',
-    video: './experimentos/animacion-lampara/animacionLampara.mp4',
+    video: './experimentos/animacion-lampara/animacionLampara-optimized.mp4',
     poster: './experimentos/animacion-lampara/animacionLampara-poster.jpg',
     tags: ['Canvas API', 'Animación', 'Física de Luz', 'Tiempo Real'],
     demoUrl: './experimentos/animacion-lampara/index.html',
@@ -39,7 +39,8 @@ export const laboratoryProjects = [
     status: 'R&D_LAB_05',
     description: 'Visualizador experimental de video 3D con composición moderna, controles ligeros y una capa visual pensada para demos interactivas.',
     image: 'https://images.unsplash.com/photo-1637144113536-9c6e917e6b24?w=400&h=400&fit=crop&crop=center',
-    video: './experimentos/teseracto-template/teseracto.mp4',
+    video: './experimentos/teseracto-template/teseracto-optimized.mp4',
+    poster: './experimentos/teseracto-template/teseracto-poster.jpg',
     tags: ['Video', '3D', 'Loop Cinemático', 'WebGL'],
     demoUrl: './experimentos/teseracto-template/tesseract-experiment.html',
     githubUrl: 'https://github.com/MauroMiranda0/mauromiranda.com/tree/main/experimentos/teseracto-template',
@@ -84,7 +85,7 @@ export const productionProjects = [
       { label: 'PRODUCTOS', value: '4 LÍNEAS + FABRICACIÓN BAJO DEMANDA' },
       { label: 'STACK', value: 'REACT, FRAMER MOTION, EMAILJS' }
     ],
-    technologies: ['React', 'Vite', 'Framer Motion', 'EmailJS', 'CSS Modules', 'React Scroll'],
+    technologies: ['React', 'Vite', 'Framer Motion', 'EmailJS', 'SCSS'],
     timeline: '3 meses',
     team: '1 desarrollador',
     founders: ['Leonardo Yáñez', 'Mariusz Szczepan'],
@@ -119,10 +120,10 @@ export const productionProjects = [
     image: '/distSonic/img/logo.png',
     metrics: [
       { label: 'CATEGORÍAS', value: '5 LÍNEAS DE PRODUCTO' },
-      { label: 'STACK', value: 'REACT, VITE, CSS CUSTOM PROPERTIES' },
-      { label: 'CANAL DE VENTA', value: 'INTEGRACIÓN WHATSAPP API' }
+      { label: 'STACK', value: 'REACT, VITE, FRAMER MOTION' },
+      { label: 'CANAL DE VENTA', value: 'PEDIDOS POR WHATSAPP' }
     ],
-    technologies: ['React', 'Vite', 'CSS Custom Properties', 'React Router', 'WhatsApp API'],
+    technologies: ['React', 'Vite', 'Framer Motion', 'Swiper', 'WhatsApp'],
     timeline: '3 meses',
     team: '1 desarrollador',
     caseStudyUrl: '#',
@@ -133,15 +134,16 @@ export const productionProjects = [
     title: 'Conciencia Landing Page',
     category: 'Landing Page Estratégica',
     client: 'Conciencia',
-    description: 'Landing page de alto rendimiento diseñada para maximizar conversiones y transmitir el propósito de la marca con una experiencia visual impactante.',
+    description: 'Landing page de alto rendimiento para el centro de atención integral Conciencia CAI, con dos variantes temáticas (Varonil y Femenil). Enfoque en conversión con navegación por anclas, testimonios, galería, mapa interactivo y contacto directo por WhatsApp.',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop&crop=center',
     metrics: [
       { label: 'RENDIMIENTO', value: '96/100 LIGHTHOUSE' },
-      { label: 'STACK', value: 'NEXT.JS, FRAMER MOTION' }
+      { label: 'VARIANTES', value: 'VARONIL Y FEMENIL' },
+      { label: 'STACK', value: 'REACT, VITE' }
     ],
-    technologies: ['Next.js', 'Framer Motion', 'SCSS', 'SEO'],
+    technologies: ['React', 'Vite', 'SEO', 'WhatsApp'],
     timeline: '3 meses',
-    team: '3 desarrolladores',
+    team: '1 desarrollador',
     caseStudyUrl: '#',
     featured: true
   }

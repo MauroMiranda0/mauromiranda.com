@@ -356,6 +356,11 @@
     position: relative;
     overflow: hidden;
 
+    .lab-card__video-poster {
+      position: absolute;
+      inset: 0;
+    }
+
     [data-theme="light"] & {
       background: #000;
     }
@@ -413,6 +418,8 @@
   }
 
   &__image {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;

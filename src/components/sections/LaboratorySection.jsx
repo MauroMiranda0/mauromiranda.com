@@ -2,11 +2,43 @@
  * Sección Laboratorio de Innovación
  * Bento grid con proyectos de I+D y experimentos técnicos
  */
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import Icon from '@components/common/Icon'
 import { laboratoryProjects } from '@data/projects'
 import './LaboratorySection.scss'
+
+const LabVideo = ({ src, poster, className, posterClassName, width, height }) => {
+  const [playing, setPlaying] = useState(false)
+
+  return (
+    <>
+      <video
+        className={className}
+        src={src}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        onPlaying={() => setPlaying(true)}
+        width={width}
+        height={height}
+      />
+      {!playing && (
+        <img
+          className={posterClassName || className}
+          src={poster}
+          alt=""
+          loading="eager"
+          width={width}
+          height={height}
+        />
+      )}
+    </>
+  )
+}
 
 const LaboratorySection = () => {
   const [ref, inView] = useInView({
@@ -116,15 +148,11 @@ const LaboratorySection = () => {
                       </div>
                       <div className="lab-card__player-video">
                         {cardA.video ? (
-                          <video
-                            className="lab-card__video"
+                          <LabVideo
                             src={cardA.video}
-                            autoPlay
-                            muted
-                            loop
-                            playsInline
-                            preload="auto"
-                            poster={cardA.poster}
+                            poster={cardA.poster || cardA.image}
+                            className="lab-card__video"
+                            posterClassName="lab-card__video-poster"
                             width="600"
                             height="600"
                           />
@@ -166,15 +194,10 @@ const LaboratorySection = () => {
               <div className="lab-card__content">
                 <div className="lab-card__overlay" />
                 {project.video ? (
-                  <video
-                    className="lab-card__image"
+                  <LabVideo
                     src={project.video}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="lazy"
-                    poster={project.image}
+                    poster={project.poster || project.image}
+                    className="lab-card__image"
                     width="400"
                     height="400"
                   />
