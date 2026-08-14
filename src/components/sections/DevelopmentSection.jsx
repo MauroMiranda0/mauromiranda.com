@@ -30,6 +30,15 @@ const DevelopmentSection = () => {
     <section className="development" id="development" ref={ref}>
       <div className="development__container">
         <motion.div
+          className="development__header"
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+        >
+          <p className="development__label">[ 01 DESARROLLO ] PROYECTOS PERSONALES</p>
+        </motion.div>
+
+        <motion.div
           className="development__panel"
           style={{ background: activeProject.gradient }}
           initial={{ opacity: 0, y: 30 }}
@@ -40,7 +49,7 @@ const DevelopmentSection = () => {
           <div className="development__bar">
             <div className="development__brand">
               <Icon name="terminal" className="development__brand-icon" />
-              <span className="development__label">[ 01 DESARROLLO ] PROYECTOS PERSONALES</span>
+              <span className="development__brand-title">Panel de Desarrollo</span>
             </div>
             {activeProject.demoUrl.startsWith('/') ? (
               <Link to={activeProject.demoUrl} className="development__cta">

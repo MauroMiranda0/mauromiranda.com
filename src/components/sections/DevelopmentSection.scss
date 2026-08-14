@@ -23,6 +23,18 @@
   }
 
   // ------------------------------------------------------------------
+  // ENCABEZADO DE SECCIÓN
+  // ------------------------------------------------------------------
+
+  &__header {
+    margin-bottom: 2rem;
+
+    @include tablet-up {
+      margin-bottom: 3rem;
+    }
+  }
+
+  // ------------------------------------------------------------------
   // PANEL
   // ------------------------------------------------------------------
 
@@ -69,6 +81,16 @@
     min-width: 0;
   }
 
+  &__brand-title {
+    font-family: var(--font-mono);
+    font-size: map.get($font-sizes, 'xs');
+    color: white;
+    letter-spacing: 0.15em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
   &__brand-icon {
     font-size: 1.5rem;
     color: white;
@@ -77,12 +99,11 @@
 
   &__label {
     font-family: var(--font-mono);
-    font-size: map.get($font-sizes, 'xs');
-    color: white;
+    font-size: 0.875rem;
+    color: var(--primary);
     letter-spacing: 0.2em;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
   }
 
   &__cta {
@@ -282,10 +303,15 @@
     position: relative;
     z-index: 2;
     display: flex;
-    gap: 1rem;
+    justify-content:space-evenly;
     align-items: flex-end;
-    padding-bottom: 0.5rem;
+    gap: 1rem;
+    padding-bottom: 1.5rem;
     overflow-x: auto;
+
+    @include tablet-up {
+      gap: 0;
+    }
   }
 
   &__thumb {
