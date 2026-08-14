@@ -1,7 +1,7 @@
 /**
  * Sección [01 DESARROLLO] — Proyectos Personales
- * Showcase interactivo: selector de proyectos que rota una ruleta de imágenes
- * y actualiza título, descripción, etiquetas y fondo.
+ * Showcase interactivo: selector de proyectos que actualiza título,
+ * descripción, etiquetas, fondo y muestra la vista previa del proyecto.
  */
 import { useState } from 'react'
 import { motion } from 'framer-motion'
@@ -18,18 +18,13 @@ const DevelopmentSection = () => {
   })
 
   const [activeIndex, setActiveIndex] = useState(0)
-  const [rotation, setRotation] = useState(-45)
 
   const activeProject = developmentProjects[activeIndex]
-  const step = 360 / developmentProjects.length
 
   const handleSelect = (index) => {
     if (index === activeIndex) return
     setActiveIndex(index)
-    setRotation((prev) => prev - step)
   }
-
-  const wheelItemTransform = (index) => `rotate(${index * step}deg) translate(0, -260px) rotate(${-index * step}deg)`
 
   return (
     <section className="development" id="development" ref={ref}>
@@ -63,16 +58,44 @@ const DevelopmentSection = () => {
             )}
           </div>
 
-          {/* Contenido */}
-          <div key={activeIndex} className="development__content">
-            <div className="development__body">
-              <span className="development__status">{activeProject.status}</span>
-              <h2 className="development__title">{activeProject.title}</h2>
-              <p className="development__description">{activeProject.description}</p>
-              <div className="development__tags">
-                {activeProject.tags.map((tag) => (
-                  <span key={tag} className="development__tag">{tag}</span>
-                ))}
+          {/* Contenido + vista previa */}
+          <div className="development__main">
+            <div key={`body-${activeIndex}`} className="development__content">
+              <div className="development__body">
+                <span className="development__status">{activeProject.status}</span>
+                <h2 className="development__title">{activeProject.title}</h2>
+                <p className="development__description">{activeProject.description}</p>
+                <div className="development__tags">
+                  {activeProject.tags.map((tag) => (
+                    <span key={tag} className="development__tag">{tag}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="development__preview" aria-hidden="true">
+              <div key={`preview-${activeIndex}`} className="development__preview-frame">
+                <div className="development__preview-bar">
+                  <div className="development__preview-dots">
+                    <span className="development__preview-dot" />
+                    <span className="development__preview-dot" />
+                    <span className="development__preview-dot" />
+                  </div>
+                  <span className="development__preview-url">
+                    {activeProject.demoUrl}
+                  </span>
+                  <span className="development__preview-badge">VISTA PREVIA</span>
+                </div>
+                <div className="development__preview-body">
+                  <img
+                    className="development__preview-image"
+                    src={activeProject.image}
+                    alt=""
+                    loading="lazy"
+                    width="640"
+                    height="400"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -85,6 +108,7 @@ const DevelopmentSection = () => {
                 className={`development__thumb${index === activeIndex ? ' development__thumb--active' : ''}`}
                 onClick={() => handleSelect(index)}
                 aria-label={`Ver ${project.title}`}
+                aria-pressed={index === activeIndex}
               >
                 <img
                   src={project.image}
@@ -95,42 +119,6 @@ const DevelopmentSection = () => {
                   height="120"
                 />
               </button>
-            ))}
-          </div>
-
-          {/* Ruleta frontal */}
-          <div
-            className="development__wheel development__wheel--front"
-            style={{ transform: `rotate(${rotation}deg)` }}
-            aria-hidden="true"
-          >
-            {developmentProjects.map((project, index) => (
-              <img
-                key={project.id}
-                src={project.image}
-                alt=""
-                className="development__wheel-item"
-                style={{ transform: wheelItemTransform(index) }}
-                loading="lazy"
-              />
-            ))}
-          </div>
-
-          {/* Ruleta decorativa trasera */}
-          <div
-            className="development__wheel development__wheel--back"
-            style={{ transform: `rotate(${rotation}deg)` }}
-            aria-hidden="true"
-          >
-            {developmentProjects.map((project, index) => (
-              <img
-                key={project.id}
-                src={project.image}
-                alt=""
-                className="development__wheel-item development__wheel-item--decorative"
-                style={{ transform: wheelItemTransform(index) }}
-                loading="lazy"
-              />
             ))}
           </div>
         </motion.div>
