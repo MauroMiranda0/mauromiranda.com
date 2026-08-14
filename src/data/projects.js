@@ -54,7 +54,7 @@ export const laboratoryProjects = [
     description: 'Vista previa de un sistema CRUD avanzado con gestion de registros, filtros dinamicos, formularios enriquecidos y flujo de administracion orientado a operaciones reales.',
     image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=400&fit=crop&crop=center',
     tags: ['React', 'CRUD', 'Formularios', 'Dashboard'],
-    demoUrl: '#',
+    demoUrl: '/construccion',
     githubUrl: 'https://github.com/MauroMiranda0',
     gridSize: 'small'
   },
@@ -66,7 +66,7 @@ export const laboratoryProjects = [
     description: 'Concepto de asistente digital para agendar citas psicologicas online, dar seguimiento inicial y facilitar la comunicacion entre paciente y profesional.',
     image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=center',
     tags: ['Agenda Online', 'Asistente Digital', 'Salud', 'UX'],
-    demoUrl: '#',
+    demoUrl: '/construccion',
     githubUrl: 'https://github.com/MauroMiranda0',
     gridSize: 'small'
   }
@@ -90,7 +90,7 @@ export const productionProjects = [
     team: '1 desarrollador',
     founders: ['Leonardo Yáñez', 'Mariusz Szczepan'],
     location: 'Grande Prairie, Alberta, Canadá',
-    caseStudyUrl: '#',
+    caseStudyUrl: 'https://knemco-manufacturing-fullstack.vercel.app/',
     featured: true
   },
   {
@@ -108,7 +108,7 @@ export const productionProjects = [
     technologies: ['JavaScript', 'HTML5', 'CSS3', 'Service Worker API', 'Web Manifest', 'LocalStorage API'],
     timeline: '2 meses',
     team: '1 desarrollador',
-    caseStudyUrl: '#',
+    caseStudyUrl: 'https://app-impresion3-d-pwa.vercel.app/',
     featured: true
   },
   {
@@ -126,7 +126,7 @@ export const productionProjects = [
     technologies: ['React', 'Vite', 'Framer Motion', 'Swiper', 'WhatsApp'],
     timeline: '3 meses',
     team: '1 desarrollador',
-    caseStudyUrl: '#',
+    caseStudyUrl: 'https://sonicstore.website/',
     featured: true
   },
   {
@@ -144,7 +144,7 @@ export const productionProjects = [
     technologies: ['React', 'Vite', 'SEO', 'WhatsApp'],
     timeline: '3 meses',
     team: '1 desarrollador',
-    caseStudyUrl: '#',
+    caseStudyUrl: 'https://conciencia-cai.org/',
     featured: true
   }
 ]

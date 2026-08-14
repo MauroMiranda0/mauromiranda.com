@@ -4,6 +4,7 @@
  */
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import { useInView } from 'react-intersection-observer'
 import Icon from '@components/common/Icon'
 import { laboratoryProjects } from '@data/projects'
@@ -215,13 +216,21 @@ const LaboratorySection = () => {
                   <span className="lab-card__badge">{project.status}</span>
                   <h3 className="lab-card__name">{project.title}</h3>
                 </div>
-                <a
-                  href={project.demoUrl}
-                  className="lab-card__link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`Ver ${project.title}`}
-                />
+                {project.demoUrl.startsWith('/') ? (
+                  <Link
+                    to={project.demoUrl}
+                    className="lab-card__link"
+                    aria-label={`Ver ${project.title}`}
+                  />
+                ) : (
+                  <a
+                    href={project.demoUrl}
+                    className="lab-card__link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Ver ${project.title}`}
+                  />
+                )}
               </div>
             </motion.article>
           ))}
