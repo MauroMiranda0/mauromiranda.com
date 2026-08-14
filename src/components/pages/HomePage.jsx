@@ -5,8 +5,9 @@
 import { motion } from 'framer-motion'
 import Header from '@components/layout/Header'
 import HeroSection from '@components/sections/HeroSection'
-import LaboratorySection from '@components/sections/LaboratorySection'
+import DevelopmentSection from '@components/sections/DevelopmentSection'
 import ProductionSection from '@components/sections/ProductionSection'
+import LaboratorySection from '@components/sections/LaboratorySection'
 import TechStackSection from '@components/sections/TechStackSection'
 import AboutSection from '@components/sections/AboutSection'
 import ContactSection from '@components/sections/ContactSection'
@@ -26,8 +27,9 @@ const HomePage = () => {
       
       <main className="main-content">
         <HeroSection />
-        <LaboratorySection />
+        <DevelopmentSection />
         <ProductionSection />
+        <LaboratorySection />
         <TechStackSection />
         <AboutSection />
         <ContactSection />

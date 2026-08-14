@@ -3,6 +3,83 @@
  * Estructura centralizada para fácil mantenimiento - Versión en Español
  */
 
+export const developmentProjects = [
+  {
+    id: 'asistente-digital',
+    title: 'Asistente Digital para Citas Psicológicas Online',
+    category: 'Salud Digital',
+    status: 'EXPLORACIÓN_058',
+    description: 'Concepto de asistente digital para agendar citas psicológicas online, dar seguimiento inicial y facilitar la comunicación entre paciente y profesional.',
+    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=center',
+    tags: ['Agenda Online', 'Asistente Digital', 'Salud', 'UX'],
+    demoUrl: '/construccion',
+    githubUrl: 'https://github.com/MauroMiranda0',
+    gridSize: 'large',
+    featured: true
+  },
+  {
+    id: 'crud-avanzado',
+    title: 'CRUD Avanzado',
+    category: 'Aplicaciones Web',
+    status: 'PROTOTIPO_031',
+    description: 'Vista previa de un sistema CRUD avanzado con gestión de registros, filtros dinámicos, formularios enriquecidos y flujo de administración orientado a operaciones reales.',
+    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=400&fit=crop&crop=center',
+    tags: ['React', 'CRUD', 'Formularios', 'Dashboard'],
+    demoUrl: '/construccion',
+    githubUrl: 'https://github.com/MauroMiranda0',
+    gridSize: 'small',
+    featured: true
+  },
+  {
+    id: 'paneles-solares',
+    title: 'Panel de Control de Paneles Solares',
+    category: 'Energía Solar',
+    status: 'EN_DESARROLLO_061',
+    description: 'Panel de control para monitoreo de paneles solares: registro de generación, métricas de rendimiento y visualización de datos energéticos en tiempo real.',
+    image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=400&h=400&fit=crop&crop=center',
+    tags: ['Dashboard', 'Energía', 'IoT', 'Datos'],
+    demoUrl: '/construccion',
+    githubUrl: 'https://github.com/MauroMiranda0',
+    gridSize: 'small'
+  },
+  {
+    id: 'medicina-estetica',
+    title: 'Medicina Estética',
+    category: 'Salud y Bienestar',
+    status: 'EN_DESARROLLO_062',
+    description: 'Plataforma digital para un centro de medicina estética: presentación de tratamientos, agendamiento de citas y canal de contacto directo con especialistas.',
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&h=400&fit=crop&crop=center',
+    tags: ['Landing', 'Citas', 'Salud', 'UX'],
+    demoUrl: '/construccion',
+    githubUrl: 'https://github.com/MauroMiranda0',
+    gridSize: 'small'
+  },
+  {
+    id: 'edalum',
+    title: 'Edalum',
+    category: 'Comercio Electrónico',
+    status: 'EN_DESARROLLO_063',
+    description: 'Plataforma de catálogo y venta para soluciones de iluminación: exhibición de productos, fichas técnicas y consultas directas por canal de venta.',
+    image: 'https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=400&h=400&fit=crop&crop=center',
+    tags: ['Catálogo', 'E-commerce', 'Iluminación', 'Lead'],
+    demoUrl: '/construccion',
+    githubUrl: 'https://github.com/MauroMiranda0',
+    gridSize: 'small'
+  },
+  {
+    id: 'agencia-viajes',
+    title: 'Agencia de Viajes',
+    category: 'Turismo',
+    status: 'EN_DESARROLLO_064',
+    description: 'Plataforma para una agencia de viajes: exploración de destinos, paquetes turísticos y solicitud de cotizaciones personalizadas.',
+    image: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=400&h=400&fit=crop&crop=center',
+    tags: ['Turismo', 'Destinos', 'Paquetes', 'UX'],
+    demoUrl: '/construccion',
+    githubUrl: 'https://github.com/MauroMiranda0',
+    gridSize: 'small'
+  }
+]
+
 export const laboratoryProjects = [
   {
     id: 'animacion-lampara',
@@ -47,25 +124,25 @@ export const laboratoryProjects = [
     gridSize: 'small'
   },
   {
-    id: 'neural-pattern-synth',
-    title: 'CRUD Avanzado',
-    category: 'Aplicaciones Web',
-    status: 'PROTOTIPO_031',
-    description: 'Vista previa de un sistema CRUD avanzado con gestion de registros, filtros dinamicos, formularios enriquecidos y flujo de administracion orientado a operaciones reales.',
-    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=400&fit=crop&crop=center',
-    tags: ['React', 'CRUD', 'Formularios', 'Dashboard'],
+    id: 'editor-web-local',
+    title: 'Editor Web Local',
+    category: 'Herramientas',
+    status: 'R&D_LAB_06',
+    description: 'Editor de código ejecutable completamente en el navegador: resaltado de sintaxis, vista previa en vivo y persistencia en almacenamiento local.',
+    image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=400&fit=crop&crop=center',
+    tags: ['Editor', 'HTML/CSS/JS', 'Vista Previa', 'LocalStorage'],
     demoUrl: '/construccion',
     githubUrl: 'https://github.com/MauroMiranda0',
     gridSize: 'small'
   },
   {
-    id: 'waveform-visualizer',
-    title: 'Asistente Digital para Citas Psicologicas Online',
-    category: 'Salud Digital',
-    status: 'EXPLORACIÓN_058',
-    description: 'Concepto de asistente digital para agendar citas psicologicas online, dar seguimiento inicial y facilitar la comunicacion entre paciente y profesional.',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=center',
-    tags: ['Agenda Online', 'Asistente Digital', 'Salud', 'UX'],
+    id: 'generador-storytelling',
+    title: 'Generador de Storytelling',
+    category: 'IA Generativa',
+    status: 'R&D_LAB_07',
+    description: 'Experimento de generación de narrativa: construcción de historias y guiones a partir de premisas, personajes y arcos argumentales.',
+    image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=400&h=400&fit=crop&crop=center',
+    tags: ['IA', 'Narrativa', 'Generación', 'Prompt'],
     demoUrl: '/construccion',
     githubUrl: 'https://github.com/MauroMiranda0',
     gridSize: 'small'
@@ -186,21 +263,21 @@ export const techStack = [
 
 // Función helper para obtener proyectos por categoría
 export const getProjectsByCategory = (category) => {
-  return [...laboratoryProjects, ...productionProjects].filter(
+  return [...developmentProjects, ...laboratoryProjects, ...productionProjects].filter(
     project => project.category === category
   )
 }
 
 // Función helper para obtener proyectos destacados
 export const getFeaturedProjects = () => {
-  return [...laboratoryProjects, ...productionProjects].filter(
+  return [...developmentProjects, ...laboratoryProjects, ...productionProjects].filter(
     project => project.featured
   )
 }
 
 // Función helper para obtener proyecto por ID
 export const getProjectById = (id) => {
-  return [...laboratoryProjects, ...productionProjects].find(
+  return [...developmentProjects, ...laboratoryProjects, ...productionProjects].find(
     project => project.id === id
   )
 }

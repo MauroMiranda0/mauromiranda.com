@@ -41,7 +41,7 @@ const ContactSection = () => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <p className="contact__label">[ 05 CONTACTO ]</p>
+          <p className="contact__label">[ 06 CONTACTO ]</p>
           <h2 className="contact__title">INICIAR PROYECTO</h2>
           <p className="contact__subtitle">
             Cuéntame sobre tu proyecto. Estoy listo para convertir tu visión en una solución digital de alto rendimiento.

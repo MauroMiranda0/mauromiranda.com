@@ -1,6 +1,6 @@
 /**
- * Estilos para la sección Laboratorio de Innovación
- * Bento grid con tarjetas de borde animado
+ * Estilos para la sección de proyectos (bento grid)
+ * Sección compartida por [01 DESARROLLO] y [03 LABORATORIO]
  */
 
 // ============================================================================
@@ -18,10 +18,10 @@
 }
 
 // ============================================================================
-// LABORATORY SECTION
+// BENTO PROJECTS SECTION
 // ============================================================================
 
-.laboratory {
+.bento-projects {
   padding: 5rem 1rem;
   border-top: 1px solid rgba(var(--primary-rgb), 0.1);
 
