@@ -75,20 +75,20 @@ const ProductionSection = () => {
                   </div>
                 </div>
               ) : (
-              <div className="production-card__media">
-                <img
-                  className="production-card__image"
-                  src={project.image}
-                  alt={project.title}
-                  loading="lazy"
-                  width="800"
-                  height="600"
-                />
-                <div className="production-card__overlay" />
-                <div className="production-card__category">
-                  {project.category}
+                <div className="production-card__media">
+                  <img
+                    className="production-card__image"
+                    src={project.image}
+                    alt={project.title}
+                    loading="lazy"
+                    width="800"
+                    height="600"
+                  />
+                  <div className="production-card__overlay" />
+                  <div className="production-card__category">
+                    {project.category}
+                  </div>
                 </div>
-              </div>
               )}
 
               <div className="production-card__body">
@@ -133,6 +133,8 @@ const ProductionSection = () => {
                 <a
                   href={project.caseStudyUrl}
                   className="production-card__cta"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   VER CASO DE ESTUDIO
                   <Icon name="arrow_forward" className="production-card__cta-icon" />

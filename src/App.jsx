@@ -6,6 +6,7 @@ import { Routes, Route } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import HomePage from '@components/pages/HomePage'
 import ProjectPage from '@components/pages/ProjectPage'
+import UnderConstructionPage from '@components/pages/UnderConstructionPage'
 import NotFoundPage from '@components/pages/NotFoundPage'
 import { ThemeProvider } from '@hooks/useTheme'
 import ScrollToTop from '@components/common/ScrollToTop'
@@ -31,6 +32,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/proyecto/:slug" element={<ProjectPage />} />
+          <Route path="/construccion" element={<UnderConstructionPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>

@@ -2,11 +2,44 @@
  * Sección Laboratorio de Innovación
  * Bento grid con proyectos de I+D y experimentos técnicos
  */
+import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import { useInView } from 'react-intersection-observer'
 import Icon from '@components/common/Icon'
 import { laboratoryProjects } from '@data/projects'
 import './LaboratorySection.scss'
+
+const LabVideo = ({ src, poster, className, posterClassName, width, height }) => {
+  const [playing, setPlaying] = useState(false)
+
+  return (
+    <>
+      <video
+        className={className}
+        src={src}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        onPlaying={() => setPlaying(true)}
+        width={width}
+        height={height}
+      />
+      {!playing && (
+        <img
+          className={posterClassName || className}
+          src={poster}
+          alt=""
+          loading="eager"
+          width={width}
+          height={height}
+        />
+      )}
+    </>
+  )
+}
 
 const LaboratorySection = () => {
   const [ref, inView] = useInView({
@@ -116,15 +149,11 @@ const LaboratorySection = () => {
                       </div>
                       <div className="lab-card__player-video">
                         {cardA.video ? (
-                          <video
-                            className="lab-card__video"
+                          <LabVideo
                             src={cardA.video}
-                            autoPlay
-                            muted
-                            loop
-                            playsInline
-                            preload="auto"
-                            poster={cardA.poster}
+                            poster={cardA.poster || cardA.image}
+                            className="lab-card__video"
+                            posterClassName="lab-card__video-poster"
                             width="600"
                             height="600"
                           />
@@ -166,15 +195,10 @@ const LaboratorySection = () => {
               <div className="lab-card__content">
                 <div className="lab-card__overlay" />
                 {project.video ? (
-                  <video
-                    className="lab-card__image"
+                  <LabVideo
                     src={project.video}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="lazy"
-                    poster={project.image}
+                    poster={project.poster || project.image}
+                    className="lab-card__image"
                     width="400"
                     height="400"
                   />
@@ -192,13 +216,21 @@ const LaboratorySection = () => {
                   <span className="lab-card__badge">{project.status}</span>
                   <h3 className="lab-card__name">{project.title}</h3>
                 </div>
-                <a
-                  href={project.demoUrl}
-                  className="lab-card__link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`Ver ${project.title}`}
-                />
+                {project.demoUrl.startsWith('/') ? (
+                  <Link
+                    to={project.demoUrl}
+                    className="lab-card__link"
+                    aria-label={`Ver ${project.title}`}
+                  />
+                ) : (
+                  <a
+                    href={project.demoUrl}
+                    className="lab-card__link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Ver ${project.title}`}
+                  />
+                )}
               </div>
             </motion.article>
           ))}

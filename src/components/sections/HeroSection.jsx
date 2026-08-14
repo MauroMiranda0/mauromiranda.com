@@ -40,7 +40,7 @@ const ManifestoModal = ({ isOpen, onClose }) => (
             <section className="hero__modal-section">
               <h3 className="hero__modal-subtitle">Propósito</h3>
               <p className="hero__modal-text">
-                Ingeniería Web e Innovación Digital Estratégica. Arquitectura de software y diseño estratégico para experiencias digitales de alto impacto.
+                Ingeniería Web e Innovación Digital Estratégica. Auditoría, ingeniería y arquitectura de software con visión empresarial, diseño estratégico y verificación de confianza digital para experiencias sólidas y de alto impacto.
               </p>
             </section>
 
@@ -50,15 +50,15 @@ const ManifestoModal = ({ isOpen, onClose }) => (
                 {[
                   {
                     title: 'Ingeniería como Estrategia',
-                    desc: 'Cada decisión técnica se evalúa por su impacto en el negocio y la experiencia del usuario.'
+                    desc: 'Cada decisión técnica se evalúa por su impacto en la dirección empresarial, la escalabilidad y la experiencia del usuario. La ingeniería es un recurso estratégico, no solo operativo.'
                   },
                   {
                     title: 'El Portafolio es un Producto',
-                    desc: 'Mismo rigor que cualquier aplicación en producción: rendimiento, accesibilidad, SEO y mantenibilidad.'
+                    desc: 'Se construye con el mismo rigor que cualquier aplicación en producción: rendimiento, accesibilidad, SEO, mantenibilidad y trazabilidad.'
                   },
                   {
-                    title: 'Innovación Demostrada',
-                    desc: 'No se declara innovación, se demuestra. El laboratorio de I+D es la prueba viva de la capacidad técnica.'
+                    title: 'Innovación Verificada',
+                    desc: 'La innovación no se declara, se demuestra. El laboratorio de I+D y la auditoría de código generado por IA son pruebas vivas de capacidad técnica y confianza digital.'
                   },
                   {
                     title: 'Estética Técnica',
@@ -77,10 +77,10 @@ const ManifestoModal = ({ isOpen, onClose }) => (
               <h3 className="hero__modal-subtitle">Tono y Voz</h3>
               <div className="hero__modal-grid">
                 {[
-                  'Consultivo, no ejecutor',
-                  'Preciso, no florido',
-                  'Autoritario, no arrogante',
-                  'Terminal / Sistema'
+                  'Mentor tecnológico que guía decisiones estratégicas.',
+                  'Lenguaje claro, directo y fundamentado.',
+                  'Seguridad basada en experiencia y evidencia.',
+                  'Comunicación como arquitectura: cada palabra cumple una función.'
                 ].map((t) => (
                   <span key={t} className="hero__modal-pill">{t}</span>
                 ))}
@@ -168,7 +168,7 @@ const HeroSection = () => {
           >
             MAURO MIRANDA:
             <br />
-            <span className="hero__title-highlight">ARQUITECTURA</span>
+            <span className="hero__title-highlight">INGENIERíA</span>
             <br />
             <span className="hero__title-accent">SOFTWARE</span> &amp; EXPERIMENTACIÓN
           </motion.h1>
@@ -177,7 +177,7 @@ const HeroSection = () => {
             className="hero__description"
             variants={itemVariants}
           >
-            Ingenieria web de alto nivel. Diseno arquitecturas digitales de alto rendimiento
+            Ingenieria web de alto nivel. Diseño arquitecturas digitales de alto rendimiento
             con una estetica minimalista y precision tecnica.
           </motion.p>
 
