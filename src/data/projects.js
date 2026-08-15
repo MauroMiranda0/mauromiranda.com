@@ -10,10 +10,11 @@ export const developmentProjects = [
     category: 'Salud Digital',
     status: 'EXPLORACIÓN_058',
     description: 'Concepto de asistente digital para agendar citas psicológicas online, dar seguimiento inicial y facilitar la comunicación entre paciente y profesional.',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=center',
+    image: '/desarrollo/distPsicologia/psychology.svg',
     tags: ['Agenda Online', 'Asistente Digital', 'Salud', 'UX'],
     gradient: 'linear-gradient(135deg, #0f172a 0%, #0b2545 55%, #0da6f2 160%)',
-    demoUrl: '/construccion',
+    demoUrl: '/desarrollo/distPsicologia/',
+    previewUrl: '/desarrollo/distPsicologia/index.html',
     githubUrl: 'https://github.com/MauroMiranda0',
     gridSize: 'large',
     featured: true

@@ -20,6 +20,7 @@ const DevelopmentSection = () => {
   const [activeIndex, setActiveIndex] = useState(0)
 
   const activeProject = developmentProjects[activeIndex]
+  const isAppRoute = /^\/(construccion|proyecto(?:\/|$))/.test(activeProject.demoUrl)
 
   const handleSelect = (index) => {
     if (index === activeIndex) return
@@ -51,7 +52,7 @@ const DevelopmentSection = () => {
               <Icon name="terminal" className="development__brand-icon" />
               <span className="development__brand-title">Panel de Desarrollo</span>
             </div>
-            {activeProject.demoUrl.startsWith('/') ? (
+            {isAppRoute ? (
               <Link to={activeProject.demoUrl} className="development__cta">
                 VER PROYECTO
               </Link>
@@ -96,14 +97,23 @@ const DevelopmentSection = () => {
                   <span className="development__preview-badge">VISTA PREVIA</span>
                 </div>
                 <div className="development__preview-body">
-                  <img
-                    className="development__preview-image"
-                    src={activeProject.image}
-                    alt=""
-                    loading="lazy"
-                    width="640"
-                    height="400"
-                  />
+                  {activeProject.previewUrl ? (
+                    <iframe
+                      className="development__preview-iframe"
+                      src={activeProject.previewUrl}
+                      title={`Vista previa de ${activeProject.title}`}
+                      loading="lazy"
+                    />
+                  ) : (
+                    <img
+                      className="development__preview-image"
+                      src={activeProject.image}
+                      alt=""
+                      loading="lazy"
+                      width="640"
+                      height="400"
+                    />
+                  )}
                 </div>
               </div>
             </div>
@@ -119,14 +129,26 @@ const DevelopmentSection = () => {
                 aria-label={`Ver ${project.title}`}
                 aria-pressed={index === activeIndex}
               >
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="development__thumb-image"
-                  loading="lazy"
-                  width="90"
-                  height="120"
-                />
+                {project.previewUrl ? (
+                  <div className="development__thumb-frame" aria-hidden="true">
+                    <iframe
+                      src={project.previewUrl}
+                      title={`Miniatura de ${project.title}`}
+                      className="development__thumb-iframe"
+                      loading="lazy"
+                      tabIndex="-1"
+                    />
+                  </div>
+                ) : (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="development__thumb-image"
+                    loading="lazy"
+                    width="90"
+                    height="120"
+                  />
+                )}
               </button>
             ))}
           </div>
