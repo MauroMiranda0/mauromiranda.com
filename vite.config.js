@@ -5,6 +5,25 @@ import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, statSync, wri
 
 const PREVIEW_ROUTE = '/conciencia-preview/index.html'
 
+const STATIC_PREVIEW_TYPES = {
+  '.html': 'text/html; charset=utf-8',
+  '.js': 'text/javascript; charset=utf-8',
+  '.css': 'text/css; charset=utf-8',
+  '.svg': 'image/svg+xml',
+  '.png': 'image/png',
+  '.jpg': 'image/jpeg',
+  '.jpeg': 'image/jpeg',
+  '.webp': 'image/webp',
+  '.avif': 'image/avif',
+  '.gif': 'image/gif',
+  '.ico': 'image/x-icon',
+  '.map': 'application/json; charset=utf-8',
+  '.json': 'application/json; charset=utf-8',
+  '.php': 'text/plain; charset=utf-8'
+}
+
+const getExtension = (filePath) => filePath.slice(filePath.lastIndexOf('.')).toLowerCase()
+
 const rewriteAssetPaths = (content) =>
   content
     .replaceAll('"/assets/', '"/distConciencia/assets/')
@@ -29,6 +48,32 @@ const rewriteBuildAssets = (dir) => {
     writeFileSync(filePath, rewriteAssetPaths(readFileSync(filePath, 'utf8')))
   }
 }
+
+const staticDevelopmentPreviews = () => ({
+  name: 'static-development-previews',
+  configureServer(server) {
+    server.middlewares.use((req, res, next) => {
+      if (!req.url?.startsWith('/desarrollo/')) {
+        next()
+        return
+      }
+
+      const cleanUrl = decodeURIComponent(req.url.split('?')[0])
+      const filePath = resolve(__dirname, `.${cleanUrl}`)
+
+      if (filePath.includes('..') || !existsSync(filePath) || statSync(filePath).isDirectory()) {
+        next()
+        return
+      }
+
+      const extension = getExtension(filePath)
+      const contentType = STATIC_PREVIEW_TYPES[extension] ?? 'application/octet-stream'
+
+      res.setHeader('Content-Type', contentType)
+      res.end(readFileSync(filePath))
+    })
+  }
+})
 
 const concienciaPreview = () => ({
   name: 'conciencia-preview',
@@ -88,7 +133,7 @@ const concienciaPreview = () => ({
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), concienciaPreview()],
+  plugins: [react(), staticDevelopmentPreviews(), concienciaPreview()],
   resolve: {
     alias: {
       '@': resolve(__dirname, './src'),
