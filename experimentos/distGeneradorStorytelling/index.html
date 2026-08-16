@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingeniería Web Miranda - Storyboard Studio 9:16 + Negative Prompts</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./tailwind-config.js"></script>
+    <!-- Vue 3 CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body class="min-h-screen flex flex-col antialiased text-slate-100">
+    <div id="app" class="flex flex-col flex-1">
+        
+        <!-- HEADER DE MARCA -->
+        <header class="sticky top-0 z-40 px-4 py-3">
+            <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-4">
+                <div class="glass-panel rounded-2xl px-4 py-3 w-full flex flex-wrap justify-between items-center gap-4 text-slate-700">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-white to-sky-100 flex items-center justify-center font-bold text-sky-700 shadow-lg shadow-sky-200/50 border border-white/70">
+                        <i data-lucide="terminal" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-base font-bold tracking-tight text-slate-700 flex items-center gap-2">
+                            Ingeniería Web Miranda
+                            <span class="text-xs px-2 py-0.5 rounded-full bg-white/70 text-sky-700 border border-white/80 font-mono">9:16 AI Video Studio</span>
+                        </h1>
+                        <p class="text-xs text-slate-500">Storytelling de 40s con prompts negativos para Google Veo / Flow</p>
+                    </div>
+                </div>
+
+                <!-- Botones de Acción Global -->
+                <div class="flex items-center gap-2">
+                    <button @click="cargarEjemplo" class="px-3 py-1.5 rounded-xl border border-white/70 bg-white/65 hover:bg-white text-xs text-slate-600 flex items-center gap-1.5 transition">
+                        <i data-lucide="file-text" class="w-3.5 h-3.5 text-sky-500"></i> Cargar Ejemplo
+                    </button>
+                    <button @click="abrirModalAI" class="px-3 py-1.5 rounded-xl bg-gradient-to-r from-sky-400 to-cyan-300 hover:from-sky-300 hover:to-cyan-200 text-slate-900 text-xs font-semibold flex items-center gap-1.5 transition shadow-md shadow-sky-300/40">
+                        <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Autogenerar con IA
+                    </button>
+                    <button @click="limpiarTodo" class="px-3 py-1.5 rounded-xl border border-white/70 hover:bg-white/80 text-xs text-slate-500 hover:text-slate-700 transition" title="Reiniciar Plantilla">
+                        <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+                    </button>
+                </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- MAIN LAYOUT -->
+        <main class="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 relative z-10">
+            <section class="lg:col-span-12 glass-panel rounded-[2rem] overflow-hidden p-6 md:p-8 text-slate-700">
+                <div class="grid grid-cols-1 xl:grid-cols-[1.1fr_0.9fr] gap-8 items-center">
+                    <div class="space-y-5">
+                        <div class="flex items-center gap-2 text-[11px] uppercase tracking-[0.28em] text-sky-700 font-semibold">
+                            <i data-lucide="workflow" class="w-4 h-4"></i>
+                            Flujo guiado de storytelling
+                        </div>
+                        <div>
+                            <p class="text-xs font-semibold text-slate-500 mb-2">Ingeniería Web Miranda</p>
+                            <h2 class="metal-text text-4xl md:text-6xl font-semibold tracking-tight leading-none">Storyboard Studio</h2>
+                            <p class="mt-4 max-w-2xl text-sm md:text-base text-slate-500 leading-relaxed">
+                                Ahora el proceso se recorre paso a paso: define el briefing, construye las escenas, revisa la simulación y exporta el resultado final sin saturarte con todo al mismo tiempo.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-3">
+                            <button @click="abrirModalAI" class="px-4 py-2 rounded-2xl bg-gradient-to-r from-sky-500 to-cyan-400 text-white text-xs font-semibold shadow-lg shadow-sky-300/40">Crear con IA</button>
+                            <button @click="cargarEjemplo" class="px-4 py-2 rounded-2xl border border-white/80 bg-white/60 text-xs font-semibold text-slate-600">Ver demo técnica</button>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                        <div class="rounded-2xl bg-white/50 border border-white/70 p-4">
+                            <div class="text-2xl font-semibold text-slate-700">5</div>
+                            <div class="text-xs text-slate-500">Escenas por video</div>
+                        </div>
+                        <div class="rounded-2xl bg-white/50 border border-white/70 p-4">
+                            <div class="text-2xl font-semibold text-slate-700">40s</div>
+                            <div class="text-xs text-slate-500">Duración total</div>
+                        </div>
+                        <div class="rounded-2xl bg-white/50 border border-white/70 p-4">
+                            <div class="text-2xl font-semibold text-slate-700">{{ escenasCompletas }}</div>
+                            <div class="text-xs text-slate-500">Escenas completas</div>
+                        </div>
+                        <div class="rounded-2xl bg-white/50 border border-white/70 p-4">
+                            <div class="text-2xl font-semibold text-slate-700">{{ palabrasTotales }}</div>
+                            <div class="text-xs text-slate-500">Palabras totales</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="lg:col-span-8 flex flex-col gap-6">
+                <div class="glass-dark rounded-[1.75rem] p-4 md:p-5 space-y-4">
+                    <div class="flex flex-wrap items-center justify-between gap-3">
+                        <div>
+                            <p class="text-[10px] uppercase tracking-[0.24em] text-cyan-300/90 font-semibold mb-1">Proceso</p>
+                            <h3 class="text-lg font-semibold text-white">Paso {{ currentStep }} de 4</h3>
+                            <p class="text-xs text-slate-400">{{ currentStepMeta.description }}</p>
+                        </div>
+                        <div class="flex gap-2">
+                            <button @click="pasoAnterior" :disabled="currentStep === 1" class="px-3 py-2 rounded-xl border border-slate-700 text-xs text-slate-300 disabled:opacity-40 disabled:cursor-not-allowed">Anterior</button>
+                            <button @click="pasoSiguiente" :disabled="currentStep === 4" class="px-3 py-2 rounded-xl bg-cyan-500 text-slate-950 text-xs font-semibold disabled:opacity-40 disabled:cursor-not-allowed">Siguiente</button>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
+                        <button v-for="step in steps" :key="step.id" @click="irAPaso(step.id)" class="text-left rounded-2xl border p-4 transition" :class="currentStep === step.id ? 'border-cyan-400/40 bg-cyan-500/10' : 'border-slate-700 bg-slate-950/50 hover:bg-slate-900'">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold" :class="currentStep === step.id ? 'bg-cyan-400 text-slate-950' : 'bg-slate-800 text-slate-300'">{{ step.id }}</span>
+                                <span class="text-[10px] uppercase tracking-[0.18em]" :class="currentStep === step.id ? 'text-cyan-300' : 'text-slate-500'">{{ step.short }}</span>
+                            </div>
+                            <div class="text-sm font-semibold" :class="currentStep === step.id ? 'text-white' : 'text-slate-200'">{{ step.title }}</div>
+                            <div class="text-[11px] mt-1" :class="currentStep === step.id ? 'text-slate-300' : 'text-slate-500'">{{ step.description }}</div>
+                        </button>
+                    </div>
+                </div>
+
+                <div v-show="currentStep === 1" class="space-y-6">
+                    <div class="glass-dark rounded-[1.75rem] p-5 shadow-sm space-y-4">
+                        <div class="flex items-center justify-between gap-3">
+                            <h2 class="text-sm font-semibold text-cyan-400 flex items-center gap-2"><i data-lucide="sliders-horizontal" class="w-4 h-4"></i> Briefing del video</h2>
+                            <span class="text-[10px] text-slate-500 font-mono">Clips: 8s Google Flow / Veo</span>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                            <div>
+                                <label class="block text-xs text-slate-400 mb-1">Tema del Video</label>
+                                <input v-model="metadata.tema" type="text" placeholder="Ej: Optimización de velocidad web" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-cyan-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs text-slate-400 mb-1">Concepto Principal</label>
+                                <input v-model="metadata.concepto" type="text" placeholder="Ej: De 4s a 0.8s en tiempo de carga" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-cyan-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs text-slate-400 mb-1">Estética / Ambiente</label>
+                                <input v-model="metadata.estetica" type="text" placeholder="Ej: Dashboard minimalista, arquitectura limpia" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-cyan-500">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-dark rounded-[1.75rem] p-4 md:p-5 flex flex-wrap justify-between items-center gap-4 overflow-hidden relative">
+                        <div class="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-cyan-400/10 to-transparent pointer-events-none"></div>
+                        <div class="relative flex items-start gap-3 max-w-[42rem]">
+                            <div class="p-2.5 rounded-2xl bg-cyan-400/10 border border-cyan-400/20 text-cyan-300 shadow-lg shadow-cyan-900/20 mt-0.5">
+                                <i data-lucide="clock-3" class="w-4 h-4"></i>
+                            </div>
+                            <div class="space-y-2">
+                                <div>
+                                    <p class="text-[10px] uppercase tracking-[0.24em] text-cyan-300/90 font-semibold mb-1">Ritmo Narrativo</p>
+                                    <div class="text-sm text-slate-200">Duración Objetivo: <span class="text-white font-mono font-semibold">40s (5 escenas × 8s)</span></div>
+                                </div>
+                                <div class="inline-flex items-start gap-2 rounded-2xl border border-amber-400/15 bg-amber-400/10 px-3 py-2 text-[11px] text-amber-200/90 font-mono leading-relaxed">
+                                    <i data-lucide="triangle-alert" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-amber-300"></i>
+                                    <span>Cada escena dura 8s. Mantén idealmente 12-18 palabras por escena para conservar claridad y evitar cortes de audio.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-right relative min-w-[14rem]">
+                            <div class="flex items-center justify-end gap-2 mb-2">
+                                <span class="text-xs font-mono font-bold px-2.5 py-1 rounded-md border" :class="estadoPalabrasTotales.clase">{{ palabrasTotales }} palabras</span>
+                                <span class="text-[10px] font-mono px-2 py-1 rounded-full border" :class="estadoPalabrasTotales.claseSuave">{{ estadoPalabrasTotales.label }}</span>
+                            </div>
+                            <div class="h-2 rounded-full bg-slate-800/90 overflow-hidden border border-slate-700/80">
+                                <div class="h-full transition-all duration-300" :class="estadoPalabrasTotales.barra" :style="{ width: porcentajePalabrasTotales + '%' }"></div>
+                            </div>
+                            <div class="mt-1 text-[10px] text-slate-500 font-mono">Objetivo global sugerido: 60-90 palabras</div>
+                        </div>
+                    </div>
+
+                    <div class="glass-dark rounded-[1.75rem] p-4 space-y-2">
+                        <div @click="mostrarNegativeGlobal = !mostrarNegativeGlobal" class="flex justify-between items-center cursor-pointer select-none">
+                            <span class="text-xs font-bold text-rose-400 flex items-center gap-2"><i data-lucide="ban" class="w-3.5 h-3.5"></i> Prompts Negativos Base</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-500 transition-transform" :class="{'rotate-180': mostrarNegativeGlobal}"></i>
+                        </div>
+                        <div v-show="mostrarNegativeGlobal" class="pt-2 border-t border-slate-800/60 space-y-2">
+                            <textarea v-model="negativePromptGlobal" rows="2" class="w-full bg-slate-950 border border-rose-900/40 rounded-lg p-2.5 text-xs text-rose-300 font-mono focus:outline-none focus:border-rose-500 resize-none" placeholder="Exclusiones globales..."></textarea>
+                            <p class="text-[10px] text-slate-500">Estos términos previenen deformidades anatómicas, interfaces irreales, texto incoherente o distorsión de datos al generar imágenes/videos con IA.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div v-show="currentStep === 2" class="space-y-4">
+                    <div class="glass-dark rounded-[1.75rem] p-4 flex items-center justify-between gap-3">
+                        <div>
+                            <h2 class="text-sm font-semibold text-white">Construcción de escenas</h2>
+                            <p class="text-xs text-slate-400">Edita una escena a la vez para mantener foco narrativo.</p>
+                        </div>
+                        <div class="flex gap-2 overflow-x-auto pb-1">
+                            <button v-for="(escena, index) in escenas" :key="'step-scene-' + escena.id" @click="escenaActiva = index" class="px-3 py-2 rounded-xl text-xs font-mono border whitespace-nowrap" :class="escenaActiva === index ? 'bg-cyan-500 text-slate-950 border-cyan-400' : 'bg-slate-900 text-slate-300 border-slate-700'">Escena {{ escena.id }}</button>
+                        </div>
+                    </div>
+
+                    <div class="glass-dark rounded-[1.75rem] overflow-hidden border border-cyan-500/20">
+                        <div class="px-5 py-4 bg-slate-950/60 flex items-center justify-between border-b border-slate-800/60">
+                            <div class="flex items-center gap-3">
+                                <span class="w-8 h-8 rounded-xl bg-slate-800 text-cyan-400 font-mono text-sm font-bold flex items-center justify-center">{{ escenas[escenaActiva].id }}</span>
+                                <div>
+                                    <h3 class="text-sm font-semibold text-white uppercase">{{ escenas[escenaActiva].nombre }}</h3>
+                                    <p class="text-xs text-slate-400">{{ escenas[escenaActiva].funcion }}</p>
+                                </div>
+                            </div>
+                            <span class="text-[10px] font-mono font-medium px-2 py-1 rounded bg-slate-800 text-slate-300">{{ escenas[escenaActiva].tiempo }}</span>
+                        </div>
+                        <div class="p-5 space-y-4 bg-slate-900">
+                            <div>
+                                <div class="flex justify-between items-center mb-1 gap-3 flex-wrap">
+                                    <label class="text-xs font-medium text-slate-300 flex items-center gap-1.5"><i data-lucide="mic" class="w-3.5 h-3.5 text-cyan-400"></i> Voz en Off (8s)</label>
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-[10px] font-mono px-2 py-1 rounded-full border" :class="estadoPalabrasEscena(escenas[escenaActiva].voz).claseSuave">{{ estadoPalabrasEscena(escenas[escenaActiva].voz).label }}</span>
+                                        <span class="text-[10px] font-mono font-semibold" :class="estadoPalabrasEscena(escenas[escenaActiva].voz).texto">{{ contarPalabras(escenas[escenaActiva].voz) }} palabras</span>
+                                    </div>
+                                </div>
+                                <div class="mb-2 h-1.5 rounded-full bg-slate-800 overflow-hidden border border-slate-700/70">
+                                    <div class="h-full transition-all duration-300" :class="estadoPalabrasEscena(escenas[escenaActiva].voz).barra" :style="{ width: porcentajePalabrasEscena(escenas[escenaActiva].voz) + '%' }"></div>
+                                </div>
+                                <textarea v-model="escenas[escenaActiva].voz" rows="3" placeholder="Escribe aquí la frase que se locucionará..." class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-xs text-slate-200 focus:outline-none focus:border-cyan-500 resize-none font-mono"></textarea>
+                            </div>
+
+                            <div>
+                                <label class="text-xs font-medium text-slate-300 flex items-center gap-1.5 mb-1"><i data-lucide="video" class="w-3.5 h-3.5 text-teal-400"></i> Prompt Visual Positivo</label>
+                                <textarea v-model="escenas[escenaActiva].visual" rows="3" placeholder="Describe la toma, objeto, interfaz o interacción para generar en IA..." class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-xs text-slate-200 focus:outline-none focus:border-cyan-500 resize-none"></textarea>
+                            </div>
+
+                            <div class="bg-slate-950/60 p-3 rounded-lg border border-rose-900/30">
+                                <label class="text-[11px] font-medium text-rose-400 flex items-center gap-1 mb-1"><i data-lucide="shield-alert" class="w-3 h-3"></i> Prompt Negativo Específico</label>
+                                <input v-model="escenas[escenaActiva].negativePrompt" type="text" placeholder="Ej: extra fingers, distorted code text, blurry metrics..." class="w-full bg-slate-950 border border-slate-800 rounded px-3 py-2 text-xs text-rose-200/90 font-mono focus:outline-none focus:border-rose-500">
+                            </div>
+
+                            <div v-if="escenas[escenaActiva].campoExtra" class="bg-slate-950/40 p-3 rounded-lg border border-slate-800/80">
+                                <label class="text-[11px] font-medium text-cyan-400/90 block mb-1">{{ escenas[escenaActiva].campoExtraLabel }}</label>
+                                <input v-model="escenas[escenaActiva].campoExtraValue" type="text" :placeholder="escenas[escenaActiva].campoExtraPlaceholder" class="w-full bg-slate-950 border border-slate-800 rounded px-3 py-2 text-xs text-slate-300 focus:outline-none focus:border-cyan-500">
+                            </div>
+
+                            <div class="flex justify-between gap-3 pt-2">
+                                <button @click="escenaActiva = escenaActiva > 0 ? escenaActiva - 1 : 0" :disabled="escenaActiva === 0" class="px-3 py-2 rounded-xl border border-slate-700 text-xs text-slate-300 disabled:opacity-40">Escena anterior</button>
+                                <button @click="escenaActiva = escenaActiva < escenas.length - 1 ? escenaActiva + 1 : escenas.length - 1" :disabled="escenaActiva === escenas.length - 1" class="px-3 py-2 rounded-xl bg-cyan-500 text-slate-950 text-xs font-semibold disabled:opacity-40">Siguiente escena</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div v-show="currentStep === 3" class="space-y-6">
+                    <div class="glass-dark rounded-[1.75rem] p-1 flex gap-1">
+                        <button @click="tabPrevio = 'reproductor'" :class="tabPrevio === 'reproductor' ? 'bg-cyan-500/10 text-cyan-400 border-cyan-500/30' : 'text-slate-400 border-transparent hover:text-slate-200'" class="flex-1 py-2 text-xs font-medium rounded-lg border transition flex items-center justify-center gap-1.5"><i data-lucide="play" class="w-3.5 h-3.5"></i> Simular Video</button>
+                        <button @click="tabPrevio = 'texto'" :class="tabPrevio === 'texto' ? 'bg-cyan-500/10 text-cyan-400 border-cyan-500/30' : 'text-slate-400 border-transparent hover:text-slate-200'" class="flex-1 py-2 text-xs font-medium rounded-lg border transition flex items-center justify-center gap-1.5"><i data-lucide="file-code" class="w-3.5 h-3.5"></i> Guión + Prompts</button>
+                    </div>
+
+                    <div v-show="tabPrevio === 'reproductor'" class="glass-dark rounded-[1.75rem] p-5 flex flex-col items-center">
+                        <div class="w-full max-w-[280px] phone-aspect bg-[radial-gradient(circle_at_top,_rgba(34,211,238,0.12),_transparent_32%),linear-gradient(180deg,_rgba(2,6,23,1)_0%,_rgba(15,23,42,1)_100%)] rounded-[2rem] border border-slate-700 shadow-2xl overflow-hidden flex flex-col relative justify-between p-4">
+                            <div class="grid grid-cols-5 gap-1 w-full z-10">
+                                <div v-for="n in 5" :key="n" class="h-1 rounded-full overflow-hidden bg-slate-800">
+                                    <div class="h-full bg-cyan-400 transition-all duration-300" :style="{ width: (escenaSimulada > n ? '100%' : (escenaSimulada === n ? progresoEscena + '%' : '0%')) }"></div>
+                                </div>
+                            </div>
+                            <div class="my-auto text-center space-y-3 z-10 py-2">
+                                <span class="inline-block px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-mono text-[10px] uppercase font-bold tracking-wider">ESCENA {{ escenaSimulada }} ({{ escenas[escenaSimulada - 1].tiempo }})</span>
+                                <h4 class="text-xs font-bold text-slate-300 uppercase tracking-wide">{{ escenas[escenaSimulada - 1].nombre }}</h4>
+                                <div class="bg-slate-900/90 border border-slate-800 rounded-lg p-2.5 text-left">
+                                    <span class="text-[9px] uppercase tracking-wider text-teal-400 font-bold block mb-0.5">Visual:</span>
+                                    <p class="text-[11px] text-slate-300 italic line-clamp-3">{{ escenas[escenaSimulada - 1].visual || '[Sin descripción visual]' }}</p>
+                                </div>
+                                <div v-if="escenas[escenaSimulada - 1].negativePrompt" class="bg-rose-950/30 border border-rose-900/40 rounded-lg p-2 text-left">
+                                    <span class="text-[8px] uppercase tracking-wider text-rose-400 font-bold block mb-0.5">Prompt Negativo:</span>
+                                    <p class="text-[10px] text-rose-300/80 font-mono line-clamp-2">{{ escenas[escenaSimulada - 1].negativePrompt }}</p>
+                                </div>
+                                <div class="bg-cyan-950/30 border border-cyan-900/50 rounded-lg p-2.5 text-left">
+                                    <span class="text-[9px] uppercase tracking-wider text-cyan-400 font-bold block mb-0.5">Voz en Off:</span>
+                                    <p class="text-xs text-white font-medium line-clamp-3 font-mono">"{{ escenas[escenaSimulada - 1].voz || '[Sin voz en off]' }}"</p>
+                                </div>
+                            </div>
+                            <div class="border-t border-slate-800/80 pt-2 text-center z-10 bg-slate-950">
+                                <p class="text-[10px] font-bold text-white tracking-wider uppercase">Ingeniería Web Miranda</p>
+                                <p class="text-[9px] text-cyan-400 font-mono">ingenieriawebmiranda.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 mt-4 w-full justify-center">
+                            <button @click="anteriorEscena" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs"><i data-lucide="skip-back" class="w-4 h-4"></i></button>
+                            <button @click="toggleReproduccion" class="px-4 py-2 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 text-xs font-bold flex items-center gap-2"><i :data-lucide="reproduciendo ? 'pause' : 'play'" class="w-4 h-4"></i>{{ reproduciendo ? 'Pausar' : 'Probar Ensayo (40s)' }}</button>
+                            <button @click="siguienteEscena" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs"><i data-lucide="skip-forward" class="w-4 h-4"></i></button>
+                        </div>
+                    </div>
+
+                    <div v-show="tabPrevio === 'texto'" class="glass-dark rounded-[1.75rem] p-5 flex flex-col gap-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-bold text-slate-300 uppercase">Resultado Formateado</span>
+                            <button @click="copiarTexto" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-xs text-cyan-400 font-medium flex items-center gap-1 transition"><i data-lucide="copy" class="w-3.5 h-3.5"></i> {{ copiado ? '¡Copiado!' : 'Copiar' }}</button>
+                        </div>
+                        <pre class="w-full h-[480px] bg-slate-950 border border-slate-800 rounded-lg p-3 text-[11px] text-slate-300 font-mono overflow-y-auto whitespace-pre-wrap select-all leading-relaxed">{{ textoFormateado }}</pre>
+                    </div>
+                </div>
+
+                <div v-show="currentStep === 4" class="space-y-6">
+                    <div class="glass-dark rounded-[1.75rem] p-5 space-y-4">
+                        <div class="flex items-center justify-between gap-3">
+                            <div>
+                                <h2 class="text-sm font-semibold text-white">Exportación final</h2>
+                                <p class="text-xs text-slate-400">Copia o descarga el guión definitivo cuando el flujo esté listo.</p>
+                            </div>
+                            <div class="flex gap-2">
+                                <button @click="copiarTexto" class="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs text-cyan-400 font-medium flex items-center gap-1"><i data-lucide="copy" class="w-3.5 h-3.5"></i> {{ copiado ? '¡Copiado!' : 'Copiar' }}</button>
+                                <button @click="descargarMarkdown" class="px-3 py-2 rounded-xl bg-cyan-500 text-slate-950 text-xs font-semibold flex items-center gap-1"><i data-lucide="download" class="w-3.5 h-3.5"></i> Descargar .MD</button>
+                            </div>
+                        </div>
+                        <pre class="w-full h-[420px] bg-slate-950 border border-slate-800 rounded-lg p-3 text-[11px] text-slate-300 font-mono overflow-y-auto whitespace-pre-wrap select-all leading-relaxed">{{ textoFormateado }}</pre>
+                    </div>
+
+                    <div class="glass-dark rounded-[1.75rem] p-5 space-y-2">
+                        <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5"><i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i> Reglas Técnicas Permanentes</h3>
+                        <ul class="text-xs text-slate-400 space-y-1 pl-4 list-disc font-mono">
+                            <li>Formato: 9:16 vertical | Duración: 40s</li>
+                            <li>Duración por clip de IA (Google Flow): 8 segundos por escena.</li>
+                            <li>Marca: <strong class="text-slate-200">Ingeniería Web Miranda</strong></li>
+                            <li>URL: <strong class="text-cyan-400">ingenieriawebmiranda.com</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <aside class="lg:col-span-4 flex flex-col gap-6">
+                <div class="glass-dark rounded-[1.75rem] p-5 sticky top-24 space-y-4">
+                    <div class="relative min-h-[260px] flex items-center justify-center rounded-[1.5rem] overflow-hidden bg-slate-950/40">
+                        <div class="absolute inset-0 hero-orb opacity-70"></div>
+                        <div class="relative w-full p-5 space-y-4">
+                            <div class="flex items-center justify-between text-[11px] uppercase tracking-[0.2em] text-slate-400">
+                                <span>Vista Curada</span>
+                                <span>{{ metadata.tema || 'Proyecto' }}</span>
+                            </div>
+                            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                                <p class="text-[10px] uppercase tracking-[0.24em] text-cyan-300 mb-2">Concepto</p>
+                                <p class="text-sm text-slate-100">{{ metadata.concepto || 'Narrativa lista para estructurar en 5 escenas de alto impacto.' }}</p>
+                            </div>
+                            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                                <p class="text-[10px] uppercase tracking-[0.24em] text-cyan-300 mb-2">Estética</p>
+                                <p class="text-sm text-slate-300">{{ metadata.estetica || 'Vidrio, luz difusa, interfaces limpias y una lectura clara del contenido.' }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="rounded-2xl border border-slate-700 bg-slate-950/40 p-4">
+                            <div class="text-lg font-semibold text-white">{{ escenasCompletas }}/5</div>
+                            <div class="text-[10px] uppercase text-slate-500">Escenas completas</div>
+                        </div>
+                        <div class="rounded-2xl border border-slate-700 bg-slate-950/40 p-4">
+                            <div class="text-lg font-semibold text-white">{{ currentStep }}/4</div>
+                            <div class="text-[10px] uppercase text-slate-500">Paso actual</div>
+                        </div>
+                    </div>
+
+                    <div class="rounded-2xl border border-slate-700 bg-slate-950/40 p-4 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-semibold text-slate-300">Estado del flujo</span>
+                            <span class="text-[10px] font-mono px-2 py-1 rounded-full border" :class="estadoPalabrasTotales.claseSuave">{{ estadoPalabrasTotales.label }}</span>
+                        </div>
+                        <div v-for="step in steps" :key="'summary-' + step.id" class="flex items-center justify-between text-xs">
+                            <span class="text-slate-400">{{ step.id }}. {{ step.title }}</span>
+                            <span class="text-slate-200 font-mono">{{ step.id < currentStep ? 'Hecho' : step.id === currentStep ? 'Activo' : 'Pendiente' }}</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+        </main>
+
+        <!-- MODAL GENERADOR IA (GEMINI) CON NEGATIVE PROMPTS -->
+        <div v-if="modalAIOpen" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+            <div class="glass-dark rounded-[1.75rem] max-w-md w-full p-5 space-y-4 shadow-2xl">
+                <div class="flex justify-between items-center border-b border-slate-800 pb-3">
+                    <h3 class="text-sm font-bold text-white flex items-center gap-2">
+                        <i data-lucide="sparkles" class="w-4 h-4 text-cyan-400"></i> Autogenerar con IA + Negative Prompts
+                    </h3>
+                    <button @click="modalAIOpen = false" class="text-slate-500 hover:text-white">
+                        <i data-lucide="x" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <p class="text-xs text-slate-400">
+                    Ingresa el tema o idea. La IA redactará las 5 escenas y creará prompts negativos específicos para evitar distorsiones visuales y cortes de locución.
+                </p>
+
+                <div>
+                    <label class="block text-xs font-medium text-slate-300 mb-1">Tema o Idea del Video:</label>
+                    <textarea v-model="promptAI" rows="3" placeholder="Ej: Por qué una web hecha en WordPress lento pierde clientes y cómo una arquitectura a medida resuelve la seguridad y velocidad." class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 text-xs text-slate-200 focus:outline-none focus:border-cyan-500 resize-none"></textarea>
+                </div>
+
+                <div v-if="errorAI" class="text-xs text-rose-400 bg-rose-500/10 border border-rose-500/20 p-2 rounded">
+                    {{ errorAI }}
+                </div>
+
+                <div class="flex justify-end gap-2 pt-2">
+                    <button @click="modalAIOpen = false" class="px-3 py-1.5 rounded-lg border border-slate-800 text-xs text-slate-400 hover:bg-slate-800">
+                        Cancelar
+                    </button>
+                    <button @click="generarConIA" :disabled="generandoAI" class="px-4 py-1.5 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 text-xs font-bold flex items-center gap-1.5 disabled:opacity-50">
+                        <i data-lucide="loader" class="w-3.5 h-3.5 animate-spin" v-if="generandoAI"></i>
+                        <span>{{ generandoAI ? 'Generando...' : 'Generar Storytelling' }}</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- NOTIFICACIÓN TOAST -->
+        <div v-if="toast.show" class="fixed bottom-4 right-4 bg-slate-900/95 border border-cyan-400/30 text-cyan-300 text-xs font-mono px-4 py-2.5 rounded-2xl shadow-xl z-50 flex items-center gap-2 backdrop-blur-xl">
+            <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400"></i>
+            {{ toast.message }}
+        </div>
+
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+</html>

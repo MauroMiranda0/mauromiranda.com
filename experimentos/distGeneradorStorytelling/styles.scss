@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+    color-scheme: dark;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background:
+        radial-gradient(circle at top left, rgba(125, 211, 252, 0.22), transparent 30%),
+        radial-gradient(circle at top right, rgba(255, 255, 255, 0.2), transparent 24%),
+        radial-gradient(circle at bottom right, rgba(45, 212, 191, 0.14), transparent 22%),
+        linear-gradient(180deg, #f7fbff 0%, #edf4ff 44%, #deebfb 100%);
+    color: #e2e8f0;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(120deg, rgba(255, 255, 255, 0.5), transparent 20%, transparent 80%, rgba(255, 255, 255, 0.25)),
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.35), transparent 18%);
+    opacity: 0.55;
+}
+
+.code-font {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #06b6d4;
+}
+
+.phone-aspect {
+    aspect-ratio: 9 / 16;
+}
+
+.glass-panel {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(226, 238, 252, 0.58));
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 20px 60px rgba(148, 163, 184, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+}
+
+.glass-dark {
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.74));
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.35);
+}
+
+.hero-orb {
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.95) 0%, rgba(191, 219, 254, 0.55) 35%, rgba(59, 130, 246, 0.08) 68%, transparent 72%);
+    filter: blur(0.5px);
+}
+
+.metal-text {
+    background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 28%, #f8fafc 46%, #94a3b8 60%, #ffffff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6), 0 14px 34px rgba(148, 163, 184, 0.24);
+}

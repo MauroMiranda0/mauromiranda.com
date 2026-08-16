@@ -153,11 +153,12 @@ export const laboratoryProjects = [
     title: 'Generador de Storytelling',
     category: 'IA Generativa',
     status: 'R&D_LAB_07',
-    description: 'Experimento de generación de narrativa: construcción de historias y guiones a partir de premisas, personajes y arcos argumentales.',
-    image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=400&h=400&fit=crop&crop=center',
-    tags: ['IA', 'Narrativa', 'Generación', 'Prompt'],
-    demoUrl: '/construccion',
-    githubUrl: 'https://github.com/MauroMiranda0',
+    description: 'Estudio interactivo para construir storyboards narrativos con escenas, prompts negativos y flujo guiado orientado a generación de video con IA.',
+    image: './experimentos/distGeneradorStorytelling/index.html',
+    previewUrl: './experimentos/distGeneradorStorytelling/index.html',
+    tags: ['IA', 'Storytelling', 'Storyboard', 'Prompt'],
+    demoUrl: './experimentos/distGeneradorStorytelling/index.html',
+    githubUrl: 'https://github.com/MauroMiranda0/mauromiranda.com/tree/main/experimentos/distGeneradorStorytelling',
     gridSize: 'small'
   }
 ]
