@@ -1,0 +1,921 @@
+@charset "UTF-8";
+/* 
+ * Life Travel México - Main Styles
+ * Desarrollado para landing page informativa
+ */
+/* ----------------- Variables ----------------- */
+/* ----------------- Reset y base ----------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #1A1A1A;
+  background-color: #FFFFFF;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+/* ----------------- Utilidades ----------------- */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+@media (min-width: 768px) {
+  .container {
+    padding: 0 2rem;
+  }
+}
+
+.section-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 2.5rem;
+  }
+}
+
+.section-subtitle {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+  text-align: center;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ----------------- Botones ----------------- */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  background-color: #C5E063;
+  color: #1A1A1A;
+}
+.btn-primary:hover {
+  background-color: #bddc4e;
+}
+
+.btn-secondary {
+  background-color: #F2C94C;
+  color: #1A1A1A;
+}
+.btn-secondary:hover {
+  background-color: #f0c234;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid #C5E063;
+  color: #1A1A1A;
+}
+.btn-outline:hover {
+  background-color: #C5E063;
+}
+
+.btn-search {
+  background-color: #2E7D32;
+  color: #FFFFFF;
+}
+.btn-search:hover {
+  background-color: #276a2b;
+}
+
+.btn-lg {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+/* ----------------- Header y Navegación ----------------- */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+.site-header .logo img {
+  height: 60px;
+  width: auto;
+  display: block;
+}
+@media (max-width: 600px) {
+  .site-header .logo img {
+    height: 45px;
+  }
+}
+
+.main-nav .nav-menu {
+  display: none;
+}
+@media (min-width: 992px) {
+  .main-nav .nav-menu {
+    display: flex;
+    gap: 1.5rem;
+  }
+}
+.main-nav .nav-menu li a {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  color: #1A1A1A;
+  position: relative;
+}
+.main-nav .nav-menu li a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #C5E063;
+  transition: width 0.3s ease;
+}
+.main-nav .nav-menu li a:hover::after {
+  width: 100%;
+}
+
+.mobile-menu-toggle {
+  display: block;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+@media (min-width: 992px) {
+  .mobile-menu-toggle {
+    display: none;
+  }
+}
+
+.header-cta {
+  display: none;
+}
+@media (min-width: 768px) {
+  .header-cta {
+    display: block;
+  }
+}
+
+/* ----------------- Hero Section ----------------- */
+.hero {
+  height: 100vh;
+  min-height: 600px;
+  background-image: url("../img/hero-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 80px;
+  margin-bottom: 4rem;
+}
+.hero .hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.4));
+  z-index: 1;
+}
+.hero .hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #FFFFFF;
+  padding: 2rem;
+  max-width: 800px;
+}
+.hero .hero-content h1 {
+  font-family: "Caveat", cursive;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+@media (min-width: 768px) {
+  .hero .hero-content h1 {
+    font-size: 3rem;
+  }
+}
+.hero .hero-content p {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+}
+@media (min-width: 768px) {
+  .hero .hero-content p {
+    font-size: 1.5rem;
+  }
+}
+.hero .quick-search {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .hero .quick-search {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+}
+.hero .quick-search .form-group {
+  flex-grow: 1;
+}
+.hero .quick-search .form-group select {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: none;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  color: #1A1A1A;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%231A1A1A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  cursor: pointer;
+}
+@media (min-width: 768px) {
+  .hero .quick-search .btn-search {
+    width: auto;
+  }
+}
+
+/* ----------------- Destinos ----------------- */
+.destinations {
+  padding: 3rem 0;
+}
+.destinations .destination-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+@media (min-width: 768px) {
+  .destinations .destination-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 992px) {
+  .destinations .destination-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.destinations .destination-card {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+.destinations .destination-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+.destinations .destination-card:hover .destination-img img {
+  transform: scale(1.05);
+}
+.destinations .destination-card .destination-img {
+  height: 200px;
+  overflow: hidden;
+}
+.destinations .destination-card .destination-img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.destinations .destination-card .destination-info {
+  padding: 1.5rem;
+  background-color: #FFFFFF;
+  text-align: center;
+}
+.destinations .destination-card .destination-info h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+}
+.destinations .destination-card .destination-info p {
+  font-size: 0.875rem;
+  color: #4d4d4d;
+  margin-bottom: 1rem;
+}
+.destinations .view-all {
+  text-align: center;
+}
+
+/* ----------------- Experiencias ----------------- */
+.experiences {
+  padding: 3rem 0;
+  background-color: #f9f9f9;
+}
+.experiences .experience-tabs {
+  margin-top: 3rem;
+}
+.experiences .tab-headers {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+.experiences .tab-headers .tab-btn {
+  background: none;
+  border: none;
+  padding: 1rem 1.5rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  color: #1A1A1A;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+.experiences .tab-headers .tab-btn:hover {
+  color: #2E7D32;
+}
+.experiences .tab-headers .tab-btn.active {
+  border-bottom-color: #C5E063;
+  color: #2E7D32;
+}
+.experiences .tab-content .tab-pane {
+  display: none;
+}
+.experiences .tab-content .tab-pane.active {
+  display: block;
+}
+.experiences .experience-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+@media (min-width: 992px) {
+  .experiences .experience-content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.experiences .experience-content .experience-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.experiences .experience-content .experience-text h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.experiences .experience-content .experience-text p {
+  margin-bottom: 1.5rem;
+}
+.experiences .experience-content .experience-text .experience-features {
+  margin-bottom: 2rem;
+}
+.experiences .experience-content .experience-text .experience-features li {
+  margin-bottom: 0.5rem;
+}
+.experiences .experience-content .experience-text .experience-features li i {
+  color: #2E7D32;
+  margin-right: 0.5rem;
+}
+.experiences .experience-content .experience-image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 8px;
+}
+
+/* ----------------- Ofertas ----------------- */
+.offers {
+  padding: 3rem 0;
+}
+.offers .offers-slider {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+@media (min-width: 768px) {
+  .offers .offers-slider {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 992px) {
+  .offers .offers-slider {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.offers .offer-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+.offers .offer-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+.offers .offer-card .offer-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: #F2C94C;
+  color: #1A1A1A;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  z-index: 1;
+}
+.offers .offer-card .offer-img {
+  height: 200px;
+}
+.offers .offer-card .offer-img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.offers .offer-card .offer-content {
+  padding: 1.5rem;
+  background-color: #FFFFFF;
+}
+.offers .offer-card .offer-content h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+}
+.offers .offer-card .offer-content .offer-description {
+  font-size: 0.875rem;
+  color: #4d4d4d;
+  margin-bottom: 1rem;
+}
+.offers .offer-card .offer-content .offer-price {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+.offers .offer-card .offer-content .offer-price .old-price {
+  font-size: 0.875rem;
+  color: gray;
+  text-decoration: line-through;
+  margin-right: 0.5rem;
+}
+.offers .offer-card .offer-content .offer-price .new-price {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2E7D32;
+  margin-right: 0.5rem;
+}
+.offers .offer-card .offer-content .offer-price .price-type {
+  font-size: 0.875rem;
+  color: #4d4d4d;
+}
+
+/* ----------------- Testimonios ----------------- */
+.testimonials {
+  padding: 3rem 0;
+  background-color: #f9f9f9;
+}
+.testimonials .testimonials-slider {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+@media (min-width: 768px) {
+  .testimonials .testimonials-slider {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.testimonials .testimonial-card {
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.testimonials .testimonial-card .testimonial-content {
+  margin-bottom: 1.5rem;
+}
+.testimonials .testimonial-card .testimonial-content .testimonial-stars {
+  margin-bottom: 1rem;
+  color: #F2C94C;
+}
+.testimonials .testimonial-card .testimonial-content .testimonial-stars i {
+  margin-right: 2px;
+}
+.testimonials .testimonial-card .testimonial-content p {
+  font-style: italic;
+}
+.testimonials .testimonial-card .testimonial-author {
+  display: flex;
+  align-items: center;
+}
+.testimonials .testimonial-card .testimonial-author img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-right: 1rem;
+}
+.testimonials .testimonial-card .testimonial-author .author-info h4 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  margin-bottom: 2px;
+}
+.testimonials .testimonial-card .testimonial-author .author-info p {
+  font-size: 0.875rem;
+  color: #4d4d4d;
+}
+
+/* ----------------- Cotización ----------------- */
+.quote-section {
+  padding: 3rem 0;
+  background-color: #FFFFFF;
+}
+.quote-section .quote-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+@media (min-width: 992px) {
+  .quote-section .quote-content {
+    grid-template-columns: 40% 60%;
+  }
+}
+.quote-section .quote-text h2 {
+  font-family: "Caveat", cursive;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+@media (min-width: 768px) {
+  .quote-section .quote-text h2 {
+    font-size: 2.5rem;
+  }
+}
+.quote-section .quote-text p {
+  margin-bottom: 2rem;
+}
+.quote-section .quote-text .quote-benefits li {
+  margin-bottom: 1rem;
+}
+.quote-section .quote-text .quote-benefits li i {
+  color: #2E7D32;
+  margin-right: 0.5rem;
+}
+.quote-section .quote-form {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.quote-section .quote-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.quote-section .quote-form .form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+@media (min-width: 768px) {
+  .quote-section .quote-form .form-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.quote-section .quote-form .form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+.quote-section .quote-form .form-group input,
+.quote-section .quote-form .form-group select,
+.quote-section .quote-form .form-group textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+}
+.quote-section .quote-form .form-group input:focus,
+.quote-section .quote-form .form-group select:focus,
+.quote-section .quote-form .form-group textarea:focus {
+  outline: none;
+  border-color: #C5E063;
+}
+.quote-section .quote-form .form-group textarea {
+  resize: vertical;
+}
+.quote-section .quote-form .form-submit {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* ----------------- Sobre Nosotros ----------------- */
+.about {
+  padding: 3rem 0;
+}
+.about .about-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+@media (min-width: 992px) {
+  .about .about-content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.about .about-content .about-image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 8px;
+}
+.about .about-content .about-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.about .about-content .about-text h2 {
+  font-family: "Caveat", cursive;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+.about .about-content .about-text p {
+  margin-bottom: 1.5rem;
+}
+.about .about-content .about-text .about-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.about .about-content .about-text .about-stats .stat {
+  text-align: center;
+}
+.about .about-content .about-text .about-stats .stat .stat-number {
+  display: block;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2E7D32;
+}
+.about .about-content .about-text .about-stats .stat .stat-label {
+  font-size: 0.875rem;
+}
+
+/* ----------------- Footer ----------------- */
+.site-footer {
+  background-color: #1A1A1A;
+  color: #FFFFFF;
+  padding: 3rem 0 2rem;
+}
+.site-footer .footer-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+@media (min-width: 768px) {
+  .site-footer .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 992px) {
+  .site-footer .footer-content {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.site-footer .footer-col h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.125rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+.site-footer .footer-col h3::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background-color: #C5E063;
+}
+.site-footer .footer-col p {
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+.site-footer .footer-logo {
+  margin-bottom: 1.5rem;
+}
+.site-footer .footer-logo img {
+  max-width: 150px;
+}
+.site-footer .social-links {
+  display: flex;
+  gap: 1rem;
+}
+.site-footer .social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+  transition: all 0.3s ease;
+}
+.site-footer .social-links a:hover {
+  background-color: #C5E063;
+  color: #1A1A1A;
+  transform: translateY(-3px);
+}
+.site-footer .contact-info li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+.site-footer .contact-info li i {
+  margin-right: 0.5rem;
+  margin-top: 4px;
+  color: #C5E063;
+}
+.site-footer .footer-links li {
+  margin-bottom: 0.5rem;
+}
+.site-footer .footer-links li a {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+}
+.site-footer .footer-links li a:hover {
+  color: #C5E063;
+  padding-left: 0.5rem;
+}
+.site-footer .newsletter-form {
+  display: flex;
+  margin-top: 1rem;
+}
+.site-footer .newsletter-form input {
+  flex-grow: 1;
+  padding: 1rem;
+  border: none;
+  border-radius: 4px 0 0 4px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.875rem;
+}
+.site-footer .newsletter-form .btn {
+  border-radius: 0 4px 4px 0;
+}
+.site-footer .footer-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .site-footer .footer-bottom {
+    flex-direction: row;
+    text-align: left;
+  }
+}
+.site-footer .footer-bottom p {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 1rem;
+}
+@media (min-width: 768px) {
+  .site-footer .footer-bottom p {
+    margin-bottom: 0;
+  }
+}
+.site-footer .footer-bottom .legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.site-footer .footer-bottom .legal-links a {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+.site-footer .footer-bottom .legal-links a:hover {
+  color: #C5E063;
+}
+
+/* ----------------- Responsive ----------------- */
+@media (max-width: 767px) {
+  /* Mobile menu cuando está activo */
+  .site-header.menu-open .nav-menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background-color: #FFFFFF;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+  }
+  .site-header.menu-open .nav-menu li {
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(26, 26, 26, 0.1);
+  }
+  .site-header.menu-open .nav-menu li:last-child {
+    border-bottom: none;
+  }
+  .site-header.menu-open .hamburger {
+    background-color: transparent;
+  }
+  .site-header.menu-open .hamburger::before {
+    transform: rotate(45deg);
+    top: 0;
+  }
+  .site-header.menu-open .hamburger::after {
+    transform: rotate(-45deg);
+    bottom: 0;
+  }
+}/*# sourceMappingURL=styles.css.map */

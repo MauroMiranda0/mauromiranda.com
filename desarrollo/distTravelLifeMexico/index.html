@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Travel México - Descubre experiencias únicas</title>
+    <meta name="description" content="Viajes, tours y excursiones por México. Experiencias únicas para familias, mochileros y amantes de la aventura.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Montserrat:wght@400;500;600&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- Header y Navegación -->
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/logo-transparente.png" alt="Life Travel México">
+                </a>
+            </div>
+            <nav class="main-nav">
+                <button class="mobile-menu-toggle" aria-label="Menú">
+                    <span><i class="fas fa-bars fa-lg"></i></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="#destinos">Destinos</a></li>
+                    <li><a href="#experiencias">Experiencias</a></li>
+                    <li><a href="#ofertas">Ofertas</a></li>
+                    <li><a href="#cotizacion">Cotización</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                </ul>
+            </nav>
+            <div class="header-cta">
+                <a href="#cotizacion" class="btn btn-primary">¡Cotiza tu viaje!</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Descubre México con experiencias únicas</h1>
+            <p>Tours personalizados para familias, mochileros y amantes de la aventura</p>
+            <form class="quick-search">
+                <div class="form-group">
+                    <select name="destination" id="destination">
+                        <option value="">¿A dónde quieres ir?</option>
+                        <option value="cancun">Cancún & Riviera Maya</option>
+                        <option value="cdmx">Ciudad de México</option>
+                        <option value="oaxaca">Oaxaca</option>
+                        <option value="chiapas">Chiapas</option>
+                        <option value="bajacalifornia">Baja California</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select name="travel-type" id="travel-type">
+                        <option value="">Tipo de viaje</option>
+                        <option value="familia">En familia</option>
+                        <option value="pareja">En pareja</option>
+                        <option value="amigos">Con amigos</option>
+                        <option value="solo">Solo</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-search">Buscar</button>
+            </form>
+        </div>
+        <div class="hero-overlay"></div>
+    </section>
+
+    <!-- Destinos Destacados -->
+    <section id="destinos" class="destinations">
+        <div class="container">
+            <h2 class="section-title">Destinos Destacados</h2>
+            <p class="section-subtitle">Los lugares más increíbles para tu próxima aventura</p>
+
+            <div class="destination-grid">
+                <div class="destination-card">
+                    <div class="destination-img">
+                        <img src="img/destinations/cancun.jpg" alt="Cancún" loading="lazy">
+                    </div>
+                    <div class="destination-info">
+                        <h3>Cancún & Riviera Maya</h3>
+                        <p>Playas de ensueño y cultura maya</p>
+                        <a href="#" class="btn btn-outline">Explorar</a>
+                    </div>
+                </div>
+
+                <div class="destination-card">
+                    <div class="destination-img">
+                        <img src="img/destinations/cdmx.jpg" alt="Ciudad de México" loading="lazy">
+                    </div>
+                    <div class="destination-info">
+                        <h3>Ciudad de México</h3>
+                        <p>Historia, gastronomía y cultura popular</p>
+                        <a href="#" class="btn btn-outline">Explorar</a>
+                    </div>
+                </div>
+
+                <div class="destination-card">
+                    <div class="destination-img">
+                        <img src="img/destinations/oaxaca.jpg" alt="Oaxaca" loading="lazy">
+                    </div>
+                    <div class="destination-info">
+                        <h3>Oaxaca</h3>
+                        <p>Tradiciones y sabores auténticos</p>
+                        <a href="#" class="btn btn-outline">Explorar</a>
+                    </div>
+                </div>
+
+                <div class="destination-card">
+                    <div class="destination-img">
+                        <img src="img/destinations/chiapas.jpg" alt="Chiapas" loading="lazy">
+                    </div>
+                    <div class="destination-info">
+                        <h3>Chiapas</h3>
+                        <p>Naturaleza exuberante y cascadas</p>
+                        <a href="#" class="btn btn-outline">Explorar</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="view-all">
+                <a href="#" class="btn btn-secondary">Ver todos los destinos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experiencias por tipo de viajero -->
+    <section id="experiencias" class="experiences">
+        <div class="container">
+            <h2 class="section-title">Experiencias para cada viajero</h2>
+            <p class="section-subtitle">Viajes adaptados a tu estilo</p>
+
+            <div class="experience-tabs">
+                <div class="tab-headers">
+                    <button class="tab-btn active" data-tab="familias">Familias</button>
+                    <button class="tab-btn" data-tab="mochileros">Mochileros</button>
+                    <button class="tab-btn" data-tab="parejas">Parejas</button>
+                    <button class="tab-btn" data-tab="grupos">Grupos</button>
+                </div>
+
+                <div class="tab-content">
+                    <div class="tab-pane active" id="familias">
+                        <div class="experience-content">
+                            <div class="experience-text">
+                                <h3>Viajes en familia</h3>
+                                <p>Experiencias diseñadas para todas las edades, con actividades divertidas y seguras para los pequeños y momentos de relax para los adultos.</p>
+                                <ul class="experience-features">
+                                    <li><i class="fas fa-check"></i> Alojamientos family-friendly</li>
+                                    <li><i class="fas fa-check"></i> Actividades para niños</li>
+                                    <li><i class="fas fa-check"></i> Guías especializados</li>
+                                    <li><i class="fas fa-check"></i> Transporte cómodo y seguro</li>
+                                </ul>
+                                <a href="#" class="btn btn-primary">Ver paquetes para familias</a>
+                            </div>
+                            <div class="experience-image">
+                                <img src="img/experiences/family.jpg" alt="Viajes en familia" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contenido de las otras pestañas se cargará con JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ofertas y Promociones -->
+    <section id="ofertas" class="offers">
+        <div class="container">
+            <h2 class="section-title">Ofertas especiales</h2>
+            <p class="section-subtitle">Las mejores promociones para tu próxima aventura</p>
+
+            <div class="offers-slider">
+                <div class="offer-card">
+                    <div class="offer-badge">15% OFF</div>
+                    <div class="offer-img">
+                        <img src="img/offers/cancun-offer.jpg" alt="Oferta Cancún" loading="lazy">
+                    </div>
+                    <div class="offer-content">
+                        <h3>Escapada a Cancún</h3>
+                        <p class="offer-description">5 días / 4 noches con todo incluido</p>
+                        <div class="offer-price">
+                            <span class="old-price">$12,000</span>
+                            <span class="new-price">$10,200</span>
+                            <span class="price-type">por persona</span>
+                        </div>
+                        <a href="#" class="btn btn-primary">Ver detalles</a>
+                    </div>
+                </div>
+
+                <div class="offer-card">
+                    <div class="offer-badge">20% OFF</div>
+                    <div class="offer-img">
+                        <img src="img/offers/oaxaca-offer.jpg" alt="Oferta Oaxaca" loading="lazy">
+                    </div>
+                    <div class="offer-content">
+                        <h3>Ruta del Mezcal en Oaxaca</h3>
+                        <p class="offer-description">3 días / 2 noches con desayunos</p>
+                        <div class="offer-price">
+                            <span class="old-price">$7,500</span>
+                            <span class="new-price">$6,000</span>
+                            <span class="price-type">por persona</span>
+                        </div>
+                        <a href="#" class="btn btn-primary">Ver detalles</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Lo que dicen nuestros viajeros</h2>
+
+            <div class="testimonials-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"La experiencia con Life Travel México superó todas nuestras expectativas. El tour a Chichén Itzá fue increíble y nuestro guía Pablo conocía cada detalle histórico."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="img/testimonials/user1.jpg" alt="Ana García" loading="lazy">
+                        <div class="author-info">
+                            <h4>Ana García</h4>
+                            <p>Viaje familiar a Riviera Maya</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Como mochilero, quería conocer México de forma auténtica. Life Travel me ayudó a armar un itinerario perfecto por Chiapas y Oaxaca, con alojamientos increíbles."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="img/testimonials/user2.jpg" alt="Carlos Mendoza" loading="lazy">
+                        <div class="author-info">
+                            <h4>Carlos Mendoza</h4>
+                            <p>Ruta mochilera por el sur</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Cotización -->
+    <section id="cotizacion" class="quote-section">
+        <div class="container">
+            <div class="quote-content">
+                <div class="quote-text">
+                    <h2>¿Listo para vivir México?</h2>
+                    <p>Cuéntanos sobre el viaje de tus sueños y te enviaremos una cotización personalizada sin compromiso.</p>
+                    <ul class="quote-benefits">
+                        <li><i class="fas fa-check-circle"></i> Respuesta en menos de 24 horas</li>
+                        <li><i class="fas fa-check-circle"></i> Atención personalizada</li>
+                        <li><i class="fas fa-check-circle"></i> Flexibilidad en fechas y presupuesto</li>
+                    </ul>
+                </div>
+
+                <div class="quote-form">
+                    <form id="cotizacion-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nombre">Nombre completo</label>
+                                <input type="text" id="nombre" name="nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="telefono">Teléfono</label>
+                                <input type="tel" id="telefono" name="telefono">
+                            </div>
+                            <div class="form-group">
+                                <label for="personas">Número de personas</label>
+                                <select id="personas" name="personas" required>
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">1 persona</option>
+                                    <option value="2">2 personas</option>
+                                    <option value="3-4">3-4 personas</option>
+                                    <option value="5+">5 o más personas</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="destino">Destinos de interés</label>
+                            <select id="destino" name="destino" required>
+                                <option value="">Seleccionar destino</option>
+                                <option value="cancun">Cancún & Riviera Maya</option>
+                                <option value="cdmx">Ciudad de México</option>
+                                <option value="oaxaca">Oaxaca</option>
+                                <option value="chiapas">Chiapas</option>
+                                <option value="bajacalifornia">Baja California</option>
+                                <option value="varios">Varios destinos</option>
+                                <option value="no-decidido">Aún no lo he decidido</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fecha-ida">Fecha aproximada de ida</label>
+                                <input type="date" id="fecha-ida" name="fecha-ida">
+                            </div>
+                            <div class="form-group">
+                                <label for="fecha-regreso">Fecha aproximada de regreso</label>
+                                <input type="date" id="fecha-regreso" name="fecha-regreso">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mensaje">Detalles adicionales</label>
+                            <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos qué tipo de experiencias te gustaría vivir..."></textarea>
+                        </div>
+
+                        <div class="form-group form-submit">
+                            <button type="submit" class="btn btn-primary btn-lg">Solicitar cotización</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Nosotros -->
+    <section id="nosotros" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="img/about-us.jpg" alt="Life Travel México Team" loading="lazy">
+                </div>
+                <div class="about-text">
+                    <h2>Sobre Life Travel México</h2>
+                    <p>Somos un equipo de apasionados viajeros mexicanos que conoce cada rincón de nuestro hermoso país. Nuestra misión es crear experiencias de viaje auténticas que conecten a las personas con la verdadera esencia de México.</p>
+                    <p>Desde 2015, hemos ayudado a miles de viajeros a descubrir las maravillas naturales, la rica cultura y la calidez de nuestra gente.</p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <span class="stat-number">2,500+</span>
+                            <span class="stat-label">Viajeros felices</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">30+</span>
+                            <span class="stat-label">Destinos</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Compromiso</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="img/logo-transparente.png" alt="Life Travel México">
+                    </div>
+                    <p>Tu puerta a experiencias auténticas en México. Tours personalizados para viajeros exigentes.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Contacto</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Av. Paseo de la Reforma 222, CDMX</li>
+                        <li><i class="fas fa-phone"></i> +52 55 1234 5678</li>
+                        <li><i class="fas fa-envelope"></i> info@lifetravel.mx</li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Enlaces rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#destinos">Destinos</a></li>
+                        <li><a href="#experiencias">Experiencias</a></li>
+                        <li><a href="#ofertas">Ofertas</a></li>
+                        <li><a href="#cotizacion">Cotización</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Suscríbete para recibir ofertas exclusivas y consejos de viaje.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Tu email" required>
+                        <button type="submit" class="btn btn-primary">Suscribir</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Life Travel México. Todos los derechos reservados.</p>
+                <ul class="legal-links">
+                    <li><a href="#">Términos y condiciones</a></li>
+                    <li><a href="#">Política de privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/app.js"></script>
+</body>
+
+</html>

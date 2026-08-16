@@ -81,10 +81,11 @@ export const developmentProjects = [
     category: 'Turismo',
     status: 'EN_DESARROLLO_064',
     description: 'Plataforma para una agencia de viajes: exploración de destinos, paquetes turísticos y solicitud de cotizaciones personalizadas.',
-    image: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=400&h=400&fit=crop&crop=center',
+    image: '/desarrollo/distTravelLifeMexico/img/hero-bg.jpg',
     tags: ['Turismo', 'Destinos', 'Paquetes', 'UX'],
     gradient: 'linear-gradient(135deg, #0f172a 0%, #1e3a8a 55%, #6366f1 160%)',
-    demoUrl: '/construccion',
+    demoUrl: '/desarrollo/distTravelLifeMexico/',
+    previewUrl: '/desarrollo/distTravelLifeMexico/index.html',
     githubUrl: 'https://github.com/MauroMiranda0',
     gridSize: 'small'
   }
