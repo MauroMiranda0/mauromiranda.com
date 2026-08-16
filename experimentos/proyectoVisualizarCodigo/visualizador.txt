@@ -1,0 +1,14 @@
+Interfaz principal del proyecto: `index.html`
+
+Resumen actual:
+- Editor por pestañas para HTML, CSS y JavaScript.
+- Vista previa en `iframe` con `sandbox="allow-scripts"`.
+- Vista de codigo fuente consolidado.
+- Presets responsive: 320px, 375px, 430px, 768px y 1024px.
+- Layout vertical: editor arriba, preview al centro, flujo recomendado abajo.
+
+Archivos relacionados:
+- `index.html`: interfaz standalone principal.
+- `index.py`: abre `index.html` en navegador local.
+- `script.py`: renderiza `index.html` en Colab usando ruta relativa al archivo.
+- `CONSTITUTION.md`: reglas de producto, UI y limites tecnicos.

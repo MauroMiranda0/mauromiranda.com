@@ -1,0 +1,17 @@
+.vscode/
+
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.python-version
+.venv/
+venv/
+env/
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+*.log
+*.tmp

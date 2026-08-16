@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visualizador de Codigo</title>
+  <style>
+    :root {
+      --bg: #f6f1e7;
+      --bg-soft: #fbf7ef;
+      --surface: rgba(255, 252, 246, 0.88);
+      --surface-strong: #fffdf8;
+      --surface-dark: #2d2926;
+      --surface-code: #1f1c1a;
+      --line: rgba(94, 83, 74, 0.14);
+      --text: #2b2522;
+      --muted: #756a62;
+      --accent: #f0c95a;
+      --accent-strong: #d7aa23;
+      --accent-soft: #f7e6a6;
+      --success: #6f8f6b;
+      --danger: #b76e58;
+      --shadow: 0 24px 60px rgba(91, 72, 45, 0.14);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --radius-sm: 12px;
+      --mono: "Consolas", "SFMono-Regular", "Courier New", monospace;
+      --sans: "Inter", "Segoe UI", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      padding: 18px;
+      font-family: var(--sans);
+      color: var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(240, 201, 90, 0.35), transparent 30%),
+        linear-gradient(180deg, #f9f5ee 0%, #f3ecdf 100%);
+    }
+
+    .app-shell {
+      max-width: 1380px;
+      margin: 0 auto;
+      background: var(--surface);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      border-radius: 34px;
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.65);
+      font-weight: 700;
+    }
+
+    .brand-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(240, 201, 90, 0.2);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(300px, 0.9fr);
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(2rem, 3vw, 3rem);
+      line-height: 1;
+      margin-bottom: 10px;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-copy p {
+      max-width: 720px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .dashboard {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "editor"
+        "preview"
+        "task";
+      gap: 18px;
+      align-items: start;
+    }
+
+    .main-column,
+    .side-column,
+    .task-row {
+      display: grid;
+      gap: 18px;
+      align-content: start;
+    }
+
+    .main-column { grid-area: editor; }
+    .side-column { grid-area: preview; }
+    .task-row { grid-area: task; }
+
+    .panel,
+    .preview-card,
+    .task-card {
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.55);
+      height: 100%;
+    }
+
+    .panel {
+      background: linear-gradient(180deg, rgba(255,255,255,0.86), rgba(250,246,238,0.96));
+      padding: 18px;
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .panel-title h2,
+    .preview-title h2,
+    .task-card h2 {
+      font-size: 1.15rem;
+      margin-bottom: 4px;
+    }
+
+    .panel-title p,
+    .preview-title p,
+    .task-card p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .editor-tabs,
+    .view-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tab,
+    .tab-vista {
+      border: 0;
+      background: rgba(255,255,255,0.8);
+      color: var(--muted);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+
+    .tab.activa,
+    .tab-vista.activa {
+      background: var(--surface-dark);
+      color: #fff8ef;
+    }
+
+    .panel-tab { display: none; }
+    .panel-tab.visible { display: block; }
+
+    .editor-hint {
+      margin-bottom: 10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(255, 249, 239, 0.9);
+      border: 1px solid rgba(88, 74, 57, 0.12);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 360px;
+      border: 0;
+      outline: none;
+      resize: vertical;
+      border-radius: 18px;
+      padding: 18px;
+      background: var(--surface-code);
+      color: #f6ecdd;
+      font: 14px/1.6 var(--mono);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);
+    }
+
+    .btn-primary {
+      border: 0;
+      border-radius: 14px;
+      padding: 12px 18px;
+      background: var(--accent);
+      color: #3a2f18;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .btn-primary:active { transform: translateY(1px); }
+
+    .panel-actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 14px;
+    }
+
+    .meta-chip {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 10px 12px;
+    }
+
+    .preview-card {
+      background: linear-gradient(180deg, #fff9ef 0%, #f7eedc 100%);
+      padding: 18px;
+      min-height: clamp(620px, 72vh, 900px);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .preview-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .preview-stage,
+    .source-stage {
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(88, 74, 57, 0.12);
+      background: rgba(255,255,255,0.62);
+      flex: 1;
+    }
+
+    #contenedor-iframe {
+      padding: 18px;
+      display: block;
+      height: 100%;
+    }
+
+    iframe#frame-preview {
+      display: block;
+      margin: 0 auto;
+      width: 100%;
+      max-width: 100%;
+      height: 100%;
+      min-height: 540px;
+      border: 0;
+      border-radius: 20px;
+      background: white;
+      box-shadow: 0 18px 35px rgba(63, 50, 32, 0.12);
+      transition: width 0.15s ease;
+    }
+
+    #contenedor-source {
+      display: none;
+      padding: 18px;
+      height: 100%;
+    }
+
+    #source-output {
+      min-height: 100%;
+      height: 100%;
+      overflow: auto;
+      border-radius: 20px;
+      padding: 18px;
+      background: var(--surface-code);
+      color: #efe3d2;
+      font: 13px/1.65 var(--mono);
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .preview-presets {
+      display: grid;
+      gap: 12px;
+      margin-top: 14px;
+      padding: 16px 18px;
+      border-radius: 22px;
+      background: rgba(255, 250, 241, 0.92);
+      border: 1px solid rgba(88, 74, 57, 0.12);
+    }
+
+    .preset-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .preset-head p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .preset-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .preset-btn {
+      border: 1px solid rgba(88, 74, 57, 0.12);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.9);
+      color: var(--text);
+      padding: 12px 10px;
+      text-align: left;
+      cursor: pointer;
+      transition: background 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+    }
+
+    .preset-btn strong,
+    .preset-btn small {
+      display: block;
+    }
+
+    .preset-btn strong {
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    .preset-btn small {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .preset-btn:hover {
+      transform: translateY(-1px);
+      border-color: rgba(215, 170, 35, 0.45);
+    }
+
+    .preset-btn.activa {
+      background: var(--surface-dark);
+      border-color: transparent;
+      color: #fff8ef;
+    }
+
+    .preset-btn.activa small {
+      color: rgba(255, 248, 239, 0.72);
+    }
+
+    .task-card {
+      background: linear-gradient(180deg, #2f2a27, #211d1a);
+      color: #f4ecde;
+      padding: 20px;
+    }
+
+    .task-card p { color: rgba(244, 236, 222, 0.68); }
+
+    .task-list {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .task-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .task-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      flex: 0 0 auto;
+      background: var(--accent);
+    }
+
+    .task-item small {
+      display: block;
+      color: rgba(244, 236, 222, 0.64);
+      margin-top: 4px;
+    }
+
+    @media (max-width: 1100px) {
+      .hero,
+      .dashboard { grid-template-columns: 1fr; }
+      .task-list,
+      .preset-grid { grid-template-columns: 1fr; }
+      .preview-card {
+        min-height: min(78vh, 820px);
+      }
+    }
+
+    @media (max-width: 720px) {
+      body { padding: 10px; }
+      .app-shell { padding: 12px; border-radius: 24px; }
+      .topbar,
+      .panel-header,
+      .preview-head { flex-direction: column; align-items: stretch; }
+      .task-list,
+      .preset-grid { grid-template-columns: 1fr; }
+      .preview-card {
+        min-height: 70vh;
+      }
+      textarea,
+      #source-output,
+      iframe#frame-preview {
+        min-height: 320px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-dot"></span> Visualizador de Codigo</div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <h1>Construye, prueba y visualiza componentes web en un solo tablero.</h1>
+        <p>La interfaz prioriza el flujo de trabajo real del proyecto: editar HTML, CSS y JavaScript, validar el resultado en vivo y revisar el documento final generado sin salir del contexto.</p>
+      </div>
+    </section>
+
+    <main class="dashboard">
+      <section class="main-column">
+        <article class="panel">
+          <div class="panel-header">
+            <div class="panel-title">
+              <h2>Editor modular</h2>
+              <p>Separa estructura, estilos y comportamiento para iterar rapido y reducir errores de mezcla entre capas.</p>
+            </div>
+            <div class="editor-tabs" id="barra-tabs">
+              <button class="tab activa" data-tab="html" type="button">HTML</button>
+              <button class="tab" data-tab="css" type="button">CSS</button>
+              <button class="tab" data-tab="js" type="button">JS</button>
+            </div>
+          </div>
+
+          <div class="panel-tab visible" id="panel-html">
+            <div class="editor-hint">Introduce tu HTML aqui para visualizarlo.</div>
+            <textarea id="txt-html" spellcheck="false" autocorrect="off" autocapitalize="off" autocomplete="off"
+              placeholder="Coloca el codigo aqui para visualizarlo">
+            </textarea>
+          </div>
+
+          <div class="panel-tab" id="panel-css">
+            <div class="editor-hint">Introduce tu CSS aqui para visualizarlo.</div>
+            <textarea id="txt-css" spellcheck="false" autocorrect="off" autocapitalize="off" autocomplete="off"
+              placeholder="Coloca el codigo aqui para visualizarlo">
+            </textarea>
+          </div>
+
+          <div class="panel-tab" id="panel-js">
+            <div class="editor-hint">Introduce tu JavaScript aqui para visualizarlo.</div>
+            <textarea id="txt-js" spellcheck="false" autocorrect="off" autocapitalize="off" autocomplete="off"
+              placeholder="Coloca el codigo aqui para visualizarlo">
+            </textarea>
+          </div>
+
+          <div class="panel-actions">
+            <button id="btn-preview" class="btn-primary" type="button">Actualizar preview</button>
+          </div>
+        </article>
+      </section>
+
+      <aside class="side-column">
+        <article class="preview-card">
+          <div class="preview-head">
+            <div class="preview-title">
+              <h2>Resultado</h2>
+              <p>Alterna entre la vista renderizada y el documento final que produce el editor.</p>
+            </div>
+            <div class="view-tabs" id="barra-vista">
+              <button class="tab-vista activa" data-vista="preview" type="button">Preview</button>
+              <button class="tab-vista" data-vista="source" type="button">Codigo fuente</button>
+            </div>
+          </div>
+
+          <div class="preview-stage" id="contenedor-iframe">
+            <iframe id="frame-preview" sandbox="allow-scripts" title="Preview del componente" style="width:768px"></iframe>
+          </div>
+
+          <div class="source-stage" id="contenedor-source">
+            <pre id="source-output"></pre>
+          </div>
+        </article>
+
+        <section class="preview-presets">
+          <div class="preset-head">
+            <p>Selecciona un tamano de referencia para evaluar la UI en anchos responsive comunes.</p>
+            <span id="valor-ancho" class="meta-chip">Tablet 768px</span>
+          </div>
+          <div class="preset-grid">
+            <button class="preset-btn" data-width="320" data-label="Mobile S" type="button">
+              <strong>Mobile S</strong>
+              <small>320px</small>
+            </button>
+            <button class="preset-btn" data-width="375" data-label="Mobile M" type="button">
+              <strong>Mobile M</strong>
+              <small>375px</small>
+            </button>
+            <button class="preset-btn" data-width="430" data-label="Mobile L" type="button">
+              <strong>Mobile L</strong>
+              <small>430px</small>
+            </button>
+            <button class="preset-btn activa" data-width="768" data-label="Tablet" type="button">
+              <strong>Tablet</strong>
+              <small>768px</small>
+            </button>
+            <button class="preset-btn" data-width="1024" data-label="Desktop" type="button">
+              <strong>Desktop</strong>
+              <small>1024px</small>
+            </button>
+          </div>
+        </section>
+      </aside>
+
+      <section class="task-row">
+        <article class="task-card">
+          <h2>Flujo recomendado</h2>
+          <p>La UI se organiza alrededor de las tareas principales del producto.</p>
+          <div class="task-list">
+            <div class="task-item">
+              <span class="task-dot"></span>
+              <div>
+                Editar por capas
+                <small>HTML, CSS y JS viven en paneles independientes.</small>
+              </div>
+            </div>
+            <div class="task-item">
+              <span class="task-dot"></span>
+              <div>
+                Validar responsive
+                <small>Los presets permiten simular distintos anchos rapidamente.</small>
+              </div>
+            </div>
+            <div class="task-item">
+              <span class="task-dot"></span>
+              <div>
+                Inspeccionar salida
+                <small>La vista de codigo muestra el documento HTML consolidado.</small>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      const tabs = document.querySelectorAll('.tab');
+      const paneles = document.querySelectorAll('.panel-tab');
+      const btnPreview = document.getElementById('btn-preview');
+      const presetButtons = document.querySelectorAll('.preset-btn');
+      const valorAncho = document.getElementById('valor-ancho');
+      const iframe = document.getElementById('frame-preview');
+      const tabsVista = document.querySelectorAll('.tab-vista');
+      const contIframe = document.getElementById('contenedor-iframe');
+      const contSource = document.getElementById('contenedor-source');
+      const sourceOut = document.getElementById('source-output');
+
+      tabs.forEach((tab) => {
+        tab.addEventListener('click', () => {
+          tabs.forEach((item) => item.classList.remove('activa'));
+          paneles.forEach((panel) => panel.classList.remove('visible'));
+          tab.classList.add('activa');
+          document.getElementById('panel-' + tab.dataset.tab).classList.add('visible');
+        });
+      });
+
+      function aplicarAncho(width, label) {
+        const px = width + 'px';
+        iframe.style.width = px;
+        valorAncho.textContent = label + ' ' + px;
+      }
+
+      presetButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          presetButtons.forEach((item) => item.classList.remove('activa'));
+          button.classList.add('activa');
+          aplicarAncho(button.dataset.width, button.dataset.label);
+        });
+      });
+
+      function generarDocumento() {
+        const html = document.getElementById('txt-html').value;
+        const css = document.getElementById('txt-css').value;
+        const js = document.getElementById('txt-js').value;
+
+        return `<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+${css}
+  </style>
+</head>
+<body>
+${html}
+  <script>
+${js}
+  <\/script>
+</body>
+</html>`;
+      }
+
+      function actualizarPreview() {
+        const doc = generarDocumento();
+        const blob = new Blob([doc], { type: 'text/html' });
+        const url = URL.createObjectURL(blob);
+
+        if (iframe._prevUrl) {
+          URL.revokeObjectURL(iframe._prevUrl);
+        }
+
+        iframe._prevUrl = url;
+        iframe.src = url;
+      }
+
+      function actualizarSource() {
+        sourceOut.textContent = generarDocumento();
+      }
+
+      btnPreview.addEventListener('click', () => {
+        actualizarPreview();
+        actualizarSource();
+      });
+
+      tabsVista.forEach((tab) => {
+        tab.addEventListener('click', () => {
+          tabsVista.forEach((item) => item.classList.remove('activa'));
+          tab.classList.add('activa');
+
+          if (tab.dataset.vista === 'preview') {
+            contIframe.style.display = 'block';
+            contSource.style.display = 'none';
+            return;
+          }
+
+          contIframe.style.display = 'none';
+          contSource.style.display = 'block';
+          actualizarSource();
+        });
+      });
+
+      actualizarPreview();
+      actualizarSource();
+    })();
+  </script>
+</body>
+</html>
