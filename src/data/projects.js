@@ -20,15 +20,16 @@ export const developmentProjects = [
     featured: true
   },
   {
-    id: 'crud-avanzado',
-    title: 'CRUD Avanzado',
-    category: 'Aplicaciones Web',
+    id: 'landing-app',
+    title: 'Landing App',
+    category: 'Aplicaciones Móviles',
     status: 'PROTOTIPO_031',
-    description: 'Vista previa de un sistema CRUD avanzado con gestión de registros, filtros dinámicos, formularios enriquecidos y flujo de administración orientado a operaciones reales.',
-    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=400&fit=crop&crop=center',
-    tags: ['React', 'CRUD', 'Formularios', 'Dashboard'],
+    description: 'Landing page promocional para una app móvil con enfoque en descarga, presentación de beneficios, capturas de producto y secciones de soporte para conversión.',
+    image: '/desarrollo/distLandingApp/img/featuredApp.png',
+    tags: ['Landing', 'App', 'Conversión', 'Mobile'],
     gradient: 'linear-gradient(135deg, #0f172a 0%, #12335c 55%, #3b82f6 160%)',
-    demoUrl: '/construccion',
+    demoUrl: '/desarrollo/distLandingApp/',
+    previewUrl: '/desarrollo/distLandingApp/index.html',
     githubUrl: 'https://github.com/MauroMiranda0',
     gridSize: 'small',
     featured: true
