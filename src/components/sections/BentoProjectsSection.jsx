@@ -95,7 +95,7 @@ const BentoProjectsSection = ({ id, label, title, projects }) => {
           {/* Card A — Large (col-span-2, row-span-2) */}
           {cardA && (
             <motion.article
-              className="lab-card lab-card--large group"
+              className="lab-card lab-card--animated lab-card--large group"
               variants={itemVariants}
             >
               <div className="lab-card__content">
@@ -196,7 +196,7 @@ const BentoProjectsSection = ({ id, label, title, projects }) => {
           {smallCards.map((project) => (
             <motion.article
               key={project.id}
-              className="lab-card lab-card--small group"
+              className="lab-card lab-card--animated lab-card--small group"
               variants={itemVariants}
             >
               <div className="lab-card__content">
@@ -208,6 +208,14 @@ const BentoProjectsSection = ({ id, label, title, projects }) => {
                     className="lab-card__image"
                     width="400"
                     height="400"
+                  />
+                ) : project.previewUrl ? (
+                  <iframe
+                    className="lab-card__iframe"
+                    src={project.previewUrl}
+                    title={`Vista previa de ${project.title}`}
+                    loading="lazy"
+                    tabIndex="-1"
                   />
                 ) : (
                   <img
